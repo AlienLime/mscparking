@@ -183,6 +183,7 @@ radius = 20.0
 height = 74.0
 
 [node name="RandomCarDriving" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -201,8 +202,7 @@ path_desired_distance = 25.0
 target_desired_distance = 2.0
 avoidance_enabled = true
 radius = 40.0
-neighbor_distance = 1000.0
-avoidance_layers = 3
+avoidance_layers = 2
 avoidance_mask = 3
 debug_enabled = true
 
