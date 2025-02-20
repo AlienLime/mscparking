@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0t1ppapprtx0"
-path="res://.godot/imported/Other.png-09eb8324ff30bd2a3a83ab7cd01ffdea.ctex"
+uid="uid://ew4ck2geg85b"
+path="res://.godot/imported/SpritesheetCars.png-01258f9bd68a3287be838803aae882b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cars/Other.png"
-dest_files=["res://.godot/imported/Other.png-09eb8324ff30bd2a3a83ab7cd01ffdea.ctex"]
+source_file="res://assets/SpritesheetCars.png"
+dest_files=["res://.godot/imported/SpritesheetCars.png-01258f9bd68a3287be838803aae882b9.ctex"]
 
 [params]
 

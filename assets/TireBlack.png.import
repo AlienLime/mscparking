@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbd8mlgew84qg"
-path="res://.godot/imported/TireWhite.png-7ce431f917bf31c5978041acf35f646e.ctex"
+uid="uid://cym58rhjwfwah"
+path="res://.godot/imported/TireBlack.png-03e9033ac38b7141aad57e8b3a6bb540.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cars/TireWhite.png"
-dest_files=["res://.godot/imported/TireWhite.png-7ce431f917bf31c5978041acf35f646e.ctex"]
+source_file="res://assets/TireBlack.png"
+dest_files=["res://.godot/imported/TireBlack.png-03e9033ac38b7141aad57e8b3a6bb540.ctex"]
 
 [params]
 
