@@ -916,14 +916,14 @@ offset_top = -148.0
 offset_right = 643.0
 offset_bottom = -117.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(220, 1)
-
 [node name="ButtonDown" parent="." instance=ExtResource("5_8bb23")]
 offset_left = 612.0
 offset_top = -95.0
 offset_right = 643.0
 offset_bottom = -64.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(220, 1)
 
 [node name="Cars" type="Node" parent="."]
 
@@ -945,7 +945,7 @@ position = Vector2(-242, -193)
 parkingSpot = NodePath("../../ParkingSpots/ParkingSpot12")
 
 [node name="RandomCarDriving3" parent="Cars" node_paths=PackedStringArray("parkingSpot") instance=ExtResource("7_n0q8w")]
-position = Vector2(-325, -225)
+position = Vector2(319, 53)
 parkingSpot = NodePath("../../ParkingSpots/ParkingSpot10")
 
 [node name="ParkingSpots" type="Node" parent="."]
