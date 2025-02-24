@@ -1,0 +1,100 @@
+[gd_scene load_steps=18 format=3 uid="uid://2c0h1w8pwaw8"]
+
+[ext_resource type="Script" path="res://scripts/red_blue_car_driving.gd" id="1_vjet1"]
+[ext_resource type="Texture2D" uid="uid://fy46dg17asr" path="res://assets/sprites/Cars/car6_blue.png" id="16_ltqj5"]
+[ext_resource type="Texture2D" uid="uid://bhkxku8anug5g" path="res://assets/sprites/Cars/car4_blue.png" id="17_6dfxs"]
+[ext_resource type="Texture2D" uid="uid://dfhrt5udmorye" path="res://assets/sprites/Cars/car5_blue.png" id="18_gyong"]
+[ext_resource type="Texture2D" uid="uid://dkhci0ewdpqon" path="res://assets/sprites/Cars/car1_blue.png" id="19_s75hk"]
+[ext_resource type="Texture2D" uid="uid://bv7r1bu47j0gn" path="res://assets/sprites/Cars/car7_blue.png" id="20_0ixp2"]
+[ext_resource type="Texture2D" uid="uid://b5abxi0a5djus" path="res://assets/sprites/Cars/car3_blue.png" id="21_qwgpd"]
+[ext_resource type="Texture2D" uid="uid://72hk6u8t47qa" path="res://assets/sprites/Cars/car2_blue.png" id="22_xs010"]
+[ext_resource type="Texture2D" uid="uid://b55urm5nje8jk" path="res://assets/sprites/Cars/car3_red.png" id="30_l7n4f"]
+[ext_resource type="Texture2D" uid="uid://ca763jpuuxqtv" path="res://assets/sprites/Cars/car7_red.png" id="31_isjsi"]
+[ext_resource type="Texture2D" uid="uid://b63nqa6x71rjy" path="res://assets/sprites/Cars/car5_red.png" id="32_uvufk"]
+[ext_resource type="Texture2D" uid="uid://c6tnakij8vnpe" path="res://assets/sprites/Cars/car6_red.png" id="33_y4y76"]
+[ext_resource type="Texture2D" uid="uid://cwqrrjl4tryhp" path="res://assets/sprites/Cars/car4_red.png" id="34_20ik7"]
+[ext_resource type="Texture2D" uid="uid://2rho5qy828w" path="res://assets/sprites/Cars/car1_red.png" id="35_w0xdd"]
+[ext_resource type="Texture2D" uid="uid://cfgkqnjnb1gt5" path="res://assets/sprites/Cars/car2_red.png" id="36_bp0wn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1atx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_ltqj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6dfxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gyong")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_s75hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0ixp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qwgpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xs010")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_l7n4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_isjsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_uvufk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_y4y76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_20ik7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_w0xdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_bp0wn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j28ax"]
+radius = 20.0
+height = 74.0
+
+[node name="RedBlue" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+motion_mode = 1
+wall_min_slide_angle = 0.0
+safe_margin = 5.0
+script = ExtResource("1_vjet1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1atx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j28ax")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 25.0
+target_desired_distance = 2.0
+avoidance_enabled = true
+radius = 40.0
+avoidance_layers = 2
+avoidance_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

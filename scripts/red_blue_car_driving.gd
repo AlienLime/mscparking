@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var car: CharacterBody2D = $"."
 @export var parkingSpot: Node2D
 
-var color = randi_range(0,41)
+var color = randi_range(0,13)
 
 var speed = 300
 var ID = "ID"
@@ -33,7 +33,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func make_path() -> void:
-	nav_agent.target_position = parkingSpot.global_position
+	if parkingSpot != null:
+		nav_agent.target_position = parkingSpot.global_position
 
 func _on_timer_timeout() -> void:
 	make_path()
