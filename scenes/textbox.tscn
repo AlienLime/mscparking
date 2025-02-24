@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://5vijqk20x77d"]
+
+[ext_resource type="Texture2D" uid="uid://cp4sfje1l0kj" path="res://assets/industrial/dialog-standard.png" id="1_cwyyv"]
+
+[node name="Textbox" type="Node2D"]
+
+[node name="Dialog-standard" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cwyyv")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -128.0
+offset_top = -104.0
+offset_right = 128.0
+offset_bottom = 104.0

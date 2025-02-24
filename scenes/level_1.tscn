@@ -1,12 +1,11 @@
-[gd_scene load_steps=71 format=4 uid="uid://cpuqj38ytwcmm"]
+[gd_scene load_steps=70 format=4 uid="uid://cpuqj38ytwcmm"]
 
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="1_c5aam"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_t23cq"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="3_pfxey"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_v6hih"]
-[ext_resource type="PackedScene" uid="uid://bgviregh08tb7" path="res://scenes/ButtonDown.tscn" id="4_om45y"]
-[ext_resource type="PackedScene" uid="uid://i14iui51y4al" path="res://scenes/ButtonUp.tscn" id="5_c8bxb"]
-[ext_resource type="PackedScene" uid="uid://bhew7q8amr0kl" path="res://scenes/ButtonRestart.tscn" id="7_1bo5b"]
+[ext_resource type="PackedScene" uid="uid://5vijqk20x77d" path="res://scenes/textbox.tscn" id="6_734gg"]
+[ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui.tscn" id="8_fybfb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -458,26 +457,6 @@ position = Vector2(-165, 154)
 scale = Vector2(0.569807, 4.57979)
 zoom = Vector2(0.7, 0.7)
 
-[node name="Labels" type="Node" parent="."]
-
-[node name="Rules" type="Label" parent="Labels"]
-offset_left = 59.0
-offset_top = -169.0
-offset_right = 298.0
-offset_bottom = -94.0
-text = "Hvis bilen er rød
-Så skal den parkere øverst
-Ellers skal den parkere nederst"
-
-[node name="Helper" type="Label" parent="Labels"]
-modulate = Color(0.909804, 0.717647, 0.0196078, 1)
-offset_left = -145.0
-offset_top = 97.0
-offset_right = 133.0
-offset_bottom = 234.0
-theme_override_font_sizes/font_size = 100
-text = "BOLO"
-
 [node name="Cars" type="Node" parent="."]
 
 [node name="RedBlue" parent="Cars" node_paths=PackedStringArray("parkingSpot") instance=ExtResource("3_v6hih")]
@@ -537,24 +516,15 @@ position = Vector2(-896, 161)
 
 [node name="GUI" type="Node" parent="."]
 
-[node name="UpButton" parent="GUI" instance=ExtResource("5_c8bxb")]
-offset_left = 41.0
-offset_top = 90.0
-offset_right = 72.0
-offset_bottom = 121.0
+[node name="ingameGUI" parent="GUI" instance=ExtResource("8_fybfb")]
+position = Vector2(185, 435)
 
-[node name="DownButton" parent="GUI" instance=ExtResource("4_om45y")]
-offset_left = 45.0
-offset_top = 236.0
-offset_right = 76.0
-offset_bottom = 267.0
+[node name="Textbox" parent="GUI" instance=ExtResource("6_734gg")]
+position = Vector2(193, -97)
 
-[node name="RestartButton" parent="GUI" instance=ExtResource("7_1bo5b")]
-offset_left = 77.0
-offset_top = -221.0
-offset_right = 156.0
-offset_bottom = -191.0
+[connection signal="pressed" from="GUI/ingameGUI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GUI/ingameGUI/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="GUI/ingameGUI/Down" to="." method="_on_down_pressed"]
 
-[connection signal="pressed" from="GUI/UpButton" to="." method="_on_up_button_pressed"]
-[connection signal="pressed" from="GUI/DownButton" to="." method="_on_down_button_pressed"]
-[connection signal="pressed" from="GUI/RestartButton" to="." method="_on_restart_button_pressed"]
+[editable path="GUI/ingameGUI"]
+[editable path="GUI/Textbox"]
