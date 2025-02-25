@@ -1,26 +1,24 @@
 extends Node2D
 @onready var cars: Node = $Cars
 @onready var parking: Node = $Parking
-@onready var helper: Label = $GUI/ingameGUIButtons/Background/Helper
-@onready var textbox: Label = $GUI/Textbox/Background/Label
-@onready var completed: Button = $GUI/ingameGUIButtons/Background/Completed
+@onready var helper: Label = $GUI/ingameGUIButtons/Helper
+@onready var textbox: Label = $GUI/Textbox/Label
 
 var nrCars
 var carIndex = 0
 var currentCar
 var nextCar
-var upPark = 0
-var downPark = 0
+var leftPark = 0
+var rightPark = 0
 var done = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	completed.disabled = true
 	nrCars = cars.get_child_count()
 	currentCar = cars.get_child(carIndex) 
 	textbox.text = "Hvis bilen er rød
-Så skal den parkere øverst
-Ellers skal den parkere nederst"
+Så skal den krydse vejen
+Ellers skal den blive på samme side"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +26,6 @@ func _process(delta: float) -> void:
 	if done > nrCars-1:
 		helper.text = "Godt gået!"
 		helper.modulate = "00ffff"
-		completed.disabled = false
 
 
 
@@ -55,7 +52,7 @@ func rigtigt(x: int) -> void:
 	helper.modulate = "07d434"
 	done += 1
 	if x == 0:
-		currentCar.parkingSpot = parking.get_child(x).get_child(upPark)
+		currentCar.parkingSpot = parking.get_child(x).get_child(Park)
 	else:
 		currentCar.parkingSpot = parking.get_child(x).get_child(downPark)
 	if carIndex < nrCars-1:
@@ -70,7 +67,3 @@ func rigtigt(x: int) -> void:
 func forkert() -> void:
 	helper.text = "FORKERT"
 	helper.modulate = "da2031"
-
-
-func _on_completed_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_2.tscn")

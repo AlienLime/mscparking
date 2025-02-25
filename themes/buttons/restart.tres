@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=4 uid="uid://bcelgugjhxlxx"]
 
-[ext_resource type="Texture2D" uid="uid://dewfn00jpuxux" path="res://assets/sprites/buttons/Orange Button Text.png" id="1_ceg0f"]
+[ext_resource type="Texture2D" uid="uid://cdsyh4aub2q1h" path="res://assets/sprites/buttons/Orange Button Icons.png" id="1_0lfc2"]
 
 [sub_resource type="Image" id="Image_ktstr"]
 data = {
@@ -1278,12 +1278,12 @@ cache/0/100/0/glyphs/47/uv_rect = Rect2(57, 1, 45, 74)
 cache/0/100/0/glyphs/47/texture_idx = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7x85"]
-texture = ExtResource("1_ceg0f")
-region_rect = Rect2(465, 33, 78, 30)
+texture = ExtResource("1_0lfc2")
+region_rect = Rect2(33, 33, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1hvs"]
-texture = ExtResource("1_ceg0f")
-region_rect = Rect2(385, 33, 78, 30)
+texture = ExtResource("1_0lfc2")
+region_rect = Rect2(1, 33, 30, 30)
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)

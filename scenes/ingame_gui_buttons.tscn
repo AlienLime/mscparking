@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvol3482i33mt"]
+
+[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_dfu6n"]
+[ext_resource type="Theme" uid="uid://1tk3hr88i5gy" path="res://themes/buttons/completed.tres" id="2_ds7br"]
+[ext_resource type="Theme" uid="uid://bcelgugjhxlxx" path="res://themes/buttons/restart.tres" id="3_5ynyc"]
+[ext_resource type="Theme" uid="uid://cnlkg1p8hnne8" path="res://themes/buttons/up.tres" id="4_7feyp"]
+[ext_resource type="Theme" uid="uid://cggn8ugt23do2" path="res://themes/buttons/down.tres" id="5_4lpjb"]
+[ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="5_esmd8"]
+[ext_resource type="Theme" uid="uid://x8u1l8k2m35y" path="res://themes/buttons/left.tres" id="7_mx866"]
+[ext_resource type="Theme" uid="uid://g7va0magu0dk" path="res://themes/buttons/right.tres" id="8_yv2d4"]
+
+[node name="ingameGUIButtons" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_dfu6n")
+
+[node name="Helper" type="Label" parent="Background"]
+offset_left = -268.0
+offset_top = -161.0
+offset_right = 237.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("5_esmd8")
+text = "Red Cars go BRRRRR
+"
+autowrap_mode = 2
+
+[node name="Restart" type="Button" parent="Background"]
+offset_left = 245.0
+offset_top = -172.0
+offset_right = 275.0
+offset_bottom = -142.0
+theme = ExtResource("3_5ynyc")
+
+[node name="Completed" type="Button" parent="Background"]
+offset_left = 246.0
+offset_top = 139.0
+offset_right = 276.0
+offset_bottom = 169.0
+theme = ExtResource("2_ds7br")
+
+[node name="Up" type="Button" parent="Background"]
+offset_left = -241.0
+offset_top = 92.0
+offset_right = -211.0
+offset_bottom = 122.0
+theme = ExtResource("4_7feyp")
+
+[node name="Down" type="Button" parent="Background"]
+offset_left = -241.0
+offset_top = 140.0
+offset_right = -211.0
+offset_bottom = 170.0
+theme = ExtResource("5_4lpjb")
+
+[node name="Left" type="Button" parent="Background"]
+offset_left = -268.0
+offset_top = 116.0
+offset_right = -238.0
+offset_bottom = 146.0
+theme = ExtResource("7_mx866")
+
+[node name="Right" type="Button" parent="Background"]
+offset_left = -214.0
+offset_top = 116.0
+offset_right = -184.0
+offset_bottom = 146.0
+theme = ExtResource("8_yv2d4")

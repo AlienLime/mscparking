@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="3_pfxey"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_v6hih"]
 [ext_resource type="PackedScene" uid="uid://5vijqk20x77d" path="res://scenes/textbox.tscn" id="6_734gg"]
-[ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui.tscn" id="8_fybfb"]
+[ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="8_fybfb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -145,7 +145,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccmhe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adp25"]
 texture = ExtResource("1_c5aam")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -240,7 +240,7 @@ texture_region_size = Vector2i(64, 64)
 1:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_81v1i")
 2:4/0 = 0
 3:4/0 = 0
-3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 1.96431, -32, 2.24492, -32, -3.648, -3.08677, -4.48985, -3.08677, -32, 3.92862, -32, 3.648, -4.20923, 32, -3.92862)
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -32, 2.5, -3, 32, -3, 32, 2.5, -32, 3, -32, -3.5, -4, -3.5, -3, -32)
 3:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v42ry")
 4:4/0 = 0
 5:4/0 = 0
@@ -257,13 +257,12 @@ texture_region_size = Vector2i(64, 64)
 12:4/0 = 0
 12:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l2kty")
 0:5/0 = 0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.64799, -3.36739, 32, -2.24492, 32, 3.648, 3.08677, 4.48985, 3.08677, 32, -3.92862, 32)
 0:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_73ryc")
 1:5/0 = 0
 1:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_b478h")
 2:5/0 = 0
 3:5/0 = 0
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -1.96431, 32, -2.24492, 32, 3.648, 3.08677, 4.48985, 3.08677, 32, -3.92862, 32, -3.648, 4.20923, -32, 3.92862)
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 32, -2.5, 3, -32, 3, -32, -2.5, 32, -3, 32, 3.5, 4, 3.5, 3, 32)
 3:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is27l")
 4:5/0 = 0
 4:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a6hxq")
@@ -305,7 +304,6 @@ texture_region_size = Vector2i(64, 64)
 11:6/0 = 0
 12:6/0 = 0
 0:7/0 = 0
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.64799, 3.36739, -32, 2.24492, -32, -3.648, -3.08677, -4.48985, -3.08677, -32, 3.92862, -32)
 0:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_73ryc")
 1:7/0 = 0
 1:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bqvae")
@@ -382,7 +380,7 @@ texture_region_size = Vector2i(64, 64)
 1:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a6hxq")
 2:10/0 = 0
 3:10/0 = 0
-3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 1.96431, -32, 2.24492, -32, -3.648, -3.08677, -4.48985, -3.08677, -32, 3.92862, -32, 3.648, -4.20923, 32, -3.92862)
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -32, 2.5, -3, 32, -3, 32, 2.5, -32, 3, -32, -3.5, -4, -3.5, -3, -32)
 3:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ltdfm")
 4:10/0 = 0
 5:10/0 = 0
@@ -391,6 +389,7 @@ texture_region_size = Vector2i(64, 64)
 7:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -32, 3, -13.5, -2.5, -11.5, -2.5, -32)
 7:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uue6u")
 8:10/0 = 0
+8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 3, 3, 2.5, 3, 32, -2.5, 32, -3, -32, 3.5, -32, 3.5, -4, 32, -3)
 8:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_r4p8h")
 9:10/0 = 0
 10:10/0 = 0
@@ -403,7 +402,7 @@ texture_region_size = Vector2i(64, 64)
 2:11/0 = 0
 2:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_262py")
 3:11/0 = 0
-3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -1.96431, 32, -2.24492, 32, 3.648, 3.08677, 4.48985, 3.08677, 32, -3.92862, 32, -3.648, 4.20923, -32, 3.92862)
+3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 32, -2.5, 3, -32, 3, -32, -2.5, 32, -3, 32, 3.5, 4, 3.5, 3, 32)
 3:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a7jqk")
 4:11/0 = 0
 4:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_262py")
@@ -414,6 +413,7 @@ texture_region_size = Vector2i(64, 64)
 7:11/0 = 0
 7:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_262py")
 8:11/0 = 0
+8:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -3, -3, -2.5, -3, -32, 2.5, -32, 3, 32, -3.5, 32, -3.5, 4, -32, 3)
 8:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_262py")
 9:11/0 = 0
 10:11/0 = 0
@@ -443,7 +443,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/2 = SubResource("TileSetAtlasSource_ccmhe")
+sources/2 = SubResource("TileSetAtlasSource_adp25")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_t23cq")
@@ -516,15 +516,16 @@ position = Vector2(-896, 161)
 
 [node name="GUI" type="Node" parent="."]
 
-[node name="ingameGUI" parent="GUI" instance=ExtResource("8_fybfb")]
-position = Vector2(185, 435)
+[node name="ingameGUIButtons" parent="GUI" instance=ExtResource("8_fybfb")]
+position = Vector2(316, 381)
 
 [node name="Textbox" parent="GUI" instance=ExtResource("6_734gg")]
 position = Vector2(193, -97)
 
-[connection signal="pressed" from="GUI/ingameGUI/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GUI/ingameGUI/Up" to="." method="_on_up_pressed"]
-[connection signal="pressed" from="GUI/ingameGUI/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Restart" to="." method="_on_restart_pressed"]
+[connection signal="button_up" from="GUI/ingameGUIButtons/Background/Completed" to="." method="_on_completed_button_up"]
+[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Down" to="." method="_on_down_pressed"]
 
-[editable path="GUI/ingameGUI"]
+[editable path="GUI/ingameGUIButtons"]
 [editable path="GUI/Textbox"]
