@@ -15,53 +15,60 @@
 texture = ExtResource("1_dfu6n")
 
 [node name="Helper" type="Label" parent="Background"]
-offset_left = -268.0
-offset_top = -161.0
+offset_left = -278.0
+offset_top = -171.0
 offset_right = 237.0
-offset_bottom = 63.0
+offset_bottom = 77.0
 theme_override_fonts/font = ExtResource("5_esmd8")
+theme_override_font_sizes/font_size = 30
 text = "Red Cars go BRRRRR
 "
 autowrap_mode = 2
 
 [node name="Restart" type="Button" parent="Background"]
-offset_left = 245.0
-offset_top = -172.0
-offset_right = 275.0
-offset_bottom = -142.0
+offset_left = 222.0
+offset_top = -180.0
+offset_right = 252.0
+offset_bottom = -150.0
+scale = Vector2(2, 2)
 theme = ExtResource("3_5ynyc")
 
 [node name="Completed" type="Button" parent="Background"]
-offset_left = 246.0
-offset_top = 139.0
-offset_right = 276.0
-offset_bottom = 169.0
+offset_left = 222.0
+offset_top = 114.0
+offset_right = 252.0
+offset_bottom = 144.0
+scale = Vector2(2, 2)
 theme = ExtResource("2_ds7br")
 
 [node name="Up" type="Button" parent="Background"]
-offset_left = -241.0
-offset_top = 92.0
-offset_right = -211.0
-offset_bottom = 122.0
+offset_left = -225.0
+offset_top = 72.0
+offset_right = -195.0
+offset_bottom = 102.0
+scale = Vector2(2, 2)
 theme = ExtResource("4_7feyp")
 
 [node name="Down" type="Button" parent="Background"]
-offset_left = -241.0
-offset_top = 140.0
-offset_right = -211.0
-offset_bottom = 170.0
+offset_left = -225.0
+offset_top = 119.0
+offset_right = -195.0
+offset_bottom = 149.0
+scale = Vector2(2, 2)
 theme = ExtResource("5_4lpjb")
 
 [node name="Left" type="Button" parent="Background"]
-offset_left = -268.0
-offset_top = 116.0
-offset_right = -238.0
-offset_bottom = 146.0
+offset_left = -285.0
+offset_top = 94.0
+offset_right = -255.0
+offset_bottom = 124.0
+scale = Vector2(2, 2)
 theme = ExtResource("7_mx866")
 
 [node name="Right" type="Button" parent="Background"]
-offset_left = -214.0
-offset_top = 116.0
-offset_right = -184.0
-offset_bottom = 146.0
+offset_left = -165.0
+offset_top = 94.0
+offset_right = -135.0
+offset_bottom = 124.0
+scale = Vector2(2, 2)
 theme = ExtResource("8_yv2d4")

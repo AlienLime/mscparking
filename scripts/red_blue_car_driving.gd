@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 var color = randi_range(0,13)
 
-var speed = 300
+var speed = 175
 var ID = "ID"
 
 func _ready() -> void:
@@ -18,11 +18,11 @@ func _ready() -> void:
 #	velocity = dir * speed
 #	move_and_slide()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		speed = 0
 	else:
-		speed = 300
+		speed = 175
 	var next_path_pos := nav_agent.get_next_path_position()
 	var dir := global_position.direction_to(next_path_pos)
 	var intended_velocity = dir * speed

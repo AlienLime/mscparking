@@ -4,6 +4,8 @@ extends Node2D
 @onready var helper: Label = $GUI/ingameGUIButtons/Background/Helper
 @onready var textbox: Label = $GUI/Textbox/Background/Label
 @onready var completed: Button = $GUI/ingameGUIButtons/Background/Completed
+@onready var left: Button = $GUI/ingameGUIButtons/Background/Left
+@onready var right: Button = $GUI/ingameGUIButtons/Background/Right
 
 var nrCars
 var carIndex = 0
@@ -15,12 +17,15 @@ var done = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	left.disabled = true
+	right.disabled = true
 	completed.disabled = true
 	nrCars = cars.get_child_count()
 	currentCar = cars.get_child(carIndex) 
 	textbox.text = "Hvis bilen er rød
 Så skal den parkere øverst
 Ellers skal den parkere nederst"
+	helper.text = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

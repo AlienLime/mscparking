@@ -540,22 +540,13 @@ position = Vector2(-562, -277)
 [node name="GUI" type="Node" parent="."]
 
 [node name="ingameGUIButtons" parent="GUI" instance=ExtResource("2_d5t8e")]
-position = Vector2(185, 435)
+position = Vector2(316, 381)
 
-[node name="Completed" parent="GUI/ingameGUIButtons/Background" index="0"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
+[node name="Completed" parent="GUI/ingameGUIButtons/Background" index="2"]
 physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
 
 [node name="Textbox" parent="GUI" instance=ExtResource("3_rjcn8")]
-position = Vector2(193, -97)
+position = Vector2(316, -92)
 
 [editable path="GUI/ingameGUIButtons"]
 [editable path="GUI/Textbox"]

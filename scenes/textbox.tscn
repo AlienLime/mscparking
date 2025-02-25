@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://5vijqk20x77d"]
+[gd_scene load_steps=3 format=3 uid="uid://5vijqk20x77d"]
 
 [ext_resource type="Texture2D" uid="uid://cp4sfje1l0kj" path="res://assets/industrial/dialog-standard.png" id="1_cwyyv"]
+[ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="2_benc3"]
 
 [node name="Textbox" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_cwyyv")
 
 [node name="Label" type="Label" parent="Background"]
 modulate = Color(0, 0, 0, 1)
 offset_left = -256.0
 offset_top = -208.0
+offset_right = 254.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("2_benc3")
+theme_override_font_sizes/font_size = 30
 autowrap_mode = 2

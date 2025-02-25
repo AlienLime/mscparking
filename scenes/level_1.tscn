@@ -520,7 +520,7 @@ position = Vector2(-896, 161)
 position = Vector2(316, 381)
 
 [node name="Textbox" parent="GUI" instance=ExtResource("6_734gg")]
-position = Vector2(193, -97)
+position = Vector2(318, -73)
 
 [connection signal="pressed" from="GUI/ingameGUIButtons/Background/Restart" to="." method="_on_restart_pressed"]
 [connection signal="button_up" from="GUI/ingameGUIButtons/Background/Completed" to="." method="_on_completed_button_up"]
