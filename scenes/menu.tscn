@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d2jwt87o7e7hs"]
+[gd_scene load_steps=68 format=4 uid="uid://dapuwnhaxe7w5"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_takfn"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="2_840wd"]
@@ -494,7 +494,6 @@ text = "Afslut spil"
 
 [node name="RandomCar" parent="." instance=ExtResource("4_58ogf")]
 position = Vector2(894, 542)
-scale = Vector2(2, 2)
 
 [node name="RandomCar2" parent="." instance=ExtResource("4_58ogf")]
 position = Vector2(736, 288)

@@ -5,32 +5,28 @@ extends Node2D
 @onready var helper: Label = $GUI/ingameGUIButtons/Background/Helper
 @onready var textbox: Label = $GUI/Textbox/Background/Label
 @onready var completed: Button = $GUI/ingameGUIButtons/Background/Completed
-@onready var up: Button = $GUI/ingameGUIButtons/Background/Up
-@onready var down: Button = $GUI/ingameGUIButtons/Background/Down
-
+@onready var left: Button = $GUI/ingameGUIButtons/Background/Left
+@onready var right: Button = $GUI/ingameGUIButtons/Background/Right
 
 var carIndex = 0
 var currentCar
-var currentPos
-var rightPark = 0
-var leftPark = 0
+var upPark = 0
+var downPark = 0
 var done = 0
-var spawnUp
-var spawnDown
+var spawn
 
 const nrCars = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawnUp = parking.get_child(5).position
-	spawnDown = parking.get_child(3).position
+	spawn = parking.get_child(3).position
 	spawnCar()
-	up.disabled = true
-	down.disabled = true
+	left.disabled = true
+	right.disabled = true
 	completed.disabled = true
 	textbox.text = "Hvis bilen er rød
-Så skal den krydse vejen.
-Blå biler skal blive på samme side"
+Så skal den parkere øverst
+Ellers skal den parkere nederst"
 	helper.text = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 
 
@@ -42,15 +38,15 @@ func _process(delta: float) -> void:
 		completed.disabled = false
 
 
-func _on_right_pressed() -> void:
-	if (currentCar.color >= 7 && currentPos == 0) || (currentCar.color <= 6 && currentPos == 1):
-		rigtigt(1)
+func _on_up_pressed() -> void:
+	if currentCar.color >= 7:
+		rigtigt(0)
 	else:
 		forkert()
 
-func _on_left_pressed() -> void:
-	if (currentCar.color >= 7 && currentPos == 1) || (currentCar.color <= 6 && currentPos == 0):
-		rigtigt(0)
+func _on_down_pressed() -> void:
+	if currentCar.color <= 6:
+		rigtigt(1)
 	else:
 		forkert()
 
@@ -63,15 +59,15 @@ func rigtigt(x: int) -> void:
 	helper.modulate = "07d434"
 	done += 1
 	if x == 0:
-		currentCar.parkingSpot = parking.get_child(x).get_child(rightPark)
+		currentCar.parkingSpot = parking.get_child(x).get_child(upPark)
 	else:
-		currentCar.parkingSpot = parking.get_child(x).get_child(leftPark)
+		currentCar.parkingSpot = parking.get_child(x).get_child(downPark)
 	if carIndex < nrCars-1:
 		carIndex += 1
 		if x == 0:
-			rightPark += 1
+			upPark += 1
 		else:
-			leftPark += 1
+			downPark += 1
 		spawnCar()
 
 func forkert() -> void:
@@ -79,16 +75,10 @@ func forkert() -> void:
 	helper.modulate = "da2031"
 
 func _on_completed_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/level_2.tscn")
 
 func spawnCar() -> void:
 	currentCar = newCar.instantiate()
 	add_child(currentCar)
-	if randi_range(0, 1) == 1:
-		currentCar.position = spawnUp
-		currentPos = 0
-		currentCar.parkingSpot = parking.get_child(4)
-	else:
-		currentCar.position = spawnDown
-		currentPos = 1
-		currentCar.parkingSpot = parking.get_child(2)
+	currentCar.position = spawn
+	currentCar.parkingSpot = parking.get_child(2)
