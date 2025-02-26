@@ -19,7 +19,7 @@ const nrCars = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn = parking.get_child(3).position
+	spawn = parking.get_node("Spawn").position
 	spawnCar()
 	left.disabled = true
 	right.disabled = true
@@ -59,9 +59,9 @@ func rigtigt(x: int) -> void:
 	helper.modulate = "07d434"
 	done += 1
 	if x == 0:
-		currentCar.parkingSpot = parking.get_child(x).get_child(upPark)
+		currentCar.parkingSpot = parking.get_node("Up").get_child(upPark)
 	else:
-		currentCar.parkingSpot = parking.get_child(x).get_child(downPark)
+		currentCar.parkingSpot = parking.get_node("Down").get_child(downPark)
 	if carIndex < nrCars-1:
 		carIndex += 1
 		if x == 0:
@@ -81,4 +81,4 @@ func spawnCar() -> void:
 	currentCar = newCar.instantiate()
 	add_child(currentCar)
 	currentCar.position = spawn
-	currentCar.parkingSpot = parking.get_child(2)
+	currentCar.parkingSpot = parking.get_node("Start")
