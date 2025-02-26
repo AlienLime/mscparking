@@ -183,6 +183,7 @@ radius = 20.0
 height = 74.0
 
 [node name="RandomCar" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_os6sd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
