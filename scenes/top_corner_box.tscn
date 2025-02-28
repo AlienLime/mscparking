@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7v74ksker21g"]
+
+[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_hnm5t"]
+[ext_resource type="Theme" uid="uid://bf6rttpwuun5t" path="res://themes/buttons/home.tres" id="2_m67y3"]
+[ext_resource type="Theme" uid="uid://bcelgugjhxlxx" path="res://themes/buttons/restart.tres" id="2_rqmtw"]
+[ext_resource type="Theme" uid="uid://1tk3hr88i5gy" path="res://themes/buttons/completed.tres" id="4_hh44b"]
+
+[node name="TopCornerBox" type="MarginContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_hnm5t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 12
+
+[node name="Hbox" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Restart" type="Button" parent="MarginContainer/Hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource("2_rqmtw")
+
+[node name="Completed" type="Button" parent="MarginContainer/Hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("4_hh44b")
+
+[node name="Home" type="Button" parent="MarginContainer/Hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource("2_m67y3")

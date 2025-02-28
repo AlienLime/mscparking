@@ -1,74 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvol3482i33mt"]
+[gd_scene load_steps=4 format=3 uid="uid://dvol3482i33mt"]
 
-[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_dfu6n"]
-[ext_resource type="Theme" uid="uid://1tk3hr88i5gy" path="res://themes/buttons/completed.tres" id="2_ds7br"]
-[ext_resource type="Theme" uid="uid://bcelgugjhxlxx" path="res://themes/buttons/restart.tres" id="3_5ynyc"]
-[ext_resource type="Theme" uid="uid://cnlkg1p8hnne8" path="res://themes/buttons/up.tres" id="4_7feyp"]
-[ext_resource type="Theme" uid="uid://cggn8ugt23do2" path="res://themes/buttons/down.tres" id="5_4lpjb"]
-[ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="5_esmd8"]
-[ext_resource type="Theme" uid="uid://x8u1l8k2m35y" path="res://themes/buttons/left.tres" id="7_mx866"]
-[ext_resource type="Theme" uid="uid://g7va0magu0dk" path="res://themes/buttons/right.tres" id="8_yv2d4"]
+[ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="1_ip3m1"]
+[ext_resource type="PackedScene" uid="uid://ck03ms3d0l6mj" path="res://scenes/button_box.tscn" id="1_lom4w"]
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_eys7k"]
 
-[node name="ingameGUIButtons" type="Node2D"]
+[node name="IngameGUIButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_dfu6n")
+[node name="ButtonBox" parent="." instance=ExtResource("1_lom4w")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.565
+offset_left = -0.35199
+offset_top = -0.119995
 
-[node name="Helper" type="Label" parent="Background"]
-offset_left = -278.0
-offset_top = -171.0
-offset_right = 237.0
-offset_bottom = 77.0
-theme_override_fonts/font = ExtResource("5_esmd8")
-theme_override_font_sizes/font_size = 30
-text = "Red Cars go BRRRRR
-"
-autowrap_mode = 2
+[node name="TopCornerBox" parent="." instance=ExtResource("1_ip3m1")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.811
+anchor_bottom = 0.145
+offset_left = 53.728
+offset_bottom = 0.0399933
 
-[node name="Restart" type="Button" parent="Background"]
-offset_left = 222.0
-offset_top = -180.0
-offset_right = 252.0
-offset_bottom = -150.0
-scale = Vector2(2, 2)
-theme = ExtResource("3_5ynyc")
-
-[node name="Completed" type="Button" parent="Background"]
-offset_left = 222.0
-offset_top = 114.0
-offset_right = 252.0
-offset_bottom = 144.0
-scale = Vector2(2, 2)
-theme = ExtResource("2_ds7br")
-
-[node name="Up" type="Button" parent="Background"]
-offset_left = -225.0
-offset_top = 72.0
-offset_right = -195.0
-offset_bottom = 102.0
-scale = Vector2(2, 2)
-theme = ExtResource("4_7feyp")
-
-[node name="Down" type="Button" parent="Background"]
-offset_left = -225.0
-offset_top = 119.0
-offset_right = -195.0
-offset_bottom = 149.0
-scale = Vector2(2, 2)
-theme = ExtResource("5_4lpjb")
-
-[node name="Left" type="Button" parent="Background"]
-offset_left = -285.0
-offset_top = 94.0
-offset_right = -255.0
-offset_bottom = 124.0
-scale = Vector2(2, 2)
-theme = ExtResource("7_mx866")
-
-[node name="Right" type="Button" parent="Background"]
-offset_left = -165.0
-offset_top = 94.0
-offset_right = -135.0
-offset_bottom = 124.0
-scale = Vector2(2, 2)
-theme = ExtResource("8_yv2d4")
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.227
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.264038
+offset_top = -0.0960083
+offset_right = -34.0
+offset_bottom = -288.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_eys7k")
+text = "aakfsægfbaæslkjf"

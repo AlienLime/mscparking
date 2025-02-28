@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://i14iui51y4al"]
-
-[ext_resource type="Theme" uid="uid://cnlkg1p8hnne8" path="res://themes/buttons/up.tres" id="1_87m3b"]
-
-[node name="Up" type="Button"]
-offset_right = 30.0
-offset_bottom = 30.0
-theme = ExtResource("1_87m3b")

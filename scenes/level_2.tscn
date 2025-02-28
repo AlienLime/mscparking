@@ -1,10 +1,8 @@
-[gd_scene load_steps=70 format=4 uid="uid://bdnrmrepalsnw"]
+[gd_scene load_steps=68 format=4 uid="uid://bdnrmrepalsnw"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_13q01"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="1_g1mu5"]
-[ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="2_d5t8e"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_65o8o"]
-[ext_resource type="PackedScene" uid="uid://5vijqk20x77d" path="res://scenes/textbox.tscn" id="3_rjcn8"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="4_4clam"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
@@ -525,20 +523,3 @@ position = Vector2(-560, -224)
 position = Vector2(-559, -440)
 
 [node name="GUI" type="Node" parent="."]
-
-[node name="ingameGUIButtons" parent="GUI" instance=ExtResource("2_d5t8e")]
-position = Vector2(316, 381)
-
-[node name="Completed" parent="GUI/ingameGUIButtons/Background" index="2"]
-physics_interpolation_mode = 0
-
-[node name="Textbox" parent="GUI" instance=ExtResource("3_rjcn8")]
-position = Vector2(316, -92)
-
-[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Completed" to="." method="_on_completed_pressed"]
-[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="GUI/ingameGUIButtons/Background/Right" to="." method="_on_right_pressed"]
-
-[editable path="GUI/ingameGUIButtons"]
-[editable path="GUI/Textbox"]

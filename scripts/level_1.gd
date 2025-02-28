@@ -2,11 +2,11 @@ extends Node2D
 
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
-@onready var helper: Label = $GUI/ingameGUIButtons/Background/Helper
-@onready var textbox: Label = $GUI/Textbox/Background/Label
-@onready var completed: Button = $GUI/ingameGUIButtons/Background/Completed
-@onready var left: Button = $GUI/ingameGUIButtons/Background/Left
-@onready var right: Button = $GUI/ingameGUIButtons/Background/Right
+@onready var helper: Label = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/Helper
+@onready var textbox: Label = $GUI/IngameGUIButtons/Label
+@onready var completed: Button = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Completed
+@onready var left: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left
+@onready var right: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right
 
 var carIndex = 0
 var currentCar
@@ -50,9 +50,6 @@ func _on_down_pressed() -> void:
 	else:
 		forkert()
 
-func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
-
 #Helper functions
 func rigtigt(x: int) -> void:
 	helper.text = "Rigtigt"
@@ -82,3 +79,17 @@ func spawnCar() -> void:
 	add_child(currentCar)
 	currentCar.position = spawn
 	currentCar.parkingSpot = parking.get_node("Start")
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func _on_home_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+
+func _on_left_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_right_pressed() -> void:
+	pass # Replace with function body.

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgviregh08tb7"]
-
-[ext_resource type="Theme" uid="uid://cggn8ugt23do2" path="res://themes/buttons/down.tres" id="1_6paaj"]
-
-[node name="Down" type="Button"]
-offset_right = 30.0
-offset_bottom = 30.0
-theme = ExtResource("1_6paaj")
