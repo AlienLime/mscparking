@@ -4,19 +4,23 @@ extends CharacterBody2D
 @onready var car: CharacterBody2D = $"."
 @export var parkingSpot: Node2D
 
-var color = randi_range(0,13)
+var random = randi_range(0,13)
+var color: int
+var origin: int
+var shape: int
 
 var speed = 175
 var ID = "ID"
 
 func _ready() -> void:
-	sprite.frame = color
+	sprite.frame = random
+	if random >= 7:
+		color=1 # Red
+	else: 
+		color=0 # Blue
+		
 	make_path()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _physics_process(delta: float) -> void:
-#	var dir = to_local(nav_agent.target_position).normalized()
-#	velocity = dir * speed
-#	move_and_slide()
+
 
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():

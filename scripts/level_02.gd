@@ -2,11 +2,11 @@ extends Node2D
 
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
-@onready var helper: Label = $GUI/ingameGUIButtons/BasicGUI/Background/Helper
-@onready var textbox: Label = $GUI/Textbox/Background/Label
-@onready var completed: Button = $GUI/ingameGUIButtons/BasicGUI/Background/Completed
+@onready var textbox: Label = $GUI/IngameGUIButtons/Label
+@onready var completed: Button = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Completed
 @onready var up: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/Up
 @onready var down: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/Down
+@onready var helper: Label = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/Helper
 
 
 var carIndex = 0
@@ -17,8 +17,11 @@ var leftPark = 0
 var done = 0
 var spawnUp
 var spawnDown
+var score = 0
 
 const nrCars = 5
+const leftCond = ["1_3_0", "0_0_0"]
+const rightCond = ["0_3_0", "1_0_0"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,35 +32,31 @@ func _ready() -> void:
 	down.disabled = true
 	completed.disabled = true
 	textbox.text = "Hvis bilen er rød
-Så skal den krydse vejen.
-Blå biler skal blive på samme side"
+					Så skal den krydse vejen.
+					Blå biler skal blive på samme side"
 	helper.text = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
+	for parking_spot in parking.get_node("Right").get_children():
+		parking_spot.conditions = rightCond
+	for parking_spot in parking.get_node("Left").get_children():
+		parking_spot.conditions = leftCond
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if done > nrCars-1:
+	if score == nrCars:
 		helper.text = "Godt gået!"
 		helper.modulate = "00ffff"
 		completed.disabled = false
 
 
 func _on_right_pressed() -> void:
-	if (currentCar.color == 1 && currentPos == 0) || (currentCar.color == 0 && currentPos == 1):
-		rigtigt(0)
-	else:
-		forkert()
+	moveCar(0)
 
 func _on_left_pressed() -> void:
-	if (currentCar.color == 1 && currentPos == 1) || (currentCar.color == 0 && currentPos == 0):
-		rigtigt(1)
-	else:
-		forkert()
+	moveCar(1)
 
 #Helper functions
-func rigtigt(x: int) -> void:
-	helper.text = "Rigtigt"
-	helper.modulate = "07d434"
+func moveCar(x: int) -> void:
 	done += 1
 	if x == 0:
 		currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
@@ -71,9 +70,6 @@ func rigtigt(x: int) -> void:
 			leftPark += 1
 		spawnCar()
 
-func forkert() -> void:
-	helper.text = "FORKERT"
-	helper.modulate = "da2031"
 
 func _on_completed_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_3.tscn")

@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cblipf5dvysin"]
+[gd_scene load_steps=3 format=3 uid="uid://cblipf5dvysin"]
+
+[ext_resource type="Script" path="res://scripts/parking_spot.gd" id="1_8vkgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgelu"]
 size = Vector2(54, 88)
 
-[node name="ParkingSpot" type="Node2D"]
+[node name="ParkingSpot" type="Area2D"]
 scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_8vkgw")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hgelu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=68 format=4 uid="uid://bdnrmrepalsnw"]
+[gd_scene load_steps=69 format=4 uid="uid://bdnrmrepalsnw"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_13q01"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="1_g1mu5"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_65o8o"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="4_4clam"]
+[ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="5_mcle7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -523,3 +524,18 @@ position = Vector2(-560, -224)
 position = Vector2(-559, -440)
 
 [node name="GUI" type="Node" parent="."]
+
+[node name="IngameGUIButtons" parent="GUI" instance=ExtResource("5_mcle7")]
+anchors_preset = -1
+anchor_left = -0.858
+anchor_top = -0.48
+anchor_right = 0.57
+anchor_bottom = 0.951
+offset_left = 0.416016
+offset_top = 0.0400085
+offset_right = 0.359924
+offset_bottom = -0.248047
+
+[editable path="GUI/IngameGUIButtons"]
+[editable path="GUI/IngameGUIButtons/ButtonBox"]
+[editable path="GUI/IngameGUIButtons/TopCornerBox"]

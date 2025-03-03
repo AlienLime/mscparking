@@ -14,6 +14,9 @@ var upPark = 0
 var downPark = 0
 var done = 0
 var spawn
+const upCond = ["1_0_0"]
+const downCond = ["0_0_0"]
+var score = 0
 
 const nrCars = 5
 
@@ -25,27 +28,31 @@ func _ready() -> void:
 	right.disabled = true
 	completed.disabled = true
 	textbox.text = "Hvis bilen er rød
-Så skal den parkere øverst
-Ellers skal den parkere nederst"
+					Så skal den parkere øverst
+					Ellers skal den parkere nederst"
 	helper.text = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
+	for parking_spot in parking.get_node("Up").get_children():
+		parking_spot.conditions = upCond
+	for parking_spot in parking.get_node("Down").get_children():
+		parking_spot.conditions = downCond
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if done > nrCars-1:
+	if score == nrCars:
 		helper.text = "Godt gået!"
 		helper.modulate = "00ffff"
 		completed.disabled = false
 
 
 func _on_up_pressed() -> void:
-	if currentCar.color >= 7:
+	if currentCar.color == 1:
 		rigtigt(0)
 	else:
 		forkert()
 
 func _on_down_pressed() -> void:
-	if currentCar.color <= 6:
+	if currentCar.color == 0:
 		rigtigt(1)
 	else:
 		forkert()
@@ -72,7 +79,7 @@ func forkert() -> void:
 	helper.modulate = "da2031"
 
 func _on_completed_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_2.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_02.tscn")
 
 func spawnCar() -> void:
 	currentCar = newCar.instantiate()
@@ -85,11 +92,3 @@ func _on_restart_pressed() -> void:
 
 func _on_home_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-
-func _on_left_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_right_pressed() -> void:
-	pass # Replace with function body.

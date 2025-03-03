@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp5i5ir5da4r1"]
+[gd_scene load_steps=5 format=3 uid="uid://dp5i5ir5da4r1"]
 
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_manry"]
-[ext_resource type="PackedScene" uid="uid://dc8wm4cj5tl3e" path="res://scenes/if_color.tscn" id="2_0fwq5"]
+[ext_resource type="PackedScene" uid="uid://buknww60ebskp" path="res://scenes/if_color.tscn" id="2_0fwq5"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_i7ero"]
+[ext_resource type="Theme" uid="uid://bc5xkg6v21bva" path="res://themes/buttons/go.tres" id="4_wprca"]
 
 [node name="DropdownBox" type="MarginContainer"]
 anchors_preset = 3
@@ -10,8 +11,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -460.0
-offset_top = -280.0
+offset_left = -691.0
+offset_top = -439.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 20
@@ -23,10 +24,10 @@ texture = ExtResource("1_manry")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -36,6 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Helper" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -43,8 +45,20 @@ theme = ExtResource("2_i7ero")
 text = "Base"
 autowrap_mode = 2
 
-[node name="IfColor" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IfColor" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
 layout_mode = 2
 
-[node name="IfColor2" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
+[node name="Run" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("4_wprca")

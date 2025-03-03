@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5s7akdvqn5ev"]
+
+[ext_resource type="Texture2D" uid="uid://c3ninsbk3uffu" path="res://assets/sprites/buttons/Ram Buttons.png" id="1_n3ja7"]
+[ext_resource type="Texture2D" uid="uid://j4cqvh4knlca" path="res://assets/sprites/buttons/Purple Buttons Icons.png" id="2_kx60b"]
+[ext_resource type="Texture2D" uid="uid://dewfn00jpuxux" path="res://assets/sprites/buttons/Orange Button Text.png" id="3_jdv4w"]
+[ext_resource type="Texture2D" uid="uid://cmwsx6adv8vxe" path="res://assets/sprites/buttons/Green Buttons Icons.png" id="4_bgvfu"]
+[ext_resource type="Texture2D" uid="uid://biain23jcjj6u" path="res://assets/sprites/buttons/Metal Buttons Text.png" id="5_qu58d"]
+[ext_resource type="Texture2D" uid="uid://digfh7km1cxa6" path="res://assets/sprites/buttons/Purple Buttons Text.png" id="6_cm08x"]
+[ext_resource type="Texture2D" uid="uid://cdsyh4aub2q1h" path="res://assets/sprites/buttons/Orange Button Icons.png" id="7_bssal"]
+[ext_resource type="Texture2D" uid="uid://be8x2apbchhwl" path="res://assets/sprites/buttons/Green Buttons Text.png" id="8_kb5fu"]
+[ext_resource type="Texture2D" uid="uid://87jmaf0gmlll" path="res://assets/sprites/buttons/Pink Buttons Text.png" id="9_xueax"]
+[ext_resource type="Texture2D" uid="uid://ew4ck2geg85b" path="res://assets/SpritesheetCars.png" id="10_h6gns"]
+[ext_resource type="Texture2D" uid="uid://2rho5qy828w" path="res://assets/sprites/Cars/car1_red.png" id="11_1d521"]
+
+[node name="VictoryScreen" type="Node2D"]
+
+[node name="GreenButtonsIcons2" type="Sprite2D" parent="."]
+position = Vector2(1057, 107.5)
+scale = Vector2(1.03333, 1.34063)
+texture = ExtResource("4_bgvfu")
+
+[node name="PinkButtonsText" type="Sprite2D" parent="GreenButtonsIcons2"]
+position = Vector2(91, 410)
+scale = Vector2(0.339844, 1.19952)
+texture = ExtResource("9_xueax")
+
+[node name="RamButtons" type="Sprite2D" parent="."]
+position = Vector2(492, 299)
+texture = ExtResource("1_n3ja7")
+
+[node name="PurpleButtonsIcons" type="Sprite2D" parent="."]
+position = Vector2(766, 455)
+texture = ExtResource("2_kx60b")
+
+[node name="OrangeButtonText" type="Sprite2D" parent="."]
+position = Vector2(740.5, 335)
+scale = Vector2(1.21484, 1.63462)
+texture = ExtResource("3_jdv4w")
+
+[node name="PurpleButtonsText2" type="Sprite2D" parent="."]
+position = Vector2(726, 478)
+texture = ExtResource("6_cm08x")
+
+[node name="GreenButtonsIcons" type="Sprite2D" parent="."]
+position = Vector2(418.5, 723.5)
+scale = Vector2(1.15625, 2.72187)
+texture = ExtResource("4_bgvfu")
+
+[node name="MetalButtonsText" type="Sprite2D" parent="."]
+position = Vector2(374, 204)
+texture = ExtResource("5_qu58d")
+
+[node name="PurpleButtonsText" type="Sprite2D" parent="."]
+position = Vector2(103.5, 426.5)
+scale = Vector2(0.253906, 1.3101)
+texture = ExtResource("6_cm08x")
+
+[node name="RamButtons2" type="Sprite2D" parent="."]
+position = Vector2(451, 370)
+texture = ExtResource("1_n3ja7")
+
+[node name="OrangeButtonIcons" type="Sprite2D" parent="."]
+position = Vector2(37, 687)
+scale = Vector2(0.177083, 1.04375)
+texture = ExtResource("7_bssal")
+
+[node name="GreenButtonsText" type="Sprite2D" parent="."]
+position = Vector2(185, 136)
+scale = Vector2(1.10938, 0.480769)
+texture = ExtResource("8_kb5fu")
+
+[node name="SpritesheetCars" type="Sprite2D" parent="."]
+position = Vector2(414, 355)
+scale = Vector2(1.98919, 0.765356)
+texture = ExtResource("10_h6gns")
+
+[node name="Car1Red" type="Sprite2D" parent="."]
+position = Vector2(962, 281)
+rotation = 4.18879
+scale = Vector2(19.3314, 2.63514)
+texture = ExtResource("11_1d521")

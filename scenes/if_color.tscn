@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc8wm4cj5tl3e"]
+[gd_scene load_steps=8 format=3 uid="uid://buknww60ebskp"]
 
-[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_67vhs"]
-[ext_resource type="Texture2D" uid="uid://buq5eig60h3pk" path="res://assets/sprites/Colors/Blue.png" id="2_gcpty"]
-[ext_resource type="Texture2D" uid="uid://v5wxh18filiw" path="res://assets/sprites/Colors/Green.png" id="3_qwmhl"]
-[ext_resource type="Texture2D" uid="uid://c1ae5s0bkm5id" path="res://assets/sprites/Colors/Orange.png" id="4_wsvo3"]
-[ext_resource type="Texture2D" uid="uid://n5gfkjq0oaef" path="res://assets/sprites/Colors/Purple.png" id="5_ahcm1"]
-[ext_resource type="Texture2D" uid="uid://n36kjpy3nm75" path="res://assets/sprites/Colors/Red.png" id="6_0ak1y"]
-[ext_resource type="Texture2D" uid="uid://c6obivo6a2o7f" path="res://assets/sprites/Colors/Yellow.png" id="7_jw2ik"]
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_rsxe4"]
+[ext_resource type="Texture2D" uid="uid://buq5eig60h3pk" path="res://assets/sprites/Colors/Blue.png" id="2_qro65"]
+[ext_resource type="Texture2D" uid="uid://v5wxh18filiw" path="res://assets/sprites/Colors/Green.png" id="3_ans16"]
+[ext_resource type="Texture2D" uid="uid://c1ae5s0bkm5id" path="res://assets/sprites/Colors/Orange.png" id="4_e0mdw"]
+[ext_resource type="Texture2D" uid="uid://n5gfkjq0oaef" path="res://assets/sprites/Colors/Purple.png" id="5_n5m68"]
+[ext_resource type="Texture2D" uid="uid://n36kjpy3nm75" path="res://assets/sprites/Colors/Red.png" id="6_3fub0"]
+[ext_resource type="Texture2D" uid="uid://c6obivo6a2o7f" path="res://assets/sprites/Colors/Yellow.png" id="7_qpgnp"]
 
 [node name="IfColor" type="Control"]
 custom_minimum_size = Vector2(0, 40)
@@ -20,28 +20,38 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="If" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_67vhs")
+size_flags_horizontal = 2
+theme = ExtResource("1_rsxe4")
 text = "Base"
 
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 item_count = 6
-popup/item_0/icon = ExtResource("2_gcpty")
-popup/item_1/icon = ExtResource("3_qwmhl")
+popup/item_0/text = "Blå"
+popup/item_0/icon = ExtResource("2_qro65")
+popup/item_1/text = "Rød"
+popup/item_1/icon = ExtResource("6_3fub0")
 popup/item_1/id = 1
-popup/item_2/icon = ExtResource("4_wsvo3")
+popup/item_2/text = "Orange"
+popup/item_2/icon = ExtResource("4_e0mdw")
 popup/item_2/id = 2
-popup/item_3/icon = ExtResource("5_ahcm1")
+popup/item_3/text = "Lilla"
+popup/item_3/icon = ExtResource("5_n5m68")
 popup/item_3/id = 3
-popup/item_4/icon = ExtResource("6_0ak1y")
+popup/item_4/text = "Grøn"
+popup/item_4/icon = ExtResource("3_ans16")
 popup/item_4/id = 4
-popup/item_5/icon = ExtResource("7_jw2ik")
+popup/item_5/text = "Gul"
+popup/item_5/icon = ExtResource("7_qpgnp")
 popup/item_5/id = 5
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
+[node name="Then" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_67vhs")
+size_flags_horizontal = 2
+theme = ExtResource("1_rsxe4")
 text = "Base"

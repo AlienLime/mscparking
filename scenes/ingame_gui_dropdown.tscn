@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxcon65dpfvjs"]
+[gd_scene load_steps=4 format=3 uid="uid://bxcon65dpfvjs"]
 
 [ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="1_3c235"]
 [ext_resource type="PackedScene" uid="uid://dp5i5ir5da4r1" path="res://scenes/dropdown_box.tscn" id="2_1nq5g"]
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_hjujm"]
 
 [node name="IngameGUIDropdown" type="Control"]
 layout_mode = 3
@@ -13,16 +14,34 @@ grow_vertical = 2
 
 [node name="TopCornerBox" parent="." instance=ExtResource("1_3c235")]
 layout_mode = 1
-offset_left = -164.0
-offset_bottom = 94.0
+anchors_preset = -1
+anchor_left = 0.8
+anchor_bottom = 0.145
+offset_left = 66.4
+offset_bottom = 0.0399933
 
 [node name="DropdownBox" parent="." instance=ExtResource("2_1nq5g")]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.568
+offset_left = -0.35199
+offset_top = -0.0640259
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 696.0
-offset_top = 130.0
-offset_right = 1123.0
-offset_bottom = 356.0
-text = "asdasdasdasd"
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.227
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.264038
+offset_top = -0.0960083
+offset_right = -34.0
+offset_bottom = -288.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_hjujm")
+text = "aakfsægfbaæslkjf"
+autowrap_mode = 3

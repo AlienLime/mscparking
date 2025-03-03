@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc8wm4cj5tl3e"]
+
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_rsxe4"]
+
+[node name="IfOrigin" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="If" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_rsxe4")
+text = "Base"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "oppefra"
+popup/item_1/text = "fra højre"
+popup/item_1/id = 1
+popup/item_2/text = "fra venstre"
+popup/item_2/id = 2
+popup/item_3/text = "nedefra"
+popup/item_3/id = 3
+
+[node name="Then" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_rsxe4")
+text = "Base"

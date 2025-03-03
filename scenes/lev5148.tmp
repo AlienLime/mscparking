@@ -550,3 +550,4 @@ offset_bottom = -0.248047
 [editable path="GUI/IngameGUIDropdown/TopCornerBox"]
 [editable path="GUI/IngameGUIDropdown/DropdownBox"]
 [editable path="GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor"]
+[editable path="GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfOrigin"]
