@@ -36,11 +36,11 @@ func _ready() -> void:
 	completed.disabled = true
 	
 	intro.text = "Du har da super godt styr på parkering!\n
-				Men du kan ikke stå ved den samme parkeringsplads hele dagen. Vi må have dig til at lave systemer som bilerne kan fælge når de skal finde en parkeringsplads.\n
+				Men du kan ikke stå ved den samme parkeringsplads hele dagen. Vi må have dig til at lave systemer som bilerne kan følge når de skal finde en parkeringsplads.\n
 				I den næste bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
 				Held og lykke!"
-	textbox.text = "Denne gang er højre side er reserveret til de røde biler."
-	helper.text = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne her under."
+	textbox.text = "Denne gang er højre side reserveret til de røde biler."
+	helper.text = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
 	color_if.text = "Hvis 
 					bilen 
 					er "
