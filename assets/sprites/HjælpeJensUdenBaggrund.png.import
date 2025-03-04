@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbd8mlgew84qg"
-path="res://.godot/imported/TireWhite.png-d8c240ef688331fa280b3467175658b0.ctex"
+uid="uid://cbetin0rauqvr"
+path="res://.godot/imported/HjælpeJensUdenBaggrund.png-ace49cee4681e5591ccaa4624e89efae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TireWhite.png"
-dest_files=["res://.godot/imported/TireWhite.png-d8c240ef688331fa280b3467175658b0.ctex"]
+source_file="res://assets/sprites/HjælpeJensUdenBaggrund.png"
+dest_files=["res://.godot/imported/HjælpeJensUdenBaggrund.png-ace49cee4681e5591ccaa4624e89efae.ctex"]
 
 [params]
 

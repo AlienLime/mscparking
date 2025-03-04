@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ck03ms3d0l6mj"]
 
-[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_urqwe"]
+[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_urqwe"]
 [ext_resource type="Theme" uid="uid://cnlkg1p8hnne8" path="res://themes/buttons/up.tres" id="2_r2sbt"]
 [ext_resource type="Theme" uid="uid://x8u1l8k2m35y" path="res://themes/buttons/left.tres" id="3_wyoj5"]
 [ext_resource type="Theme" uid="uid://g7va0magu0dk" path="res://themes/buttons/right.tres" id="4_ny2ie"]
@@ -27,10 +27,10 @@ texture = ExtResource("1_urqwe")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2

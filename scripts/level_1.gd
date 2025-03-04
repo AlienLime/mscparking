@@ -4,9 +4,12 @@ extends Node2D
 @onready var parking: Node = $Parking
 @onready var helper: Label = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/Helper
 @onready var textbox: Label = $GUI/IngameGUIButtons/Label
-@onready var completed: Button = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Completed
+@onready var completed: Button = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/VBoxContainer/Hbox/Completed
 @onready var left: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left
 @onready var right: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right
+@onready var level: Label = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/VBoxContainer/level
+
+
 
 var carIndex = 0
 var currentCar
@@ -18,6 +21,7 @@ const upCond = ["1_0_0"]
 const downCond = ["0_0_0"]
 var score = 0
 
+const nextScene = "res://scenes/level_02.tscn"
 const nrCars = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -27,10 +31,14 @@ func _ready() -> void:
 	left.disabled = true
 	right.disabled = true
 	completed.disabled = true
-	textbox.text = "Hvis bilen er rød
+	textbox.text = "Her er den første plads. Her gælder de her regler:
+					Hvis bilen er rød
 					Så skal den parkere øverst
-					Ellers skal den parkere nederst"
-	helper.text = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
+					Ellers hvis bilen er blå 
+					Så skal den parkere nederst"
+	helper.text = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
+	level.text = "Bane 1"
+	
 	for parking_spot in parking.get_node("Up").get_children():
 		parking_spot.conditions = upCond
 	for parking_spot in parking.get_node("Down").get_children():
@@ -78,17 +86,8 @@ func forkert() -> void:
 	helper.text = "FORKERT"
 	helper.modulate = "da2031"
 
-func _on_completed_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_02.tscn")
-
 func spawnCar() -> void:
 	currentCar = newCar.instantiate()
 	add_child(currentCar)
 	currentCar.position = spawn
 	currentCar.parkingSpot = parking.get_node("Start")
-
-func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
-
-func _on_home_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")

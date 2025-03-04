@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv6negl2jd86w"]
 
-[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/industrial/dialog-short.png" id="1_fajiv"]
+[ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_fajiv"]
 [ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="2_xg5gj"]
 
 [node name="BasicGUI" type="Control"]

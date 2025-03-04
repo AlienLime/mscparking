@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn0l4di3fpqpq"
-path="res://.godot/imported/industrial-sample-01.jpg-311336450e7e338c485b17687198ed01.ctex"
+uid="uid://c4oltu8u34v7d"
+path="res://.godot/imported/square-button-on.png-112336e5cfa398739f1e0e4fbe487ad3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/samples/industrial-sample-01.jpg"
-dest_files=["res://.godot/imported/industrial-sample-01.jpg-311336450e7e338c485b17687198ed01.ctex"]
+source_file="res://assets/sprites/industrial/square-button-on.png"
+dest_files=["res://.godot/imported/square-button-on.png-112336e5cfa398739f1e0e4fbe487ad3.ctex"]
 
 [params]
 

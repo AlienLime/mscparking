@@ -1,11 +1,38 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bypqgx66krui"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bypqgx66krui"]
 
 [ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="1_loarn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk7nq"]
+bg_color = Color(0.273254, 0.343245, 0.90673, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.728822, 0.728822, 0.728822, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efobv"]
+bg_color = Color(0.252356, 0.246512, 0.797267, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.41598, 0.41598, 0.41598, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8q5t"]
 
 [resource]
 default_font = ExtResource("1_loarn")
+Button/styles/hover = SubResource("StyleBoxFlat_hk7nq")
+Button/styles/normal = SubResource("StyleBoxFlat_hk7nq")
+Button/styles/pressed = SubResource("StyleBoxFlat_efobv")
 Label/colors/font_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

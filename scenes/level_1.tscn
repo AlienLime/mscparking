@@ -1,10 +1,11 @@
-[gd_scene load_steps=69 format=4 uid="uid://cpuqj38ytwcmm"]
+[gd_scene load_steps=70 format=4 uid="uid://cpuqj38ytwcmm"]
 
-[ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="1_c5aam"]
+[ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="1_c5aam"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_kq8uv"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="3_pfxey"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_v6hih"]
 [ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="5_s5jc4"]
+[ext_resource type="PackedScene" uid="uid://dvp2c6npvj33y" path="res://scenes/intro.tscn" id="6_0ywff"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -144,7 +145,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvxqe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avq83"]
 texture = ExtResource("1_c5aam")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -442,7 +443,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/2 = SubResource("TileSetAtlasSource_fvxqe")
+sources/2 = SubResource("TileSetAtlasSource_avq83")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_kq8uv")
@@ -515,17 +516,18 @@ offset_right = 0.359924
 offset_bottom = -0.192017
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonBox" parent="GUI/IngameGUIButtons" index="0"]
+[node name="ButtonBox" parent="GUI/IngameGUIButtons" index="1"]
 offset_bottom = 0.0
+
+[node name="Intro" parent="." instance=ExtResource("6_0ywff")]
+position = Vector2(-969, -295)
+scale = Vector2(1.4, 1.4)
 
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/Up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/Down" to="." method="_on_down_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Completed" to="." method="_on_completed_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Home" to="." method="_on_home_pressed"]
 
 [editable path="GUI/IngameGUIButtons"]
-[editable path="GUI/IngameGUIButtons/ButtonBox"]
 [editable path="GUI/IngameGUIButtons/TopCornerBox"]
+[editable path="GUI/IngameGUIButtons/ButtonBox"]

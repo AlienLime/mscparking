@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ffbv1re5uygo"
-path="res://.godot/imported/standard-button-on.png-323c20d90beea490c9751dd620ce135d.ctex"
+uid="uid://dnv70n70cat1x"
+path="res://.godot/imported/wide-button-off.png-72fe36aee2cbd1bbe0315467fb7748d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/standard-button-on.png"
-dest_files=["res://.godot/imported/standard-button-on.png-323c20d90beea490c9751dd620ce135d.ctex"]
+source_file="res://assets/sprites/industrial/wide-button-off.png"
+dest_files=["res://.godot/imported/wide-button-off.png-72fe36aee2cbd1bbe0315467fb7748d4.ctex"]
 
 [params]
 

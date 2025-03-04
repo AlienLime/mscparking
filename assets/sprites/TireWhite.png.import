@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b08bcqvipbpch"
-path="res://.godot/imported/square-button-off.png-885801f359da19ae9850a35633d4e546.ctex"
+uid="uid://cbd8mlgew84qg"
+path="res://.godot/imported/TireWhite.png-754d8810532eeabc679802eb40a410b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/square-button-off.png"
-dest_files=["res://.godot/imported/square-button-off.png-885801f359da19ae9850a35633d4e546.ctex"]
+source_file="res://assets/sprites/TireWhite.png"
+dest_files=["res://.godot/imported/TireWhite.png-754d8810532eeabc679802eb40a410b5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4oltu8u34v7d"
-path="res://.godot/imported/square-button-on.png-b37b6e22a6f05d96825cda21a71c23bd.ctex"
+uid="uid://ew4ck2geg85b"
+path="res://.godot/imported/SpritesheetCars.png-0fbbdb885d419eb7081430f6f4f0bcbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/square-button-on.png"
-dest_files=["res://.godot/imported/square-button-on.png-b37b6e22a6f05d96825cda21a71c23bd.ctex"]
+source_file="res://assets/sprites/SpritesheetCars.png"
+dest_files=["res://.godot/imported/SpritesheetCars.png-0fbbdb885d419eb7081430f6f4f0bcbe.ctex"]
 
 [params]
 

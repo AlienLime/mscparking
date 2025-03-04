@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ncd14ca2nd4"
-path="res://.godot/imported/wide-button-on.png-52be8c1a7fd05df5411fc29acde92ffb.ctex"
+uid="uid://cp4sfje1l0kj"
+path="res://.godot/imported/dialog-standard.png-5c04da6db59ca9376f1ea95bde15d333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/wide-button-on.png"
-dest_files=["res://.godot/imported/wide-button-on.png-52be8c1a7fd05df5411fc29acde92ffb.ctex"]
+source_file="res://assets/sprites/industrial/dialog-standard.png"
+dest_files=["res://.godot/imported/dialog-standard.png-5c04da6db59ca9376f1ea95bde15d333.ctex"]
 
 [params]
 

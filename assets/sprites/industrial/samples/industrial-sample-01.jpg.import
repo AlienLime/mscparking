@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b02on38mn1p4m"
-path="res://.godot/imported/industrial-sample-02.jpg-68c322eeed6ecabb43e829c3e5ba57d6.ctex"
+uid="uid://bn0l4di3fpqpq"
+path="res://.godot/imported/industrial-sample-01.jpg-433387a6316ddb8ab8c03c05069717ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/samples/industrial-sample-02.jpg"
-dest_files=["res://.godot/imported/industrial-sample-02.jpg-68c322eeed6ecabb43e829c3e5ba57d6.ctex"]
+source_file="res://assets/sprites/industrial/samples/industrial-sample-01.jpg"
+dest_files=["res://.godot/imported/industrial-sample-01.jpg-433387a6316ddb8ab8c03c05069717ce.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/level_02.gd" id="1_qipv5"]
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="2_js6ra"]
-[ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/SpriteSheetOther.png" id="3_abatm"]
+[ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="3_abatm"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="4_atftf"]
 [ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="5_brtv4"]
 
@@ -544,10 +544,7 @@ offset_bottom = -0.248047
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/Up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Completed" to="." method="_on_completed_pressed"]
-[connection signal="pressed" from="GUI/IngameGUIButtons/TopCornerBox/MarginContainer/Hbox/Home" to="." method="_on_home_pressed"]
 
 [editable path="GUI/IngameGUIButtons"]
-[editable path="GUI/IngameGUIButtons/ButtonBox"]
 [editable path="GUI/IngameGUIButtons/TopCornerBox"]
+[editable path="GUI/IngameGUIButtons/ButtonBox"]

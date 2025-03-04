@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp4sfje1l0kj"
-path="res://.godot/imported/dialog-standard.png-8ee45b6a11683f6e7a2e1f86c0306f4c.ctex"
+uid="uid://b08bcqvipbpch"
+path="res://.godot/imported/square-button-off.png-599cb7b433f0914758bdeb934404ce26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/industrial/dialog-standard.png"
-dest_files=["res://.godot/imported/dialog-standard.png-8ee45b6a11683f6e7a2e1f86c0306f4c.ctex"]
+source_file="res://assets/sprites/industrial/square-button-off.png"
+dest_files=["res://.godot/imported/square-button-off.png-599cb7b433f0914758bdeb934404ce26.ctex"]
 
 [params]
 
