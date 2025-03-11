@@ -19,7 +19,7 @@ script = ExtResource("1_uybvk")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 modulate = Color(0, 0, 0, 0.34902)
 position = Vector2(-59, -47)
-scale = Vector2(1278, 750)
+scale = Vector2(2040, 1177)
 polygon = PackedVector2Array(0, 0, 0, 1, 1, 1, 1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="."]
@@ -31,11 +31,12 @@ anchor_right = 0.972
 anchor_bottom = 0.557
 offset_left = 99.0
 offset_top = 59.0
-offset_right = 1067.0
-offset_bottom = 415.0
+offset_right = 1814.0
+offset_bottom = 926.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_aev12")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxTexture_j28ey")
 text = "Hej med dig. Velkommen til parkeringspladsen!
 
@@ -50,15 +51,16 @@ autowrap_mode = 3
 
 [node name="Continue" type="Button" parent="Label"]
 layout_mode = 0
-offset_left = 660.0
-offset_top = 293.0
-offset_right = 794.0
-offset_bottom = 326.0
+offset_left = 1018.0
+offset_top = 745.0
+offset_right = 1366.0
+offset_bottom = 806.0
 theme = ExtResource("1_aev12")
+theme_override_font_sizes/font_size = 35
 text = "Forstået"
 
 [node name="HjælpeJensUdenBaggrund" type="Sprite2D" parent="."]
-position = Vector2(967, 448)
+position = Vector2(1611, 875)
 texture = ExtResource("3_mxb6i")
 
 [connection signal="pressed" from="Label/Continue" to="." method="_on_continue_pressed"]

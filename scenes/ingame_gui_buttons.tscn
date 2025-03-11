@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvol3482i33mt"]
+[gd_scene load_steps=8 format=3 uid="uid://dvol3482i33mt"]
 
+[ext_resource type="Script" path="res://scripts/ingame_gui_buttons.gd" id="1_88s27"]
 [ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="1_ip3m1"]
 [ext_resource type="PackedScene" uid="uid://ck03ms3d0l6mj" path="res://scenes/button_box.tscn" id="1_lom4w"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_eys7k"]
@@ -18,10 +19,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 493.0
-offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_88s27")
 
 [node name="TopCornerBox" parent="." instance=ExtResource("1_ip3m1")]
 layout_mode = 2
@@ -54,16 +54,17 @@ offset_bottom = 0.0639648
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_eys7k")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxTexture_s1x6g")
 text = "aakfsægfbaæslkjf"
 autowrap_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 1043.0
-offset_top = 402.0
-offset_right = 1257.84
-offset_bottom = 656.488
+offset_left = 1710.0
+offset_top = 489.0
+offset_right = 1924.84
+offset_bottom = 743.488
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xdq4o")
 region_rect = Rect2(181, 44, 307, 364)

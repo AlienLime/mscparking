@@ -2,12 +2,6 @@ extends Node2D
 
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
-@onready var helper: Label = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/Helper
-@onready var textbox: Label = $GUI/IngameGUIButtons/Label
-@onready var completed: Button = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/VBoxContainer/Hbox/Completed
-@onready var left: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left
-@onready var right: Button = $GUI/IngameGUIButtons/ButtonBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right
-@onready var level: Label = $GUI/IngameGUIButtons/TopCornerBox/MarginContainer/VBoxContainer/level
 
 
 
@@ -20,6 +14,18 @@ var spawn
 const upCond = ["1_0_0"]
 const downCond = ["0_0_0"]
 var score = 0
+var disableUp = false
+var disableLeft = true
+var disableRight = true
+var disableDown = false
+var disableCompleted = true
+var helper = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
+var textbox = "Her er den første plads. Her gælder de her regler:
+					Hvis bilen er rød
+					Så skal den parkere øverst
+					Ellers hvis bilen er blå 
+					Så skal den parkere nederst"
+var level = 1
 
 const nextScene = "res://scenes/level_02.tscn"
 const nrCars = 5
@@ -28,16 +34,6 @@ const nrCars = 5
 func _ready() -> void:
 	spawn = parking.get_node("Spawn").position
 	spawnCar()
-	left.disabled = true
-	right.disabled = true
-	completed.disabled = true
-	textbox.text = "Her er den første plads. Her gælder de her regler:
-					Hvis bilen er rød
-					Så skal den parkere øverst
-					Ellers hvis bilen er blå 
-					Så skal den parkere nederst"
-	helper.text = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
-	level.text = "Bane 1"
 	
 	for parking_spot in parking.get_node("Up").get_children():
 		parking_spot.conditions = upCond
@@ -48,9 +44,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if score == nrCars:
-		helper.text = "Godt gået!"
-		helper.modulate = "00ffff"
-		completed.disabled = false
+		helper = "Godt gået!"
+		disableCompleted = false
 
 
 func _on_up_pressed() -> void:
@@ -67,8 +62,7 @@ func _on_down_pressed() -> void:
 
 #Helper functions
 func rigtigt(x: int) -> void:
-	helper.text = "Rigtigt"
-	helper.modulate = "07d434"
+	helper = "Rigtigt"
 	done += 1
 	if x == 0:
 		currentCar.parkingSpot = parking.get_node("Up").get_child(upPark)
@@ -83,8 +77,7 @@ func rigtigt(x: int) -> void:
 		spawnCar()
 
 func forkert() -> void:
-	helper.text = "FORKERT"
-	helper.modulate = "da2031"
+	helper = "FORKERT"
 
 func spawnCar() -> void:
 	currentCar = newCar.instantiate()
