@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://buknww60ebskp"]
+[gd_scene load_steps=9 format=3 uid="uid://buknww60ebskp"]
 
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_rsxe4"]
+[ext_resource type="Script" path="res://scripts/if_color.gd" id="1_v1se8"]
 [ext_resource type="Texture2D" uid="uid://buq5eig60h3pk" path="res://assets/sprites/Colors/Blue.png" id="2_qro65"]
 [ext_resource type="Texture2D" uid="uid://v5wxh18filiw" path="res://assets/sprites/Colors/Green.png" id="3_ans16"]
 [ext_resource type="Texture2D" uid="uid://c1ae5s0bkm5id" path="res://assets/sprites/Colors/Orange.png" id="4_e0mdw"]
@@ -13,6 +14,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 3
 anchors_preset = 0
 offset_bottom = 40.0
+script = ExtResource("1_v1se8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 40)
@@ -31,6 +33,8 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_rsxe4")
+theme_override_font_sizes/font_size = 25
 item_count = 6
 popup/item_0/text = "Blå"
 popup/item_0/icon = ExtResource("2_qro65")

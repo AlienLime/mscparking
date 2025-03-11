@@ -22,7 +22,7 @@ var spawnUp
 var spawnDown
 var score = 0
 var canRun = true
-
+var carColors = ["Rød", "Blå"]
 const nextScene = "res://scenes/victory_screen.tscn"
 const nrCars = 5
 const leftCond = ["0_3_0", "0_0_0"]
