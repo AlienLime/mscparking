@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/parking_spot.gd" id="1_8vkgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgelu"]
-size = Vector2(54, 88)
+size = Vector2(54, 71)
 
 [node name="ParkingSpot" type="Area2D"]
 scale = Vector2(2, 2)

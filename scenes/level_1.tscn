@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://cpuqj38ytwcmm"]
+[gd_scene load_steps=71 format=4 uid="uid://cpuqj38ytwcmm"]
 
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="1_c5aam"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_kq8uv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2c0h1w8pwaw8" path="res://scenes/red_blue_car_driving.tscn" id="3_v6hih"]
 [ext_resource type="PackedScene" uid="uid://dvol3482i33mt" path="res://scenes/ingame_gui_buttons.tscn" id="5_s5jc4"]
 [ext_resource type="PackedScene" uid="uid://dvp2c6npvj33y" path="res://scenes/intro.tscn" id="6_0ywff"]
+[ext_resource type="PackedScene" uid="uid://c231qpflxdhnd" path="res://scenes/pop_up_complete.tscn" id="6_ehlqv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -506,6 +507,9 @@ scale = Vector2(2, 2)
 [node name="IngameGUIButtons" parent="GUI" instance=ExtResource("5_s5jc4")]
 metadata/_edit_use_anchors_ = true
 
+[node name="PopUpComplete" parent="GUI/IngameGUIButtons" instance=ExtResource("6_ehlqv")]
+layout_mode = 1
+
 [node name="Intro" parent="." instance=ExtResource("6_0ywff")]
 visible = false
-position = Vector2(-1103, -374)
+position = Vector2(10, 0)

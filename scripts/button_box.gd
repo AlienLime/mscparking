@@ -5,15 +5,11 @@ extends MarginContainer
 @onready var down: Button = $MarginContainer/HBoxContainer/VBoxContainer/Down
 @onready var helper: Label = $MarginContainer/HBoxContainer/Helper
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _process(delta: float) -> void:
 	up.disabled = owner.owner.disableUp
 	left.disabled = owner.owner.disableLeft
 	right.disabled = owner.owner.disableRight
 	down.disabled = owner.owner.disableDown
-
-func _process(delta: float) -> void:
 	helper.text = owner.owner.helper
 
 	if Input.is_action_just_pressed("ui_up") && !up.disabled:

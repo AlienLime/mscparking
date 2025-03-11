@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvp2c6npvj33y"]
+[gd_scene load_steps=5 format=3 uid="uid://dvp2c6npvj33y"]
 
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_aev12"]
-[ext_resource type="Script" path="res://scripts/intro.gd" id="1_uybvk"]
 [ext_resource type="Texture2D" uid="uid://co2mbckc0y841" path="res://assets/sprites/Talebobbel.png" id="2_y2m8j"]
 [ext_resource type="Texture2D" uid="uid://cbetin0rauqvr" path="res://assets/sprites/HjælpeJensUdenBaggrund.png" id="3_mxb6i"]
 
@@ -14,7 +13,6 @@ texture_margin_bottom = 30.0
 
 [node name="Intro" type="Node2D"]
 z_index = 10
-script = ExtResource("1_uybvk")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 modulate = Color(0, 0, 0, 0.34902)
@@ -29,38 +27,23 @@ anchor_left = 0.603
 anchor_top = 0.225
 anchor_right = 0.972
 anchor_bottom = 0.557
-offset_left = 99.0
-offset_top = 59.0
-offset_right = 1814.0
-offset_bottom = 926.0
+offset_left = 93.0
+offset_top = 72.0
+offset_right = 1836.0
+offset_bottom = 469.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_aev12")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxTexture_j28ey")
-text = "Hej med dig. Velkommen til parkeringspladsen!
+text = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
 
-Jeg har brug for din hjælp til at vise bilerne hen til de rette pladser. 
+Din opgave er at vise bilerne hen til de rette pladser. 
 
-Chefen har lavet meget særlige regler for hvordan biler må parkere på vores parkeringspladser.
-
-Det er meget vigtigt at vi overholder reglerne for at chefen ikke bliver gal i skralden.
-
-Jeg skal nok hjælpe dig."
+"
 autowrap_mode = 3
 
-[node name="Continue" type="Button" parent="Label"]
-layout_mode = 0
-offset_left = 1018.0
-offset_top = 745.0
-offset_right = 1366.0
-offset_bottom = 806.0
-theme = ExtResource("1_aev12")
-theme_override_font_sizes/font_size = 35
-text = "Forstået"
-
 [node name="HjælpeJensUdenBaggrund" type="Sprite2D" parent="."]
-position = Vector2(1611, 875)
+position = Vector2(1546, 675)
+scale = Vector2(2, 2)
 texture = ExtResource("3_mxb6i")
-
-[connection signal="pressed" from="Label/Continue" to="." method="_on_continue_pressed"]

@@ -9,7 +9,6 @@ extends Node2D
 @onready var color_if: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/If
 @onready var color_option: OptionButton = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/OptionButton
 @onready var color_then: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/Then
-@onready var level: Label = $GUI/IngameGUIDropdown/TopCornerBox/MarginContainer/VBoxContainer/level
 @onready var intro: Label = $Intro/Label
 
 var carIndex = 0
@@ -23,6 +22,7 @@ var spawnDown
 var score = 0
 var canRun = true
 var carColors = ["Rød", "Blå"]
+var level = 3
 const nextScene = "res://scenes/victory_screen.tscn"
 const nrCars = 5
 const leftCond = ["0_3_0", "0_0_0"]
@@ -35,19 +35,15 @@ func _ready() -> void:
 	spawnDown = parking.get_node("SpawnDown").position
 	completed.disabled = true
 	
-	intro.text = "Du har da super godt styr på parkering!\n
-				Men du kan ikke stå ved den samme parkeringsplads hele dagen. Vi må have dig til at lave systemer som bilerne kan følge når de skal finde en parkeringsplads.\n
-				I den næste bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
+	intro.text = "Du har jo super godt styr på parkering!\n
+				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
+				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
 				Held og lykke!"
-	textbox.text = "Denne gang er højre side reserveret til de røde biler."
+	textbox.text = "Nu er højre side reserveret til de røde biler."
 	helper.text = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
-	color_if.text = "Hvis 
-					bilen 
-					er "
-	color_then.text = "Så skal den
-						parkere til 
-						højre."
-	level.text = "Bane 3"
+	color_if.text = "Hvis bilen er "
+	color_then.text = "så skal den parkere til højre."
+	level = 3
 						
 	for parking_spot in parking.get_node("Right").get_children():
 		parking_spot.conditions = rightCond

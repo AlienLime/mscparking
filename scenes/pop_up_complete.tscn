@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c231qpflxdhnd"]
+
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_j2iry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8m40"]
+bg_color = Color(0.0884, 0.68, 0.24616, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[node name="PopUpComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -441.5
+offset_top = -49.5
+offset_right = 441.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_j2iry")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d8m40")
+text = "Godt gået!!! Du har løst banen!
+Tryk på fluebenet øverst til højre for at komme videre 
+til næste bane"
+horizontal_alignment = 1
