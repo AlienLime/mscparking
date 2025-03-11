@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxcon65dpfvjs"]
+[gd_scene load_steps=7 format=3 uid="uid://bxcon65dpfvjs"]
 
 [ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="1_3c235"]
+[ext_resource type="Script" path="res://scripts/ingame_gui_dropdown.gd" id="1_nesw4"]
 [ext_resource type="PackedScene" uid="uid://dp5i5ir5da4r1" path="res://scenes/dropdown_box.tscn" id="2_1nq5g"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_hjujm"]
 [ext_resource type="Texture2D" uid="uid://cbetin0rauqvr" path="res://assets/sprites/HjælpeJensUdenBaggrund.png" id="5_bcfvt"]
@@ -28,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nesw4")
 
 [node name="TopCornerBox" parent="." instance=ExtResource("1_3c235")]
 layout_mode = 1

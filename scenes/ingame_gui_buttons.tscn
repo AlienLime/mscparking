@@ -68,6 +68,7 @@ text = "aakfsægfbaæslkjf"
 autowrap_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
 offset_left = 1738.0
 offset_top = 464.0
 offset_right = 1952.84

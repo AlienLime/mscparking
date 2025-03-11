@@ -2,27 +2,34 @@ extends Node2D
 
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
-@onready var textbox: Label = $GUI/IngameGUIDropdown/Label
-@onready var completed: Button = $GUI/IngameGUIDropdown/TopCornerBox/MarginContainer/VBoxContainer/Hbox/Completed
-@onready var helper: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/Helper
-@onready var label: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/Label
-@onready var color_if: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/If
-@onready var color_option: OptionButton = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/OptionButton
-@onready var color_then: Label = $GUI/IngameGUIDropdown/DropdownBox/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/IfColor/HBoxContainer/Then
-@onready var intro: Label = $Intro/Label
+@onready var intro: Node2D = $Intro
+@onready var pop_up_complete: Control = $GUI/IngameGUIDropdown/PopUpComplete
 
 var carIndex = 0
 var currentCar
 var currentPos
 var rightPark = 0
 var leftPark = 0
-var done = 0
+var parked = 0
 var spawnUp
 var spawnDown
 var score = 0
+var clicks = 0
 var canRun = true
 var carColors = ["Rød", "Blå"]
 var level = 3
+var ifLabel = "Hvis bilen er "
+var colorSelected = -1
+var thenLabel = "så skal den parkere til højre."
+var helper = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
+var textbox = "Nu er højre side reserveret til de røde biler."
+var introLabel = "Du har jo super godt styr på parkering!\n
+				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
+				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
+				Held og lykke!"
+var disableCompleted = true
+
+
 const nextScene = "res://scenes/victory_screen.tscn"
 const nrCars = 5
 const leftCond = ["0_3_0", "0_0_0"]
@@ -33,18 +40,9 @@ func _ready() -> void:
 	canRun = true
 	spawnUp = parking.get_node("SpawnUp").position
 	spawnDown = parking.get_node("SpawnDown").position
-	completed.disabled = true
-	
-	intro.text = "Du har jo super godt styr på parkering!\n
-				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
-				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
-				Held og lykke!"
-	textbox.text = "Nu er højre side reserveret til de røde biler."
-	helper.text = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
-	color_if.text = "Hvis bilen er "
-	color_then.text = "så skal den parkere til højre."
-	level = 3
-						
+	intro.visible = true
+	pop_up_complete.visible = false
+
 	for parking_spot in parking.get_node("Right").get_children():
 		parking_spot.conditions = rightCond
 	for parking_spot in parking.get_node("Left").get_children():
@@ -53,28 +51,32 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if done == nrCars:
+	if Input.is_action_just_pressed("mouse"):
+		clicks += 1
+		if clicks == 1:
+			intro.visible = false
+	
+	if parked == nrCars:
 		if score == nrCars:
-			helper.text = "Godt gået!"
-			helper.modulate = "00ffff"
-			completed.disabled = false
+			pop_up_complete.visible = true
+			disableCompleted = false
 		else:
 			helper.text = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 
 #Helper functions
 func moveCar(x: int) -> void:
-	done += 1
-	if x == 0:
-		currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
-	else:
-		currentCar.parkingSpot = parking.get_node("Left").get_child(leftPark)
-	if carIndex < nrCars-1:
-		carIndex += 1
+	if parked < nrCars:
 		if x == 0:
-			rightPark += 1
+			currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
 		else:
-			leftPark += 1
+			currentCar.parkingSpot = parking.get_node("Left").get_child(leftPark)
+		if carIndex < nrCars-1:
+			carIndex += 1
+			if x == 0:
+				rightPark += 1
+			else:
+				leftPark += 1
 
 func spawnCar() -> void:
 	currentCar = newCar.instantiate()
@@ -92,12 +94,12 @@ func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
 func _on_run_pressed() -> void:
-	if color_option.get_selected_id() != -1 && canRun:
+	if colorSelected != -1 && canRun:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
 			await wait(2.5)
-			if currentCar.color == color_option.get_selected_id():
+			if currentCar.color == colorSelected:
 				moveCar(0)
 			else:
 				moveCar(1)

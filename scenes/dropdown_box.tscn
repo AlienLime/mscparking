@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp5i5ir5da4r1"]
+[gd_scene load_steps=6 format=3 uid="uid://dp5i5ir5da4r1"]
 
+[ext_resource type="Script" path="res://scripts/dropdown_box.gd" id="1_3db55"]
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_manry"]
 [ext_resource type="PackedScene" uid="uid://buknww60ebskp" path="res://scenes/if_color.tscn" id="2_0fwq5"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_i7ero"]
@@ -17,6 +18,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
+script = ExtResource("1_3db55")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -63,3 +65,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme = ExtResource("4_wprca")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Run" to="." method="_on_run_pressed"]

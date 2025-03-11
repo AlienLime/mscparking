@@ -26,6 +26,9 @@ var textbox = "Der er mange forskellige parkeringspladser med forskellige regler
 				Vi starter med et par pladser, hvor der kun kommer røde og blå biler.
 				
 				(Tryk for at fortsætte)"
+var introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
+			
+			Din opgave er at vise bilerne hen til de rette pladser."
 var level = 1
 
 const nextScene = "res://scenes/level_02.tscn"

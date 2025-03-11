@@ -508,6 +508,7 @@ scale = Vector2(2, 2)
 metadata/_edit_use_anchors_ = true
 
 [node name="PopUpComplete" parent="GUI/IngameGUIButtons" instance=ExtResource("6_ehlqv")]
+visible = false
 layout_mode = 1
 
 [node name="Intro" parent="." instance=ExtResource("6_0ywff")]
