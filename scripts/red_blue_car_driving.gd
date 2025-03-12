@@ -3,11 +3,14 @@ extends CharacterBody2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var car: CharacterBody2D = $"."
 @export var parkingSpot: Node2D
+@export var navigationTarget: Node2D
 
 var random = randi_range(0,13)
 var color: int
 var origin: int
 var shape: int
+var isParked = false
+var isParkedCorrectly = false
 
 var speed = 175
 var ID = "ID"
@@ -23,6 +26,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if parkingSpot != null:
+		navigationTarget = parkingSpot
 	if nav_agent.is_navigation_finished():
 		speed = 0
 	else:
@@ -37,8 +42,8 @@ func _physics_process(delta: float) -> void:
 
 
 func make_path() -> void:
-	if parkingSpot != null:
-		nav_agent.target_position = parkingSpot.global_position
+	if navigationTarget != null:
+		nav_agent.target_position = navigationTarget.global_position
 
 func _on_timer_timeout() -> void:
 	make_path()

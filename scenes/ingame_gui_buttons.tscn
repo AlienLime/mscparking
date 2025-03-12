@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvol3482i33mt"]
+[gd_scene load_steps=8 format=3 uid="uid://dvol3482i33mt"]
 
 [ext_resource type="Script" path="res://scripts/ingame_gui_buttons.gd" id="1_88s27"]
 [ext_resource type="PackedScene" uid="uid://c7v74ksker21g" path="res://scenes/top_corner_box.tscn" id="1_ip3m1"]
 [ext_resource type="PackedScene" uid="uid://ck03ms3d0l6mj" path="res://scenes/button_box.tscn" id="1_lom4w"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_eys7k"]
 [ext_resource type="Texture2D" uid="uid://cbetin0rauqvr" path="res://assets/sprites/HjælpeJensUdenBaggrund.png" id="5_xdq4o"]
+[ext_resource type="PackedScene" uid="uid://drsql3jy0667k" path="res://scenes/score_box.tscn" id="6_nj8r1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofyxj"]
 content_margin_left = 20.0
@@ -76,3 +77,6 @@ offset_bottom = 718.488
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xdq4o")
 region_rect = Rect2(181, 44, 307, 364)
+
+[node name="ScoreBox" parent="." instance=ExtResource("6_nj8r1")]
+layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7v74ksker21g"]
+[gd_scene load_steps=8 format=3 uid="uid://c7v74ksker21g"]
 
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_hnm5t"]
 [ext_resource type="Script" path="res://scripts/top_corner_box.gd" id="1_wdigg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_ql562"]
 [ext_resource type="Theme" uid="uid://bcelgugjhxlxx" path="res://themes/buttons/restart.tres" id="2_rqmtw"]
 [ext_resource type="Theme" uid="uid://1tk3hr88i5gy" path="res://themes/buttons/completed.tres" id="4_hh44b"]
+[ext_resource type="Theme" uid="uid://djbcv50rqj1sd" path="res://themes/buttons/undo.tres" id="4_lxc6a"]
 
 [node name="TopCornerBox" type="MarginContainer"]
 anchors_preset = 1
@@ -46,6 +47,11 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="Undo" type="Button" parent="MarginContainer/VBoxContainer/Hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("4_lxc6a")
+
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/Hbox"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -65,6 +71,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource("2_m67y3")
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox/Undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox/Completed" to="." method="_on_completed_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox/Home" to="." method="_on_home_pressed"]

@@ -1279,11 +1279,11 @@ cache/0/100/0/glyphs/47/texture_idx = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7x85"]
 texture = ExtResource("1_0lfc2")
-region_rect = Rect2(33, 33, 30, 30)
+region_rect = Rect2(129, 33, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1hvs"]
 texture = ExtResource("1_0lfc2")
-region_rect = Rect2(1, 33, 30, 30)
+region_rect = Rect2(161, 33, 30, 30)
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)

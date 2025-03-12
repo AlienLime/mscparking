@@ -6,20 +6,19 @@ extends Node2D
 
 
 
-var carIndex = 0
 var currentCar
-var currentPos
-var rightPark = 0
-var leftPark = 0
+var carStack = []
+var carIncrementer = 0
 var parked = 0
+var score = 0
 var spawnUp
 var spawnDown
-var score = 0
 var disableUp = true
 var disableLeft = false
 var disableRight = false
 var disableDown = true
 var disableCompleted = true
+var disableUndo = true
 var helper = ""
 var textbox = "Der er mange forskellige parkeringspladser, med forskellige regler. 
 				Vi starter med et par pladser hvor der kun kommer røde og blå biler.
@@ -53,10 +52,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if carStack.is_empty():
+		disableUndo = true
+	else:
+		disableUndo = false
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
 			disableCompleted = false
+			disableUndo = true
+			helper = ""
 		else:
 			helper = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
@@ -69,27 +74,57 @@ func _on_left_pressed() -> void:
 
 #Helper functions
 func moveCar(x: int) -> void:
-	if parked < nrCars:
+	if currentCar != null:
 		if x == 0:
-			currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
+			for spot in parking.get_node("Right").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					break
 		else:
-			currentCar.parkingSpot = parking.get_node("Left").get_child(leftPark)
-		if carIndex < nrCars-1:
-			carIndex += 1
-			if x == 0:
-				rightPark += 1
-			else:
-				leftPark += 1
-			spawnCar()
+			for spot in parking.get_node("Left").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					break
+		currentCar = null
+		spawnCar()
 
 func spawnCar() -> void:
-	currentCar = newCar.instantiate()
-	add_child(currentCar)
-	if randi_range(0, 1) == 1:
-		currentCar.position = spawnUp
-		currentCar.origin = 0
-		currentCar.parkingSpot = parking.get_node("StartUp")
-	else:
-		currentCar.position = spawnDown
-		currentCar.origin = 3
-		currentCar.parkingSpot = parking.get_node("StartDown")
+	if carIncrementer < nrCars:
+		carIncrementer += 1
+		currentCar = newCar.instantiate()
+		add_child(currentCar)
+		carStack.push_back(currentCar)
+		if randi_range(0, 1) == 1:
+			currentCar.position = spawnUp
+			currentCar.origin = 0
+			currentCar.navigationTarget = parking.get_node("StartUp")
+		else:
+			currentCar.position = spawnDown
+			currentCar.origin = 3
+			currentCar.navigationTarget = parking.get_node("StartDown")
+
+func undo() -> void:
+	if parked < nrCars:
+		currentCar = carStack.pop_back()
+		if currentCar.isParked:
+			parked -= 1
+		if currentCar.isParkedCorrectly:
+			score -= 1
+		if currentCar.parkingSpot != null:
+			currentCar.parkingSpot.isFree = true
+		carIncrementer -= 1
+		currentCar.queue_free()
+	
+	currentCar = carStack.pop_back()
+	if currentCar.isParked:
+		parked -= 1
+	if currentCar.isParkedCorrectly:
+		score -= 1
+	if currentCar.parkingSpot != null:
+		currentCar.parkingSpot.isFree = true
+	carIncrementer -= 1
+	currentCar.queue_free()
+	
+	spawnCar()

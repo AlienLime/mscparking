@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://drsql3jy0667k"]
+
+[ext_resource type="Script" path="res://scripts/score_box.gd" id="1_6vpyk"]
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_gxwsn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_voj0h"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.92549, 0.737255, 0.00784314, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="ScoreBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6vpyk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 110.0
+offset_bottom = 61.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_gxwsn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_voj0h")
+text = "Base"

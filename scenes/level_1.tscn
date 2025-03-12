@@ -511,6 +511,9 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 1
 
-[node name="Intro" parent="." instance=ExtResource("6_0ywff")]
+[node name="Intro" parent="GUI/IngameGUIButtons" instance=ExtResource("6_0ywff")]
 visible = false
-position = Vector2(10, 0)
+layout_mode = 1
+offset_left = 10.0
+offset_right = 10.0
+offset_bottom = 0.0

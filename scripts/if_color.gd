@@ -16,6 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	ifLabel.text = owner.owner.owner.ifLabel
 	thenLabel.text = owner.owner.owner.thenLabel
+	option_button.disabled = !owner.owner.owner.canRun
 
 
 func _on_option_button_item_selected(index: int) -> void:

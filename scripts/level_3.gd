@@ -2,10 +2,10 @@ extends Node2D
 
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
-@onready var intro: Node2D = $Intro
 @onready var pop_up_complete: Control = $GUI/IngameGUIDropdown/PopUpComplete
+@onready var intro: Control = $GUI/IngameGUIDropdown/Intro
 
-var carIndex = 0
+var carIncrementer = 0
 var currentCar
 var currentPos
 var rightPark = 0
@@ -28,7 +28,7 @@ var introLabel = "Du har jo super godt styr på parkering!\n
 				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
 				Held og lykke!"
 var disableCompleted = true
-
+var disableUndo = true
 
 const nextScene = "res://scenes/victory_screen.tscn"
 const nrCars = 5
@@ -55,13 +55,13 @@ func _process(delta: float) -> void:
 		clicks += 1
 		if clicks == 1:
 			intro.visible = false
-	
+			intro.z_index = -1
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
 			disableCompleted = false
 		else:
-			helper.text = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			helper = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 
 #Helper functions
@@ -71,8 +71,8 @@ func moveCar(x: int) -> void:
 			currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
 		else:
 			currentCar.parkingSpot = parking.get_node("Left").get_child(leftPark)
-		if carIndex < nrCars-1:
-			carIndex += 1
+		if carIncrementer < nrCars-1:
+			carIncrementer += 1
 			if x == 0:
 				rightPark += 1
 			else:

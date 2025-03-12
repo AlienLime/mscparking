@@ -537,6 +537,9 @@ scale = Vector2(2, 2)
 visible = false
 layout_mode = 1
 
-[node name="Intro" parent="." instance=ExtResource("4_ick2m")]
+[node name="Intro" parent="GUI/IngameGUIDropdown" instance=ExtResource("4_ick2m")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
 
-[editable path="Intro"]
+[editable path="GUI/IngameGUIDropdown/Intro"]
