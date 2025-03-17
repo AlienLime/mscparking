@@ -457,6 +457,7 @@ offset_right = 1130.0
 offset_bottom = 975.0
 theme = ExtResource("2_gttk2")
 text = "Gå tilbage til menuen"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 z_index = 1
@@ -472,6 +473,7 @@ text = "Godt gået!
 Du fik XXXXX point!"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="RandomCar" parent="." instance=ExtResource("3_so3oe")]
 position = Vector2(117, 447)

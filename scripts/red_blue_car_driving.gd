@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var car: CharacterBody2D = $"."
-@export var parkingSpot: Node2D
+@export var parkingSpot: ParkingSpot
 @export var navigationTarget: Node2D
 
 var random = randi_range(0,13)
@@ -11,6 +11,7 @@ var origin: int
 var shape: int
 var isParked = false
 var isParkedCorrectly = false
+var waiting = false
 
 var speed = 175
 var ID = "ID"
@@ -28,7 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if parkingSpot != null:
 		navigationTarget = parkingSpot
-	if nav_agent.is_navigation_finished():
+	if nav_agent.is_navigation_finished() || waiting:
 		speed = 0
 	else:
 		speed = 175
@@ -52,3 +53,12 @@ func _on_timer_timeout() -> void:
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
+		if !body.waiting: # to avoid a stale mate where 2 cars wait for each other
+			if (body.car.rotation < car.rotation-(PI/2.0) || body.car.rotation > car.rotation+(PI/2.0)): # to avoid hitting other waiting cars from behind
+				waiting = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	waiting = false

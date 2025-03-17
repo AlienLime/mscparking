@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 
 func _on_up_pressed() -> void:
 	if parked < nrCars:
-		if currentCar.color == 1:
+		if currentCar && currentCar.color == 1:
 			helper = "Rigtigt"
 			moveCar(0)
 		else:
@@ -87,7 +87,7 @@ func _on_up_pressed() -> void:
 
 func _on_down_pressed() -> void:
 	if parked < nrCars:
-		if currentCar.color == 0:
+		if currentCar && currentCar.color == 0:
 			helper = "Rigtigt"
 			moveCar(1)
 		else:
@@ -98,7 +98,7 @@ func forkert() -> void:
 	helper = "FORKERT"
 	
 func moveCar(x: int) -> void:
-	if currentCar != null:
+	if currentCar:
 		if x == 0:
 			for spot in parking.get_node("Up").get_children():
 				if spot.isFree:

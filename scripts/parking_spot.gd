@@ -1,4 +1,5 @@
 extends Area2D
+class_name ParkingSpot
 
 # Parkingsplads godkendelses conditions
 var conditions = [] # List of strings of accepted combinations

@@ -4,6 +4,7 @@ extends Node2D
 @onready var parking: Node = $Parking
 @onready var pop_up_complete: Control = $GUI/IngameGUIButtons/PopUpComplete
 
+var navigationMesh: NavigationMesh
 
 
 var currentCar
@@ -74,7 +75,7 @@ func _on_left_pressed() -> void:
 
 #Helper functions
 func moveCar(x: int) -> void:
-	if currentCar != null:
+	if currentCar:
 		if x == 0:
 			for spot in parking.get_node("Right").get_children():
 				if spot.isFree:
@@ -91,6 +92,7 @@ func moveCar(x: int) -> void:
 		spawnCar()
 
 func spawnCar() -> void:
+	await wait(0.75)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
@@ -128,3 +130,6 @@ func undo() -> void:
 	currentCar.queue_free()
 	
 	spawnCar()
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout

@@ -16,7 +16,8 @@ var spawnDown
 var score = 0
 var clicks = 0
 var canRun = true
-var carColors = ["Rød", "Blå"]
+#0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+var carColors = [0, 1]
 var level = 3
 var ifLabel = "Hvis bilen er "
 var colorSelected = -1
@@ -66,29 +67,34 @@ func _process(delta: float) -> void:
 
 #Helper functions
 func moveCar(x: int) -> void:
-	if parked < nrCars:
+	if currentCar:
 		if x == 0:
-			currentCar.parkingSpot = parking.get_node("Right").get_child(rightPark)
+			for spot in parking.get_node("Right").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					break
 		else:
-			currentCar.parkingSpot = parking.get_node("Left").get_child(leftPark)
-		if carIncrementer < nrCars-1:
-			carIncrementer += 1
-			if x == 0:
-				rightPark += 1
-			else:
-				leftPark += 1
+			for spot in parking.get_node("Left").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					break
+		currentCar = null
 
 func spawnCar() -> void:
-	currentCar = newCar.instantiate()
-	add_child(currentCar)
-	if randi_range(0, 1) == 1:
-		currentCar.position = spawnUp
-		currentCar.origin = "0"
-		currentCar.parkingSpot = parking.get_node("StartUp")
-	else:
-		currentCar.position = spawnDown
-		currentCar.origin = "3"
-		currentCar.parkingSpot = parking.get_node("StartDown")
+	if carIncrementer < nrCars:
+		carIncrementer += 1
+		currentCar = newCar.instantiate()
+		add_child(currentCar)
+		if randi_range(0, 1) == 1:
+			currentCar.position = spawnUp
+			currentCar.origin = 0
+			currentCar.navigationTarget = parking.get_node("StartUp")
+		else:
+			currentCar.position = spawnDown
+			currentCar.origin = 3
+			currentCar.navigationTarget = parking.get_node("StartDown")
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -98,7 +104,7 @@ func _on_run_pressed() -> void:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
-			await wait(2.5)
+			await wait(1)
 			if currentCar.color == colorSelected:
 				moveCar(0)
 			else:
