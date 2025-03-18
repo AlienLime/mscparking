@@ -17,7 +17,8 @@ var score = 0
 var clicks = 0
 var canRun = true
 #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-var carColors = [0, 1]
+const carColors = [0, 1]
+const carOrigins = [0, 3]
 var level = 3
 var ifLabel = "Hvis bilen er "
 var colorSelected = -1
@@ -85,16 +86,16 @@ func moveCar(x: int) -> void:
 func spawnCar() -> void:
 	if carIncrementer < nrCars:
 		carIncrementer += 1
+		var origin = carOrigins.pick_random()
 		currentCar = newCar.instantiate()
-		add_child(currentCar)
-		if randi_range(0, 1) == 1:
+		currentCar.withData(carColors,origin)
+		if origin == 0:
 			currentCar.position = spawnUp
-			currentCar.origin = 0
 			currentCar.navigationTarget = parking.get_node("StartUp")
 		else:
 			currentCar.position = spawnDown
-			currentCar.origin = 3
 			currentCar.navigationTarget = parking.get_node("StartDown")
+		add_child(currentCar)
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

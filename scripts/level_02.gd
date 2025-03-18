@@ -29,6 +29,9 @@ var level = 2
 
 const nextScene = "res://scenes/level_3.tscn"
 const nrCars = 5
+const carColors = [0, 1]
+const carOrigins = [0, 3]
+const carShapes = [0]
 const leftCond = ["1_0_0", "0_0_0"]
 const rightCond = ["1_3_0", "0_3_0"]
 
@@ -95,17 +98,17 @@ func spawnCar() -> void:
 	await wait(0.75)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
+		var origin = carOrigins.pick_random()
 		currentCar = newCar.instantiate()
-		add_child(currentCar)
-		carStack.push_back(currentCar)
-		if randi_range(0, 1) == 1:
+		currentCar.withData(carColors,origin)
+		if origin == 0:
 			currentCar.position = spawnUp
-			currentCar.origin = 0
 			currentCar.navigationTarget = parking.get_node("StartUp")
 		else:
 			currentCar.position = spawnDown
-			currentCar.origin = 3
 			currentCar.navigationTarget = parking.get_node("StartDown")
+		add_child(currentCar)
+		carStack.push_back(currentCar)
 
 func undo() -> void:
 	if parked < nrCars:
