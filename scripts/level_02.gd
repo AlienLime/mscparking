@@ -27,7 +27,7 @@ var textbox = "Der er mange forskellige parkeringspladser, med forskellige regle
 				(Tryk for at fortsætte)"
 var level = 2
 
-const nextScene = "res://scenes/level_3.tscn"
+const nextScene = "res://scenes/Levels/level_3.tscn"
 var carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]]
 var carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
 var carShapes = [0]

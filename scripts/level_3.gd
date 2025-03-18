@@ -18,7 +18,7 @@ var clicks = 0
 var canRun = true
 #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 var usedColors = [0, 1]
-var carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]]
+var carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]]
 var carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
 var carShapes = [0]
 var nrCars = carColors.size()

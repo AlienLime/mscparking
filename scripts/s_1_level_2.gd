@@ -30,7 +30,7 @@ var textbox = "Det var godt gået.
 				Nu skal vi prøve den samme plads men med andre regler."
 var level = 2
 
-const nextScene = "res://scenes/level_02.tscn"
+const nextScene = "res://scenes/Levels/level_02.tscn"
 const nrCars = 6
 
 # Called when the node enters the scene tree for the first time.

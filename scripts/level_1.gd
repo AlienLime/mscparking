@@ -36,7 +36,7 @@ var introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjæl
 			Din opgave er at vise bilerne hen til de rette pladser."
 var level = 1
 
-const nextScene = "res://scenes/s_1_level_2.tscn"
+const nextScene = "res://scenes/Levels/s_1_level_2.tscn"
 var nrCars = carColors.size()
 
 # Called when the node enters the scene tree for the first time.
