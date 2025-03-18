@@ -35,31 +35,32 @@ script = ExtResource("1_88s27")
 [node name="TopCornerBox" parent="." instance=ExtResource("1_ip3m1")]
 layout_mode = 2
 anchors_preset = 0
-anchor_left = 0.811
-anchor_bottom = 0.145
-offset_left = 53.728
-offset_bottom = 0.0399933
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 1610.85
+offset_right = 1920.0
+offset_bottom = 156.64
 
 [node name="ButtonBox" parent="." instance=ExtResource("1_lom4w")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.601
-anchor_top = 0.565
-offset_left = -0.35199
-offset_top = -0.119995
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1153.57
+offset_top = 610.08
+offset_right = 1920.0
+offset_bottom = 1078.0
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.603
-anchor_top = 0.225
-anchor_right = 0.972
-anchor_bottom = 0.557
-offset_left = 0.343933
-offset_top = 0.199997
-offset_right = 0.255981
-offset_bottom = 0.0639648
+offset_left = 1158.1
+offset_top = 243.2
+offset_right = 1866.5
+offset_bottom = 601.624
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_eys7k")

@@ -17,7 +17,11 @@ var score = 0
 var clicks = 0
 var canRun = true
 #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-var carColors = [0, 1]
+var usedColors = [0, 1]
+var carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]]
+var carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
+var carShapes = [0]
+var nrCars = carColors.size()
 var level = 3
 var ifLabel = "Hvis bilen er "
 var colorSelected = -1
@@ -32,7 +36,7 @@ var disableCompleted = true
 var disableUndo = true
 
 const nextScene = "res://scenes/victory_screen.tscn"
-const nrCars = 5
+
 const leftCond = ["0_3_0", "0_0_0"]
 const rightCond = ["1_3_0", "1_0_0"]
 
@@ -83,21 +87,19 @@ func moveCar(x: int) -> void:
 		currentCar = null
 
 func spawnCar() -> void:
+	await wait(0.5)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
-		add_child(currentCar)
-		if randi_range(0, 1) == 1:
+		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigins.pop_at(randi_range(0, carOrigins.size()-1)))
+		if currentCar.origin == 0:
 			currentCar.position = spawnUp
-			currentCar.origin = 0
 			currentCar.navigationTarget = parking.get_node("StartUp")
 		else:
 			currentCar.position = spawnDown
-			currentCar.origin = 3
 			currentCar.navigationTarget = parking.get_node("StartDown")
+		add_child(currentCar)
 
-func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
 
 func _on_run_pressed() -> void:
 	if colorSelected != -1 && canRun:
@@ -109,3 +111,7 @@ func _on_run_pressed() -> void:
 				moveCar(0)
 			else:
 				moveCar(1)
+
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout

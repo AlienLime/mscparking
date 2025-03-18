@@ -28,7 +28,10 @@ var textbox = "Der er mange forskellige parkeringspladser, med forskellige regle
 var level = 2
 
 const nextScene = "res://scenes/level_3.tscn"
-const nrCars = 5
+var carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]]
+var carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
+var carShapes = [0]
+var nrCars = carColors.size()
 const leftCond = ["1_0_0", "0_0_0"]
 const rightCond = ["1_3_0", "0_3_0"]
 
@@ -96,16 +99,15 @@ func spawnCar() -> void:
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
-		add_child(currentCar)
-		carStack.push_back(currentCar)
-		if randi_range(0, 1) == 1:
+		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigins.pop_at(randi_range(0, carOrigins.size()-1)))
+		if currentCar.origin == 0:
 			currentCar.position = spawnUp
-			currentCar.origin = 0
 			currentCar.navigationTarget = parking.get_node("StartUp")
 		else:
 			currentCar.position = spawnDown
-			currentCar.origin = 3
 			currentCar.navigationTarget = parking.get_node("StartDown")
+		add_child(currentCar)
+		carStack.push_back(currentCar)
 
 func undo() -> void:
 	if parked < nrCars:

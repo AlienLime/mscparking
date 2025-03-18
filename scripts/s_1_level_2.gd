@@ -3,7 +3,6 @@ extends Node2D
 @export var newCar: PackedScene
 @onready var parking: Node = $Parking
 @onready var pop_up_complete: Control = $GUI/IngameGUIButtons/PopUpComplete
-@onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 
 var clicks = 0
@@ -17,8 +16,8 @@ var spawn
 var carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]]
 var carOrigin = [1]
 var carShapes = 0
-const upCond = ["1_0_0"] # REDO REDO
-const downCond = ["0_0_0"] # REDO REDO
+const upCond = ["0_0_0"]
+const downCond = ["1_0_0"]
 var score = 0
 var disableUp = true
 var disableLeft = true
@@ -27,22 +26,16 @@ var disableDown = true
 var disableCompleted = true
 var disableUndo = true
 var helper = ""
-var textbox = "Der er mange forskellige parkeringspladser med forskellige regler. 
-				Vi starter med et par pladser, hvor der kun kommer røde og blå biler.
-				
-				(Tryk for at fortsætte)"
-var introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
-			
-			Din opgave er at vise bilerne hen til de rette pladser."
-var level = 1
+var textbox = "Det var godt gået.
+				Nu skal vi prøve den samme plads men med andre regler."
+var level = 2
 
-const nextScene = "res://scenes/s_1_level_2.tscn"
-var nrCars = carColors.size()
+const nextScene = "res://scenes/level_02.tscn"
+const nrCars = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pop_up_complete.visible = false
-	intro.visible = true
 	
 	spawn = parking.get_node("Spawn").position
 	spawnCar()
@@ -58,13 +51,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
-			intro.queue_free()
-		if clicks == 2:
-			textbox = "På den første plads er chefens instruktion:
+			textbox = "Nu synes chefen at:
 						Hvis bilen er rød,
-						  så skal den parkere øverst.
+						  så skal den parkere nederst.
 						Hvis bilen er blå, 
-						  så skal den parkere nederst."
+						  så skal den parkere øverst."
 			disableUp = false
 			disableDown = false
 			helper = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
@@ -82,22 +73,24 @@ func _process(delta: float) -> void:
 
 func _on_up_pressed() -> void:
 	if parked < nrCars:
-		if currentCar && currentCar.color == 1:
+		if currentCar && currentCar.color == 0:
 			helper = "Rigtigt"
 			moveCar(0)
 		else:
-			helper = "FORKERT"
-
+			forkert()
 
 func _on_down_pressed() -> void:
 	if parked < nrCars:
-		if currentCar && currentCar.color == 0:
+		if currentCar && currentCar.color == 1:
 			helper = "Rigtigt"
 			moveCar(1)
 		else:
-			helper = "FORKERT"
+			forkert()
 
-
+#Helper functions
+func forkert() -> void:
+	helper = "FORKERT"
+	
 func moveCar(x: int) -> void:
 	if currentCar:
 		if x == 0:
