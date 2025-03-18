@@ -21,9 +21,9 @@ var ID = "ID"
 
 
 
-func withData(possibleColor:= [0, 1], possibleOrigin:= 0, possibleShape:= 0) -> void:
+func withData(possibleColor:= [0, 1], possibleOrigin:= [0], possibleShape:= 0) -> void:
 	color = possibleColor.pick_random()
-	origin = possibleOrigin
+	origin = possibleOrigin.pick_random()
 	shape = possibleShape
 
 func _ready() -> void:
@@ -61,8 +61,19 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
 		if !body.waiting: # to avoid a stale mate where 2 cars wait for each other
-			if (body.car.rotation < car.rotation-(PI/2.0) || body.car.rotation > car.rotation+(PI/2.0)): # to avoid hitting other waiting cars from behind
-				waiting = true
+			waiting = true
+			while !body.nav_agent.is_navigation_finished():
+				await wait(0.5)
+			waiting = false
+		elif (body.car.rotation < car.rotation-(PI/2.0) || body.car.rotation > car.rotation+(PI/2.0)): # to avoid hitting other waiting cars from behind
+			waiting = true
+			while !body.nav_agent.is_navigation_finished():
+				await wait(0.5)
+			waiting = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	waiting = false
+
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout

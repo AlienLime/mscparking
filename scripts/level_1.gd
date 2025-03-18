@@ -14,9 +14,9 @@ var upPark = 0
 var downPark = 0
 var parked = 0
 var spawn
-const carColors = [0, 1]
-const carOrigin = 1
-const carShapes = 0
+var carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]]
+var carOrigin = [1]
+var carShapes = 0
 const upCond = ["1_0_0"] # REDO REDO
 const downCond = ["0_0_0"] # REDO REDO
 var score = 0
@@ -37,7 +37,7 @@ var introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjæl
 var level = 1
 
 const nextScene = "res://scenes/s_1_level_2.tscn"
-const nrCars = 5
+var nrCars = carColors.size()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -120,7 +120,7 @@ func spawnCar() -> void:
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
-		currentCar.withData(carColors, carOrigin)
+		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigin)
 		add_child(currentCar)
 		carStack.push_back(currentCar)
 		currentCar.position = spawn
