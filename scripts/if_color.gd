@@ -4,16 +4,20 @@ extends Control
 @onready var option_button: OptionButton = $VBoxContainer/HBoxContainer/OptionButton
 @onready var thenLabel: Label = $VBoxContainer/MarginContainer/Then
 
-# Called when the node enters the scene tree for the first time.
+var optionsBool = true
+
 func _ready() -> void:
-	var temp = -1
-	for item in option_button.item_count:
-		temp = option_button.get_item_index(item)
-		if !owner.owner.owner.usedColors.has(option_button.get_item_id(temp)):
-			option_button.remove_item(temp)
-	
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if optionsBool:
+		var temp = -1
+		for item in option_button.item_count:
+			temp = option_button.get_item_index(item)
+			if !owner.owner.owner.usedColors.has(option_button.get_item_id(temp)):
+				option_button.remove_item(temp)
+		optionsBool = false
 	ifLabel.text = owner.owner.owner.ifLabel
 	thenLabel.text = owner.owner.owner.thenLabel
 	option_button.disabled = !owner.owner.owner.canRun

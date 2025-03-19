@@ -3,10 +3,12 @@ extends MarginContainer
 @onready var completed: Button = $MarginContainer/VBoxContainer/Hbox/Completed
 @onready var undo: Button = $MarginContainer/VBoxContainer/Hbox/Undo
 
-func _ready() -> void:
-	level.text = "bane " + str(owner.owner.level)
+var levelBool = true
 
 func _process(delta: float) -> void:
+	if levelBool:
+		level.text = "bane " + str(owner.owner.level)
+		levelBool = false
 	completed.disabled = owner.owner.disableCompleted
 	undo.disabled = owner.owner.disableUndo
 

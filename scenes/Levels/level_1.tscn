@@ -494,11 +494,13 @@ position = Vector2(929, 834)
 [node name="ParkingSpot10" parent="Parking/Down" instance=ExtResource("4_q6g15")]
 position = Vector2(1056, 834)
 
-[node name="Start" type="Node2D" parent="Parking"]
+[node name="StartSpawn" type="Node" parent="Parking"]
+
+[node name="LeftStart" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(220, 545)
 scale = Vector2(2, 2)
 
-[node name="Spawn" type="Node2D" parent="Parking"]
+[node name="LeftSpawn" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(-97, 542)
 scale = Vector2(2, 2)
 

@@ -1,61 +1,54 @@
-extends Node2D
+extends BaseDropdownLevel
 
-@export var newCar: PackedScene
-@onready var parking: Node = $Parking
-@onready var pop_up_complete: Control = $GUI/IngameGUIDropdown/PopUpComplete
 @onready var intro: Control = $GUI/IngameGUIDropdown/Intro
 
-var carIncrementer = 0
-var currentCar
-var currentPos
-var rightPark = 0
-var leftPark = 0
-var parked = 0
-var spawnUp
-var spawnDown
-var score = 0
-var clicks = 0
-var canRun = true
-#0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-var usedColors = [0, 1]
-var carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]]
-var carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
-var carShapes = [0]
-var nrCars = carColors.size()
-var level = 3
-var ifLabel = "Hvis bilen er "
 var colorSelected = -1
-var thenLabel = "så skal den parkere til højre."
-var helper = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
-var textbox = "Nu er højre side reserveret til de røde biler."
-var introLabel = "Du har jo super godt styr på parkering!\n
-				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
-				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
-				Held og lykke!"
-var disableCompleted = true
-var disableUndo = true
-
-const nextScene = "res://scenes/victory_screen.tscn"
-
-const leftCond = ["0_3_0", "0_0_0"]
-const rightCond = ["1_3_0", "1_0_0"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Level setup
+	level = 3
+	nextScene = "res://scenes/victory_screen.tscn"
 	canRun = true
-	spawnUp = parking.get_node("SpawnUp").position
-	spawnDown = parking.get_node("SpawnDown").position
 	intro.visible = true
 	pop_up_complete.visible = false
-
+	
+	# Car options
+	usedColors = [0, 1]
+	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
+	carShapes = [0]
+	nrCars = carColors.size()
+	
+	# Win conditions
+	leftCond = ["0_3_0", "0_0_0"]
+	rightCond = ["1_3_0", "1_0_0"]
 	for parking_spot in parking.get_node("Right").get_children():
 		parking_spot.conditions = rightCond
 	for parking_spot in parking.get_node("Left").get_children():
 		parking_spot.conditions = leftCond
+	
+	# Text
+	ifLabel = "Hvis bilen er "
+	thenLabel = "så skal den parkere til højre."
+	helper = "Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
+	textbox = "Nu er højre side reserveret til de røde biler."
+	introLabel = "Du har jo super godt styr på parkering!\n
+				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
+				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
+				Held og lykke!"
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Disable run if there is nothing selected
+	if colorSelected == -1:
+		disableRun = true
+	else:
+		disableRun = false
+	
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
@@ -86,21 +79,6 @@ func moveCar(x: int) -> void:
 					break
 		currentCar = null
 
-func spawnCar() -> void:
-	await wait(0.5)
-	if carIncrementer < nrCars:
-		carIncrementer += 1
-		currentCar = newCar.instantiate()
-		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigins.pop_at(randi_range(0, carOrigins.size()-1)))
-		if currentCar.origin == 0:
-			currentCar.position = spawnUp
-			currentCar.navigationTarget = parking.get_node("StartUp")
-		else:
-			currentCar.position = spawnDown
-			currentCar.navigationTarget = parking.get_node("StartDown")
-		add_child(currentCar)
-
-
 func _on_run_pressed() -> void:
 	if colorSelected != -1 && canRun:
 		canRun = false
@@ -111,7 +89,3 @@ func _on_run_pressed() -> void:
 				moveCar(0)
 			else:
 				moveCar(1)
-
-
-func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout

@@ -1,60 +1,44 @@
-extends Node2D
+extends BaseButtonLevel
 
-@export var newCar: PackedScene
-@onready var parking: Node = $Parking
-@onready var pop_up_complete: Control = $GUI/IngameGUIButtons/PopUpComplete
 @onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 
-var clicks = 0
-var carIncrementer = 0
-var carStack = []
-var currentCar
-var upPark = 0
-var downPark = 0
-var parked = 0
-var spawn
-var carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]]
-var carOrigin = [1]
-var carShapes = 0
-const upCond = ["1_0_0"] # REDO REDO
-const downCond = ["0_0_0"] # REDO REDO
-var score = 0
-var disableUp = true
-var disableLeft = true
-var disableRight = true
-var disableDown = true
-var disableCompleted = true
-var disableUndo = true
-var helper = ""
-var textbox = "Der er mange forskellige parkeringspladser med forskellige regler. 
-				Vi starter med et par pladser, hvor der kun kommer røde og blå biler.
-				
-				(Tryk for at fortsætte)"
-var introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
-			
-			Din opgave er at vise bilerne hen til de rette pladser."
-var level = 1
-
-const nextScene = "res://scenes/Levels/s_1_level_2.tscn"
-var nrCars = carColors.size()
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Level setup
+	level = 1
+	nextScene = "res://scenes/Levels/s_1_level_2.tscn"
 	pop_up_complete.visible = false
 	intro.visible = true
 	
-	spawn = parking.get_node("Spawn").position
-	spawnCar()
+	# Initial text
+	textbox = "Der er mange forskellige parkeringspladser med forskellige regler. 
+				Vi starter med et par pladser, hvor der kun kommer røde og blå biler.
+				
+				(Tryk for at fortsætte)"
+	introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
+			
+			Din opgave er at vise bilerne hen til de rette pladser."
 	
+	# Car options
+	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
+	carShapes = 0
+	nrCars = carColors.size()
+	
+	# Win conditions
+	upCond = ["1_1_0"]
+	downCond = ["0_1_0"]
 	for parking_spot in parking.get_node("Up").get_children():
 		parking_spot.conditions = upCond
 	for parking_spot in parking.get_node("Down").get_children():
 		parking_spot.conditions = downCond
 
+	spawnCar()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Click thorugh the intro to enable gameplay
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
@@ -69,11 +53,13 @@ func _process(delta: float) -> void:
 			disableDown = false
 			helper = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
 	
-	if carStack.is_empty():
-		disableUndo = true
-	else:
+	# Disable undo if there is nothing to undo
+	if carStack.size() > 1:
 		disableUndo = false
+	else:
+		disableUndo = true
 	
+	# Show result after parking all cars
 	if score == nrCars:
 		pop_up_complete.visible = true
 		disableCompleted = false
@@ -114,43 +100,3 @@ func moveCar(x: int) -> void:
 					break
 		currentCar = null
 		spawnCar()
-
-func spawnCar() -> void:
-	await wait(0.25)
-	if carIncrementer < nrCars:
-		carIncrementer += 1
-		currentCar = newCar.instantiate()
-		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigin)
-		add_child(currentCar)
-		carStack.push_back(currentCar)
-		currentCar.position = spawn
-		currentCar.navigationTarget = parking.get_node("Start")
-
-
-func undo() -> void:
-	if parked < nrCars:
-		currentCar = carStack.pop_back()
-		if currentCar.isParked:
-			parked -= 1
-		if currentCar.isParkedCorrectly:
-			score -= 1
-		if currentCar.parkingSpot != null:
-			currentCar.parkingSpot.isFree = true
-		carIncrementer -= 1
-		currentCar.queue_free()
-	
-	currentCar = carStack.pop_back()
-	if currentCar.isParked:
-		parked -= 1
-	if currentCar.isParkedCorrectly:
-		score -= 1
-	if currentCar.parkingSpot != null:
-		currentCar.parkingSpot.isFree = true
-	carIncrementer -= 1
-	currentCar.queue_free()
-	
-	spawnCar()
-
-
-func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout

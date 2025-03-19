@@ -512,19 +512,21 @@ rotation = 1.5708
 position = Vector2(958, 925)
 rotation = 1.5708
 
-[node name="StartDown" type="Node2D" parent="Parking"]
+[node name="StartSpawn" type="Node" parent="Parking"]
+
+[node name="DownStart" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(695, 924)
 scale = Vector2(2, 2)
 
-[node name="SpawnDown" type="Node2D" parent="Parking"]
+[node name="DownSpawn" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(695, 1183)
 scale = Vector2(2, 2)
 
-[node name="StartUp" type="Node2D" parent="Parking"]
+[node name="UpStart" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(528, 159)
 scale = Vector2(2, 2)
 
-[node name="SpawnUp" type="Node2D" parent="Parking"]
+[node name="UpSpawn" type="Node2D" parent="Parking/StartSpawn"]
 position = Vector2(529, -93)
 scale = Vector2(2, 2)
 
