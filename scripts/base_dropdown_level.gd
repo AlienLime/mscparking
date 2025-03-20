@@ -1,12 +1,15 @@
 class_name BaseDropdownLevel
 extends Node2D
 
-@export var newCar: PackedScene
+const newCar = preload("res://scenes/random_car_driving.tscn")
+const levelDir = "res://scenes/Levels/"
+
 @onready var parking: Node = $Parking
 @onready var startSpawn: Node = $Parking/StartSpawn
 @onready var pop_up_complete: Control = $GUI/IngameGUIDropdown/PopUpComplete
 
 # Car variables
+var carStack: Array
 var usedColors: Array
 var carColors: Array
 var carOrigins: Array
@@ -42,7 +45,7 @@ var disableRun = true
 var canRun = true
 
 func spawnCar() -> void:
-	await wait(0.25)
+	await wait(0.40)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
@@ -63,6 +66,27 @@ func spawnCar() -> void:
 				currentCar.navigationTarget = startSpawn.get_node("DownStart")
 			_:
 				print("spawn origin does not exist")
+
+func get_next_level() -> String:
+	var dir = DirAccess.open(levelDir)
+	var next_level: String
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		var level_name = get_tree().current_scene.name
+		while file_name != (level_name + ".tscn"):
+			print("file" + file_name)
+			print("level" + level_name)
+			file_name = dir.get_next()
+		file_name = dir.get_next()
+		if file_name == "":
+			next_level = "res://scenes/victory_screen.tscn"
+		else:
+			next_level = "res://scenes/levels/" + file_name
+	else:
+		print('An error occurred when trying to access the path')
+	print ("return" + next_level)
+	return next_level
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

@@ -10,7 +10,8 @@ func _process(delta: float) -> void:
 		level.text = "bane " + str(owner.owner.level)
 		levelBool = false
 	completed.disabled = owner.owner.disableCompleted
-	undo.disabled = owner.owner.disableUndo
+	undo.disabled = (owner.owner.carStack.size() < 2) || (owner.owner.nrCars == owner.owner.score)
+	
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
@@ -19,7 +20,7 @@ func _on_home_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_completed_pressed() -> void:
-	get_tree().change_scene_to_file(owner.owner.nextScene)
+	get_tree().change_scene_to_file(owner.owner.get_next_level())
 
 func _on_undo_pressed() -> void:
 	owner.owner.undo()

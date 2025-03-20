@@ -1,7 +1,9 @@
 class_name BaseButtonLevel
 extends Node2D
 
-@export var newCar: PackedScene
+const newCar = preload("res://scenes/random_car_driving.tscn")
+const levelDir = "res://scenes/Levels/"
+
 @onready var parking: Node = $Parking
 @onready var startSpawn: Node = $Parking/StartSpawn
 @onready var pop_up_complete: Control = $GUI/IngameGUIButtons/PopUpComplete
@@ -39,25 +41,58 @@ var disableLeft = true
 var disableRight = true
 var disableDown = true
 var disableCompleted = true
-var disableUndo = true
 
 func _on_up_pressed() -> void:
-	print("Not implemented")
+	moveCar(0)
 
 func _on_left_pressed() -> void:
-	print("Not implemented")
+	moveCar(1)
 	
 func _on_right_pressed() -> void:
-	print("Not implemented")
+	moveCar(2)
 
 func _on_down_pressed() -> void:
-	print("Not implemented")
+	moveCar(3)
 
 func moveCar(x: int) -> void:
-	print("Not implemented")
+	if currentCar:
+		if x == 0:
+			for spot in parking.get_node("Up").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					spawnCar()
+					break
+		elif x == 1:
+			for spot in parking.get_node("Left").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					spawnCar()
+					break
+		elif x == 2:
+			for spot in parking.get_node("Right").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					spawnCar()
+					break
+		elif x == 3:
+			for spot in parking.get_node("Down").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					spawnCar()
+					break
+		else: 
+			print("Direction not implemented")
 
 func spawnCar() -> void:
-	await wait(0.25)
+	await wait(0.75)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
@@ -109,6 +144,23 @@ func undo() -> void:
 	
 	spawnCar()
 
+func get_next_level() -> String:
+	var dir = DirAccess.open(levelDir)
+	var next_level: String
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		var level_name = get_tree().current_scene.name
+		while file_name != (level_name + ".tscn"):
+			file_name = dir.get_next()
+		file_name = dir.get_next()
+		if file_name == "":
+			next_level = "res://scenes/victory_screen.gd"
+		else:
+			next_level = "res://scenes/levels/" + file_name
+	else:
+		print('An error occurred when trying to access the path')
+	return next_level
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

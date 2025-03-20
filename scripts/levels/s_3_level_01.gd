@@ -8,7 +8,6 @@ var colorSelected = -1
 func _ready() -> void:
 	# Level setup
 	level = 3
-	nextScene = "res://scenes/victory_screen.tscn"
 	canRun = true
 	intro.visible = true
 	pop_up_complete.visible = false

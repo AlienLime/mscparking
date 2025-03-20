@@ -7,7 +7,6 @@ extends BaseButtonLevel
 func _ready() -> void:
 	# Level setup
 	level = 2
-	nextScene = "res://scenes/Levels/level_3.tscn"
 	pop_up_complete.visible = false
 	
 	# Initial text
@@ -38,43 +37,12 @@ func _ready() -> void:
 	spawnCar()
 
 func _process(delta: float) -> void:
-	# Disable undo if there is nothing to undo
-	if carStack.is_empty():
-		disableUndo = true
-	else:
-		disableUndo = false
 	
 	# Show result after parking all cars
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
 			disableCompleted = false
-			disableUndo = true
 			helper = ""
 		else:
 			helper = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
-
-
-func _on_right_pressed() -> void:
-	moveCar(0)
-
-func _on_left_pressed() -> void:
-	moveCar(1)
-
-#Helper functions
-func moveCar(x: int) -> void:
-	if currentCar:
-		if x == 0:
-			for spot in parking.get_node("Right").get_children():
-				if spot.isFree:
-					spot.isFree = false
-					currentCar.parkingSpot = spot
-					break
-		else:
-			for spot in parking.get_node("Left").get_children():
-				if spot.isFree:
-					spot.isFree = false
-					currentCar.parkingSpot = spot
-					break
-		currentCar = null
-		spawnCar()
