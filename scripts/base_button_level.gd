@@ -165,5 +165,19 @@ func get_next_level() -> String:
 		print('An error occurred when trying to access the path')
 	return next_level
 
+func assign_conditions() -> void:
+	if parking.get_node("Up"):
+		for parking_spot in parking.get_node("Up").get_children():
+			parking_spot.conditions = upCond
+	if parking.get_node("Left"):
+		for parking_spot in parking.get_node("Left").get_children():
+			parking_spot.conditions = leftCond
+	if parking.get_node("Right"):
+		for parking_spot in parking.get_node("Right").get_children():
+			parking_spot.conditions = upCond
+	if parking.get_node("Down"):
+		for parking_spot in parking.get_node("Down").get_children():
+			parking_spot.conditions = downCond
+
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
