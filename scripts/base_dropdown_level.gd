@@ -22,14 +22,17 @@ var leftCond: Array
 var rightCond: Array
 var downCond: Array
 var nextScene: String
+var colorSelected = [-1,-1,-1]
+var colorIf = [false,false,false]
 
 # Text variables
 var level: int
-var ifLabel: String
-var thenLabel: String
+var ifLabel = ["not defined","not defined","not defined"]
+var thenLabel = ["not defined","not defined","not defined"]
 var helper: String
 var textbox: String
 var introLabel: String
+var tips: Array
 
 # Runtime variables
 var carIncrementer = 0
@@ -67,6 +70,41 @@ func spawnCar() -> void:
 			_:
 				print("spawn origin does not exist")
 
+
+func moveCar(x: int) -> void:
+	if currentCar:
+		if x == 0:
+			for spot in parking.get_node("Up").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					break
+		elif x == 1:
+			for spot in parking.get_node("Left").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					break
+		elif x == 2:
+			for spot in parking.get_node("Right").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					break
+		elif x == 3:
+			for spot in parking.get_node("Down").get_children():
+				if spot.isFree:
+					spot.isFree = false
+					currentCar.parkingSpot = spot
+					currentCar = null
+					break
+		else: 
+			print("Direction not implemented")
+
+
 func get_next_level() -> String:
 	var dir = DirAccess.open(levelDir)
 	var next_level: String
@@ -75,8 +113,6 @@ func get_next_level() -> String:
 		var file_name = dir.get_next()
 		var level_name = get_tree().current_scene.name
 		while file_name != (level_name + ".tscn"):
-			print("file" + file_name)
-			print("level" + level_name)
 			file_name = dir.get_next()
 		file_name = dir.get_next()
 		if file_name == "":
@@ -85,8 +121,8 @@ func get_next_level() -> String:
 			next_level = "res://scenes/levels/" + file_name
 	else:
 		print('An error occurred when trying to access the path')
-	print ("return" + next_level)
 	return next_level
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+	
