@@ -1,7 +1,6 @@
 extends Button
 
-@export_file var level_path
-
+var level_path
 var original_size := scale
 var grow_size := Vector2(1.1, 1.1)
 

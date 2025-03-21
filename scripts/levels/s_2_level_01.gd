@@ -6,7 +6,7 @@ extends BaseButtonLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 2
+	level = 1
 	pop_up_complete.visible = false
 	
 	# Initial text

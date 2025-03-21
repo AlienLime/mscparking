@@ -10,7 +10,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofyxj"]
 content_margin_left = 20.0
 content_margin_top = 20.0
-content_margin_right = 20.0
+content_margin_right = 70.0
 content_margin_bottom = 20.0
 bg_color = Color(0.92549, 0.737255, 0.00784314, 1)
 border_width_left = 10

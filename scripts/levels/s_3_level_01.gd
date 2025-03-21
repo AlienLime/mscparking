@@ -7,7 +7,7 @@ var colorSelected = -1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 3
+	level = 1
 	canRun = true
 	intro.visible = true
 	pop_up_complete.visible = false

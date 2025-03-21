@@ -2,7 +2,7 @@ class_name BaseButtonLevel
 extends Node2D
 
 const newCar = preload("res://scenes/random_car_driving.tscn")
-const levelDir = "res://scenes/Levels/"
+const levelDir = "res://scenes/levels/"
 
 @onready var parking: Node = $Parking
 @onready var startSpawn: Node = $Parking/StartSpawn
@@ -117,6 +117,8 @@ func spawnCar() -> void:
 
 
 func undo() -> void:
+	if pop_up_complete.visible:
+		return
 	if parked < nrCars:
 		currentCar = carStack.pop_back()
 		if currentCar.isParked:

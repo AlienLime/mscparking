@@ -16,7 +16,6 @@ func get_levels(path) -> void:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			print(file_name)
 			level_incrementer += 1
 			create_level_button('%s/%s' % [dir.get_current_dir(), file_name], "Bane " + str(level_incrementer))
 			file_name = dir.get_next()
