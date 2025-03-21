@@ -4,24 +4,24 @@ extends Control
 @onready var option_button: OptionButton = $VBoxContainer/HBoxContainer/OptionButton
 @onready var thenLabel: Label = $VBoxContainer/MarginContainer/Then
 
-var optionsBool = true
+var setupBool = true
 
 func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if optionsBool:
+	if setupBool:
 		var temp = -1
 		for item in option_button.item_count:
 			temp = option_button.get_item_index(item)
 			if !owner.owner.owner.usedColors.has(option_button.get_item_id(temp)):
 				option_button.remove_item(temp)
-		optionsBool = false
-	ifLabel.text = owner.owner.owner.ifLabel
-	thenLabel.text = owner.owner.owner.thenLabel
+		ifLabel.text = owner.owner.owner.ifLabel[get_index()]
+		thenLabel.text = owner.owner.owner.thenLabel[get_index()]
+		setupBool = false
 	option_button.disabled = !owner.owner.owner.canRun
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	owner.owner.owner.colorSelected = index
+	owner.owner.owner.colorSelected[get_index()] = index

@@ -79,5 +79,17 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xdq4o")
 region_rect = Rect2(181, 44, 307, 364)
 
+[node name="Button" type="Button" parent="NinePatchRect"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ScoreBox" parent="." instance=ExtResource("6_nj8r1")]
 layout_mode = 1
+
+[connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_button_pressed"]

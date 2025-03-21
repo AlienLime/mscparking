@@ -26,6 +26,7 @@ var level: int
 var helper: String
 var textbox: String
 var introLabel: String
+var tips: Array
 
 # Runtime variables
 var carIncrementer = 0
@@ -157,7 +158,7 @@ func get_next_level() -> String:
 			file_name = dir.get_next()
 		file_name = dir.get_next()
 		if file_name == "":
-			next_level = "res://scenes/victory_screen.gd"
+			next_level = "res://scenes/victory_screen.tscn"
 		else:
 			next_level = "res://scenes/levels/" + file_name
 	else:
