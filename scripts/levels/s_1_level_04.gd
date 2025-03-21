@@ -45,4 +45,4 @@ func _process(delta: float) -> void:
 			disableCompleted = false
 			helper = ""
 		else:
-			helper = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."

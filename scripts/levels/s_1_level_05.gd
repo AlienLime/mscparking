@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 				Chefen vil have de orange biler øverst her."
 	helper = ""
+	tips.push_back("Hvis de orange biler skal holde øverst er det en god ide at parkere de lilla biler nederst.")
 	
 	# Car options
 	carColors = [[2],[2],[2],[2],[3],[3],[3],[3],[2, 3],[2, 3]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
@@ -22,7 +23,7 @@ func _ready() -> void:
 	nrCars = carColors.size()
 	
 	# Win conditions
-	upCond = ["2_0_0", "2_3_0"]
+	upCond = ["2_0_0", "2_3_0","3_0_0", "3_3_0"]
 	downCond = ["3_0_0", "3_3_0"]
 	assign_conditions()
 	
@@ -41,4 +42,4 @@ func _process(delta: float) -> void:
 			disableCompleted = false
 			helper = ""
 		else:
-			helper = "Hovsa. Der er nogle biler der parkerede forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
