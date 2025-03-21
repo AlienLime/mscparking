@@ -12,7 +12,7 @@ func _ready() -> void:
 	# Initial text
 	textbox = "Chefen vil nu gerne have at:
 					Blå, orange og grønne biler skal parkere til venstre.
-					Røde, lillae og gule biler skal parkere til højre."
+					Røde, lilla og gule biler skal parkere til højre."
 	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 	
 	# Car options
@@ -24,10 +24,7 @@ func _ready() -> void:
 	# Win conditions
 	leftCond = ["0_0_0", "0_3_0", "2_0_0", "2_3_0", "4_0_0", "4_3_0"]
 	rightCond = ["1_0_0", "1_3_0", "3_0_0", "3_3_0", "5_0_0", "5_3_0"]
-	for parking_spot in parking.get_node("Right").get_children():
-		parking_spot.conditions = rightCond
-	for parking_spot in parking.get_node("Left").get_children():
-		parking_spot.conditions = leftCond
+	assign_conditions()
 	
 	# Enable gameplay
 	disableLeft = false

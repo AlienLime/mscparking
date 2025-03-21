@@ -17,18 +17,15 @@ func _ready() -> void:
 	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 	
 	# Car options
-	carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]]
-	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]]
+	carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	nrCars = carColors.size()
 	
 	# Win conditions
 	leftCond = ["1_0_0", "0_0_0"]
 	rightCond = ["1_3_0", "0_3_0"]
-	for parking_spot in parking.get_node("Right").get_children():
-		parking_spot.conditions = rightCond
-	for parking_spot in parking.get_node("Left").get_children():
-		parking_spot.conditions = leftCond
+	assign_conditions()
 	
 	# Enable gameplay
 	disableLeft = false

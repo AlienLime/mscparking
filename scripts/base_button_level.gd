@@ -174,7 +174,7 @@ func assign_conditions() -> void:
 			parking_spot.conditions = leftCond
 	if parking.get_node("Right"):
 		for parking_spot in parking.get_node("Right").get_children():
-			parking_spot.conditions = upCond
+			parking_spot.conditions = rightCond
 	if parking.get_node("Down"):
 		for parking_spot in parking.get_node("Down").get_children():
 			parking_spot.conditions = downCond

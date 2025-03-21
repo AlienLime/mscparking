@@ -19,10 +19,7 @@ func _ready() -> void:
 	# Win conditions [color, origin, shape]
 	upCond = ["0_1_0"]
 	downCond = ["1_1_0"]
-	for parking_spot in parking.get_node("Up").get_children():
-		parking_spot.conditions = upCond
-	for parking_spot in parking.get_node("Down").get_children():
-		parking_spot.conditions = downCond
+	assign_conditions()
 
 	spawnCar()
 
