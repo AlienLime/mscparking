@@ -7,34 +7,41 @@ func _ready() -> void:
 	# Level setup
 	level = 1
 	canRun = true
-	intro.visible = true
 	pop_up_complete.visible = false
 	
 	# Car options
-	usedColors = [0, 1]
-	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
+	usedColors = [0, 1, 2, 3, 4, 5]
+	carColors = [[0],[0],[0],[1],[1],[1],[2],[2],[1, 2],[0, 2, 3, 4, 5],[0, 3, 4, 5],[1, 3, 4, 5],[3, 4, 5],[3, 4, 5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	nrCars = carColors.size()
 	
 	# Win conditions
-	leftCond = ["0_3_0", "0_0_0"]
-	rightCond = ["1_3_0", "1_0_0"]
+	upCond = ["0_3_0"]
+	leftCond = ["0_3_0","1_3_0","2_3_0","3_3_0","4_3_0","5_3_0"]
+	rightCond = ["2_3_0"]
+	downCond = ["1_3_0"]
 	assign_conditions()
 	
 	# Select if dropdowns to use
 	colorIf[0] = true
 	ifLabel[0] = "Hvis bilen er "
-	thenLabel[0] = "så skal den parkere til højre."
+	thenLabel[0] = "så skal den parkere øverst."
+	colorIf[1] = true
+	ifLabel[1] = "Hvis bilen er "
+	thenLabel[1] = "så skal den parkere til højre."
+	colorIf[2] = true
+	ifLabel[2] = "Hvis bilen er "
+	thenLabel[2] = "så skal den parkere til nederst."
+	elseVisible = true
+	elseLabel = "Ellers skal den parkere til venstre"
 	
 	# Text
-	textbox = "Nu er højre side reserveret til de røde biler.
+	textbox = "Her skal blå biler parkere på de øverste pladser, alle røde biler skal parkere til nederst og de orange biler skal parkere til højre."
+	tips.push_back("Har du tænkt over hvad der skal ske med de lilla, grønne og gule biler?")
+	tips.push_back("Du kan prøve banen et par gange og se hvad der sker når du vælger forskellige farver.")
+	tips.push_back(textbox)
 	
-				Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
-	introLabel = "Du har jo super godt styr på parkering!\n
-				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
-				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
-				Held og lykke!"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,6 +71,10 @@ func _on_run_pressed() -> void:
 			spawnCar()
 			await wait(1)
 			if currentCar.color == colorSelected[0]:
+				moveCar(0) # Up
+			elif currentCar.color == colorSelected[1]:
 				moveCar(2) # Right
+			elif currentCar.color == colorSelected[2]:
+				moveCar(3) # Down
 			else:
 				moveCar(1) # Left
