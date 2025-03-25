@@ -39,8 +39,9 @@ func _ready() -> void:
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
 	tips.push_back("\"Ellers\" tager sig af alle farverne som der ikke laves \"hvis\" instrukser til")
 	tips.push_back("Røde biler skal parkere til højre,
-						bunden er reserveret til grønne biler
-						og i den øverste del er det kun lilla biler der er tilladt.")
+						bunden er reserveret til grønne biler,
+						i den øverste del er det kun lilla biler der er tilladt
+						og andre farver skal parkere sammen med de grønne biler.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,8 +55,9 @@ func _process(delta: float) -> void:
 		clicks += 1
 		if clicks == 1:
 			textbox = "Røde biler skal parkere til højre,
-						bunden er reserveret til grønne biler
-						og i den øverste del er det kun lilla biler der er tilladt."
+						bunden er reserveret til grønne biler,
+						i den øverste del er det kun lilla biler der er tilladt
+						og andre farver skal parkere sammen med de grønne biler."
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
@@ -64,7 +66,7 @@ func _process(delta: float) -> void:
 			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
-	if (colorSelected[0] != -1 || colorSelected[1] != -1 || colorSelected[2] != -1) && canRun:
+	if colorSelected[0] != -1 && colorSelected[1] != -1 && colorSelected[2] != -1 && canRun:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
