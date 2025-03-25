@@ -30,7 +30,7 @@ var elseVisible = false
 var level: int
 var ifLabel = ["not defined","not defined","not defined"]
 var thenLabel = ["not defined","not defined","not defined"]
-var elseLabel: String = "bøvs"
+var elseLabel: String
 var helper: String
 var textbox: String
 var introLabel: String
