@@ -26,6 +26,9 @@ func _ready() -> void:
 	colorIf[0] = true
 	ifLabel[0] = "Hvis bilen er "
 	thenLabel[0] = "så skal den parkere til højre."
+	colorIf[1] = true
+	ifLabel[1] = "Hvis bilen er "
+	thenLabel[1] = "så skal den parkere til venstre."
 	
 	# Text
 	textbox = "Nu er højre side reserveret til de røde biler.
@@ -40,7 +43,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Disable run if there is nothing selected
-	if colorSelected[0] == -1:
+	if colorSelected[0] != -1 || colorSelected[1] != -1:
 		disableRun = true
 	else:
 		disableRun = false
@@ -55,15 +58,18 @@ func _process(delta: float) -> void:
 			pop_up_complete.visible = true
 			disableCompleted = false
 		else:
-			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
-	if colorSelected[0] != -1 && canRun:
+	if colorSelected[0] != -1 && colorSelected[1] != -1 && canRun:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
 			await wait(1)
 			if currentCar.color == colorSelected[0]:
 				moveCar(2) # Right
-			else:
+			elif currentCar.color == colorSelected[1]:
 				moveCar(1) # Left
+			else:
+				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
+				break
