@@ -47,7 +47,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Disable run if there is nothing selected
-	if colorSelected[0] == -1:
+	if colorSelected[0] == -1 || colorSelected[1] == -1 || colorSelected[2] == -1:
 		disableRun = true
 	else:
 		disableRun = false
@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
-	if colorSelected[0] != -1 && canRun:
+	if colorSelected[0] != -1 && colorSelected[1] != -1 && colorSelected[2] != -1 && canRun:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
