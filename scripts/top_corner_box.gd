@@ -7,7 +7,7 @@ var levelBool = true
 
 func _process(delta: float) -> void:
 	if levelBool:
-		level.text = "bane " + str(owner.owner.level)
+		level.text = "Bane " + str(owner.owner.level)
 		levelBool = false
 	completed.disabled = owner.owner.disableCompleted
 	undo.disabled = (owner.owner.carStack.size() < 2) || (owner.owner.nrCars == owner.owner.score)

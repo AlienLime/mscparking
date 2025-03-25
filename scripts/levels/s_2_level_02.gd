@@ -5,7 +5,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 2
+	level = 8
 	canRun = true
 	pop_up_complete.visible = false
 	
@@ -33,7 +33,7 @@ func _ready() -> void:
 	thenLabel[2] = "så skal den parkere til venstre."
 	
 	# Text
-	textbox = "Nu er venstre side reserveret til de orange biler. Hæjre side er til de grønne og gule."
+	textbox = "Nu er venstre side reserveret til de orange biler. Højre side er til de grønne og gule."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

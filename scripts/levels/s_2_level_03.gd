@@ -5,44 +5,38 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 12
+	level = 9
 	canRun = true
 	pop_up_complete.visible = false
 	
 	# Car options
-	usedColors = [1, 3, 4, 5]
-	carColors = [[4],[4],[1,4],[4,5],[1,5],[3,5],[1,3],[1,3],[5],[1,3,5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
+	usedColors = [0, 2, 3]
+	carColors = [[2],[2],[2],[0],[0,3],[3],[2,0],[2,3],[2,0,3]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	nrCars = carColors.size()
 	
 	# Win conditions
-	upCond = ["1_3_0","3_3_0","5_3_0"]
-	leftCond = ["1_3_0","3_3_0","5_3_0"]
-	rightCond = ["4_3_0"]
-	downCond = ["1_3_0","3_3_0","5_3_0"]
+	leftCond = ["0_3_0", "0_0_0", "3_3_0", "3_0_0"]
+	rightCond = ["2_3_0", "2_0_0"]
 	assign_conditions()
 	
 	# Select if dropdowns to use
 	colorIf[0] = true
 	ifLabel[0] = "Hvis bilen er "
-	thenLabel[0] = "så skal den parkere øverst."
+	thenLabel[0] = "så skal den parkere til venstre."
 	colorIf[1] = true
 	ifLabel[1] = "Hvis bilen er "
 	thenLabel[1] = "så skal den parkere til venstre."
 	colorIf[2] = true
 	ifLabel[2] = "Hvis bilen er "
-	thenLabel[2] = "så skal den parkere nederst."
-	elseVisible = true
-	elseLabel = "Ellers skal den parkere til højre"
+	thenLabel[2] = "så skal den parkere til højre."
 	
 	# Text
-	textbox = "Her skal de grønne biler parkere til højre."
-	tips.push_back("Er det vigtigt hvor de lilla, gule og røde biler kører hen?")
-	tips.push_back("Hvis du leder alle de andre biler væk så bliver den sidste farve biler sendt til højre.")
+	textbox = "Nu skal de orange biler parkere til højre mens de andre skal holde til venstre."
+	tips.push_back("Du kan se hvilke farver biler der kommer ved at udvide en af knapperne hvor du vælger farverne.")
+	tips.push_back("Husk at sørge for at alle de mulige farver er blevet valgt et sted.")
 	tips.push_back(textbox)
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,7 +56,7 @@ func _process(delta: float) -> void:
 			pop_up_complete.visible = true
 			disableCompleted = false
 		else:
-			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
 	if colorSelected[0] != -1 && colorSelected[1] != -1 && colorSelected[2] != -1 && canRun:
@@ -71,10 +65,11 @@ func _on_run_pressed() -> void:
 			spawnCar()
 			await wait(1)
 			if currentCar.color == colorSelected[0]:
-				moveCar(0) # Up
+				moveCar(1) # Left
 			elif currentCar.color == colorSelected[1]:
 				moveCar(1) # Left
 			elif currentCar.color == colorSelected[2]:
-				moveCar(3) # Down
-			else:
 				moveCar(2) # Right
+			else:
+				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
+				break
