@@ -73,7 +73,7 @@ func spawnCar() -> void:
 				print("spawn origin does not exist")
 
 
-func moveCar(x: int) -> void:
+func moveCar(x: int) -> bool:
 	if currentCar:
 		if x == 0:
 			for spot in parking.get_node("Up").get_children():
@@ -81,30 +81,33 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
-					break
+					return true #Car moved
 		elif x == 1:
 			for spot in parking.get_node("Left").get_children():
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
-					break
+					return true #Car moved
 		elif x == 2:
 			for spot in parking.get_node("Right").get_children():
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
-					break
+					return true #Car moved
 		elif x == 3:
 			for spot in parking.get_node("Down").get_children():
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
-					break
+					return true #Car moved
 		else: 
 			print("Direction not implemented")
+	else:
+		print("Currentcar is null")
+	return false # Car not moved
 
 
 func get_next_level() -> String:
