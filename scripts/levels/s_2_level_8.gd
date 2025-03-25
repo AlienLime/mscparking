@@ -3,27 +3,22 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 12
+	level = 8
 	canRun = true
 	pop_up_complete.visible = false
 	
 	# Car options
-	usedColors = [0, 3, 4]
-	carColors = [[0],[0],[0],[0],[3],[3],[3],[3],[4],[4],[4],[4],[0, 3, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
+	usedColors = [0, 1, 3, 4, 5]
+	carColors = [[1],[1],[1],[1],[3],[3],[3],[3],[4],[4],[0,5],[0,5],[0,5],[1,3]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	nrCars = carColors.size()
 	
 	# Win conditions
-	upCond = ["4_1_0"]
-	rightCond = ["3_1_0"]
-	downCond = ["0_1_0"]
-	for parking_spot in parking.get_node("Up").get_children():
-		parking_spot.conditions = upCond
-	for parking_spot in parking.get_node("Right").get_children():
-		parking_spot.conditions = rightCond
-	for parking_spot in parking.get_node("Down").get_children():
-		parking_spot.conditions = downCond
+	upCond = ["3_1_0"]
+	rightCond = ["1_1_0"]
+	downCond = ["0_1_0","4_1_0","5_1_0"]
+	assign_conditions()
 		
 	# Select if dropdowns to use
 	colorIf[0] = true
@@ -35,13 +30,17 @@ func _ready() -> void:
 	colorIf[2] = true
 	ifLabel[2] = "Hvis bilen er "
 	thenLabel[2] = "så skal den parkere nedad."
+	elseVisible = true
+	elseLabel = "Ellers skal den parkere 
+					sammen med de grønne"
 	
 	# Text
-	textbox = "Nu skal vi prøve at lave instruktioner på en parkeringsplads med 3 rækker."
+	textbox = "Godt gået! Nu prøver vi med den samme parkeringsplads men med en \"ellers\" instruks"
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
-	tips.push_back("Blå biler må kun parkere i bunden,
-						øverste del er reserveret til grønne biler
-						og i højre side er det kun lilla biler der er tilladt.")
+	tips.push_back("\"Ellers\" tager sig af alle farverne som der ikke laves \"hvis\" instrukser til")
+	tips.push_back("Røde biler skal parkere til højre,
+						bunden er reserveret til grønne biler
+						og i den øverste del er det kun lilla biler der er tilladt.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,9 +53,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
-			textbox = "Blå biler må kun parkere i bunden,
-						øverste del er reserveret til grønne biler
-						og i højre side er det kun lilla biler der er tilladt."
+			textbox = "Røde biler skal parkere til højre,
+						bunden er reserveret til grønne biler
+						og i den øverste del er det kun lilla biler der er tilladt."
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
@@ -77,4 +76,4 @@ func _on_run_pressed() -> void:
 			elif currentCar.color == colorSelected[2]:
 				moveCar(3) # Down
 			else:
-				print("Car with an unchosen color found. Found color was " + str(colorSelected[1]) + " and " + str(colorSelected[2]))
+				moveCar(3)
