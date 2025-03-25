@@ -24,4 +24,4 @@ func _process(delta: float) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	owner.owner.owner.colorSelected[get_index()] = index
+	owner.owner.owner.colorSelected[get_index()] = option_button.get_item_id(index)
