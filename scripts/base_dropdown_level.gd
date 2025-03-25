@@ -24,11 +24,13 @@ var downCond: Array
 var nextScene: String
 var colorSelected = [-1,-1,-1]
 var colorIf = [false,false,false]
+var elseVisible = false
 
 # Text variables
 var level: int
 var ifLabel = ["not defined","not defined","not defined"]
 var thenLabel = ["not defined","not defined","not defined"]
+var elseLabel: String = "bøvs"
 var helper: String
 var textbox: String
 var introLabel: String
@@ -122,6 +124,20 @@ func get_next_level() -> String:
 	else:
 		print('An error occurred when trying to access the path')
 	return next_level
+
+func assign_conditions() -> void:
+	if parking.get_node("Up"):
+		for parking_spot in parking.get_node("Up").get_children():
+			parking_spot.conditions = upCond
+	if parking.get_node("Left"):
+		for parking_spot in parking.get_node("Left").get_children():
+			parking_spot.conditions = leftCond
+	if parking.get_node("Right"):
+		for parking_spot in parking.get_node("Right").get_children():
+			parking_spot.conditions = rightCond
+	if parking.get_node("Down"):
+		for parking_spot in parking.get_node("Down").get_children():
+			parking_spot.conditions = downCond
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

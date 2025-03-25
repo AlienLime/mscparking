@@ -4,6 +4,8 @@ extends MarginContainer
 @onready var if_color_0: Control = $MarginContainer/HBoxContainer/VBoxContainer/IfColor0
 @onready var if_color_1: Control = $MarginContainer/HBoxContainer/VBoxContainer/IfColor1
 @onready var if_color_2: Control = $MarginContainer/HBoxContainer/VBoxContainer/IfColor2
+@onready var elseLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/ElseLabel
+
 var setupBool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +14,8 @@ func _process(delta: float) -> void:
 		if_color_0.visible = owner.owner.colorIf[0]
 		if_color_1.visible = owner.owner.colorIf[1]
 		if_color_2.visible = owner.owner.colorIf[2]
+		elseLabel.visible = owner.owner.elseVisible
+		elseLabel.text = owner.owner.elseLabel
 		setupBool = false
 	run.disabled = owner.owner.disableRun
 	
