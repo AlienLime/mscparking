@@ -21,15 +21,20 @@ func _ready() -> void:
 	assign_conditions()
 		
 	# Select if dropdowns to use
-	colorIf[0] = true
-	ifLabel[0] = "Hvis bilen er "
-	thenLabel[0] = "så skal den parkere opad."
-	colorIf[1] = true
-	ifLabel[1] = "Hvis bilen er "
-	thenLabel[1] = "så skal den parkere til højre."
-	colorIf[2] = true
-	ifLabel[2] = "Hvis bilen er "
-	thenLabel[2] = "så skal den parkere nedad."
+	ifArray.push_back("colorIf")
+	colorSelected.push_back(-1)
+	ifLabel.push_back("Hvis bilen er ")
+	thenLabel.push_back("så skal den parkere opad.")
+	
+	ifArray.push_back("colorIf")
+	colorSelected.push_back(-1)
+	ifLabel.push_back("Hvis bilen er ")
+	thenLabel.push_back("så skal den parkere til højre.")
+	
+	ifArray.push_back("colorIf")
+	colorSelected.push_back(-1)
+	ifLabel.push_back("Hvis bilen er ")
+	thenLabel.push_back("så skal den parkere nedad.")
 	
 	# Text
 	textbox = "Nu skal vi prøve at lave instruktioner på en parkeringsplads med 3 rækker."
