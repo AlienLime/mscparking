@@ -5,22 +5,23 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 16
+	level = 18
 	canRun = true
-	intro.visible = true
 	pop_up_complete.visible = false
 	
 	# Car options
-	usedColors = [0, 1]
-	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
+	usedColors = [0, 1, 2, 3, 4, 5]
+	carColors = [[0],[5],[0, 5],[0, 5],[3],[3],[3],[1, 3, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	nrCars = carColors.size()
 	
 	# Win conditions
-	usedDirections = [1,2]
-	leftCond = ["0_3_0", "0_0_0"]
-	rightCond = ["1_3_0", "1_0_0"]
+	usedDirections = [0,1,2,3]
+	upCond = ["0_3_0","5_3_0"]
+	leftCond = ["1_3_0","2_3_0","4_3_0"]
+	rightCond = ["1_3_0","2_3_0","4_3_0"]
+	downCond = ["3_3_0"]
 	assign_conditions()
 	
 	# Select if dropdowns to use
@@ -32,12 +33,18 @@ func _ready() -> void:
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere ")
 	
-	# Text
-	textbox = "Nu er højre side reserveret til de røde biler og de blå biler skal holde til venstre.
+	ifArray.push_back("colorIfThen")
+	ifLabel.push_back("Hvis bilen er ")
+	thenLabel.push_back("så skal den parkere ")
 	
-				Design en instruktion med de nye valgmuligheder."
-	introLabel = "INTRODUCER THEN"
-
+	elseVisible = true
+	elseLabel = "Ellers skal den parkere til 
+				venstre eller højre"
+	
+	# Text
+	textbox = "Her skal blå og de gule biler parkere på de øverste pladser og de lilla biler skal parkere til nederst."
+	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen neden under.")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,11 +55,6 @@ func _process(delta: float) -> void:
 		else:
 			disableRun = false
 	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			intro.visible = false
-			intro.z_index = -1
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
@@ -74,6 +76,11 @@ func _on_run_pressed() -> void:
 				if !moveCar(optionSelected[3]):
 					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
 					break
+			elif currentCar.color == optionSelected[4]:
+				if !moveCar(optionSelected[5]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			else:
-				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
-				break
+				if !moveCar(1): # Left
+					moveCar(2) # Right if left was not possible
+			

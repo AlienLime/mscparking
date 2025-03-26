@@ -32,7 +32,7 @@ func _ready() -> void:
 	thenLabel.push_back("så skal den parkere til venstre.")
 	
 	# Text
-	textbox = "Nu er højre side reserveret til de røde biler.
+	textbox = "Nu er højre side reserveret til de røde biler og de blå biler skal holde til venstre.
 	
 				Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
 	tips.push_back("")

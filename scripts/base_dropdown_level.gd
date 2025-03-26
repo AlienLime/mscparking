@@ -32,7 +32,6 @@ var level: int
 var ifLabel: Array
 var thenLabel: Array
 var elseLabel: String
-var helper: String
 var textbox: String
 var introLabel: String
 var tips: Array
