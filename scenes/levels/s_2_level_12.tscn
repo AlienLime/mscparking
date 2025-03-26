@@ -1,11 +1,10 @@
-[gd_scene load_steps=70 format=4 uid="uid://by0epvarxb2ar"]
+[gd_scene load_steps=69 format=4 uid="uid://bowl1iugisrwj"]
 
 [ext_resource type="Script" path="res://scripts/levels/s_2_level_12.gd" id="1_uo301"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="2_q86bs"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="3_3x2r3"]
 [ext_resource type="PackedScene" uid="uid://bxcon65dpfvjs" path="res://scenes/ingame_gui_dropdown.tscn" id="4_ny4ba"]
 [ext_resource type="PackedScene" uid="uid://c231qpflxdhnd" path="res://scenes/pop_up_complete.tscn" id="5_pky01"]
-[ext_resource type="PackedScene" uid="uid://dvp2c6npvj33y" path="res://scenes/intro.tscn" id="6_0411x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73ryc"]
 
@@ -550,9 +549,3 @@ scale = Vector2(2, 2)
 [node name="PopUpComplete" parent="GUI/IngameGUIDropdown" instance=ExtResource("5_pky01")]
 visible = false
 layout_mode = 1
-
-[node name="Intro" parent="GUI/IngameGUIDropdown" instance=ExtResource("6_0411x")]
-visible = false
-layout_mode = 1
-offset_right = 0.0
-offset_bottom = 0.0

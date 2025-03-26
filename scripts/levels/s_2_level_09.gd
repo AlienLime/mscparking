@@ -38,9 +38,9 @@ func _ready() -> void:
 					på ikke reserverede pladser"
 	
 	# Text
-	textbox = "Imponerende. Nu er chefens \"ellers\" instruks noget friere."
+	textbox = "Imponerende. Nu er chefens \"ellers\" instruks mindre streng."
 	tips.push_back("Der er forskel på, at en plads er reserveret, og at en bil skal parkere et bestemt sted.")
-	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
+	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
 	tips.push_back("Højre side er reserveret til røde og grønne biler,
 						lilla biler skal parkere i bunden,
 						og andre farver må parkere på de plader, der ikke er reserverede.")

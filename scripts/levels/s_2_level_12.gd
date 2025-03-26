@@ -1,7 +1,5 @@
 extends BaseDropdownLevel
 
-@onready var intro: Control = $GUI/IngameGUIDropdown/Intro
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
@@ -42,8 +40,9 @@ func _ready() -> void:
 				venstre eller højre"
 	
 	# Text
-	textbox = "Her skal blå og de gule biler parkere på de øverste pladser og de lilla biler skal parkere til nederst."
-	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen neden under.")
+	textbox = "Her skal blå og de gule biler parkere på de øverste pladser, og de lilla biler skal parkere nederst."
+	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen nedenunder.")
+	tips.push_back("Husk at der er en \"ellers\" til sidst, så hav fokus på de biler, der ikke skal til venstre eller højre.")
 	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

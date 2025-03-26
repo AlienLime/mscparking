@@ -1,7 +1,5 @@
 extends BaseDropdownLevel
 
-@onready var intro: Control = $GUI/IngameGUIDropdown/Intro
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
@@ -35,8 +33,8 @@ func _ready() -> void:
 	thenLabel.push_back("så skal den parkere til højre.")
 	
 	# Text
-	textbox = "Nu skal de orange biler parkere til højre mens de andre skal holde til venstre."
-	tips.push_back("Du kan se hvilke farver biler der kommer ved at udvide en af knapperne hvor du vælger farverne.")
+	textbox = "Nu skal de orange biler parkere til højre, mens de andre skal holde til venstre."
+	tips.push_back("Du kan se hvilke farver biler, der kommer ved at udvide en af knapperne, hvor du vælger farverne.")
 	tips.push_back("Husk at sørge for at alle de mulige farver er blevet valgt et sted.")
 	tips.push_back(textbox)
 
@@ -50,11 +48,6 @@ func _process(delta: float) -> void:
 		else:
 			disableRun = false
 	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			intro.visible = false
-			intro.z_index = -1
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true

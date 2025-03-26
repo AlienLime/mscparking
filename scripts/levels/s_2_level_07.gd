@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	# Text
 	textbox = "Nu skal vi prøve at lave instruktioner på en parkeringsplads med 3 rækker."
-	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
+	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
 	tips.push_back("Blå biler må kun parkere i bunden,
 						øverste del er reserveret til grønne biler,
 						og i højre side er det kun lilla biler, der er tilladt.")

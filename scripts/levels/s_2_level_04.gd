@@ -1,7 +1,5 @@
 extends BaseDropdownLevel
 
-@onready var intro: Control = $GUI/IngameGUIDropdown/Intro
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
@@ -40,12 +38,10 @@ func _ready() -> void:
 	elseLabel = "Ellers skal den parkere til venstre"
 	
 	# Text
-	textbox = "Her skal blå biler parkere på de øverste pladser, alle røde biler skal parkere til nederst og de orange biler skal parkere til højre."
-	tips.push_back("Har du tænkt over hvad der skal ske med de lilla, grønne og gule biler?")
-	tips.push_back("Du kan prøve banen et par gange og se hvad der sker når du vælger forskellige farver.")
+	textbox = "Her skal blå biler parkere på de øverste pladser, alle røde biler skal parkere nederst, og de orange biler skal parkere til højre."
+	tips.push_back("Har du tænkt over, hvad der skal ske med de lilla, grønne og gule biler?")
+	tips.push_back("Du kan prøve banen et par gange og se, hvad der sker, når du vælger forskellige farver.")
 	tips.push_back(textbox)
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,17 +53,12 @@ func _process(delta: float) -> void:
 		else:
 			disableRun = false
 	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			intro.visible = false
-			intro.z_index = -1
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
 			disableCompleted = false
 		else:
-			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
 	if canRun:
