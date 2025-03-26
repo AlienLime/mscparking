@@ -3,7 +3,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 13
+	level = 17
 	canRun = true
 	pop_up_complete.visible = false
 	
@@ -15,34 +15,35 @@ func _ready() -> void:
 	nrCars = carColors.size()
 	
 	# Win conditions
+	usedDirections = [0,2,3]
 	upCond = ["4_1_0"]
 	rightCond = ["3_1_0"]
 	downCond = ["0_1_0"]
 	assign_conditions()
-		
+	
 	# Select if dropdowns to use
-	ifArray.push_back("colorIf")
+	ifArray.push_back("colorIfThen")
 	ifLabel.push_back("Hvis bilen er ")
-	thenLabel.push_back("så skal den parkere opad.")
+	thenLabel.push_back("så skal den parkere ")
 	
-	ifArray.push_back("colorIf")
+	ifArray.push_back("colorIfThen")
 	ifLabel.push_back("Hvis bilen er ")
-	thenLabel.push_back("så skal den parkere til højre.")
+	thenLabel.push_back("så skal den parkere ")
 	
-	ifArray.push_back("colorIf")
+	ifArray.push_back("colorIfThen")
 	ifLabel.push_back("Hvis bilen er ")
-	thenLabel.push_back("så skal den parkere nedad.")
+	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
-	textbox = "Nu skal vi prøve at lave instruktioner på en parkeringsplads med 3 rækker."
-	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
+	textbox = "Nu skal vi prøve at lave \"hvis/så\" instruktioner på en parkeringsplads med 3 rækker."
+	tips.push_back("Det behøver nødvendigvis ikke være de samme ord du bruger til reglerne som chefen har brugt i sin instruks")
 	tips.push_back("Blå biler må kun parkere i bunden,
 						øverste del er reserveret til grønne biler,
 						og i højre side er det kun lilla biler, der er tilladt.")
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Disable run if there is nothing selected
 	for item in optionSelected:
 		if item == -1:
 			disableRun = true
@@ -70,10 +71,17 @@ func _on_run_pressed() -> void:
 			spawnCar()
 			await wait(1)
 			if currentCar.color == optionSelected[0]:
-				moveCar(0) # Up
-			elif currentCar.color == optionSelected[1]:
-				moveCar(2) # Right
+				if !moveCar(optionSelected[1]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			elif currentCar.color == optionSelected[2]:
-				moveCar(3) # Down
+				if !moveCar(optionSelected[3]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
+			elif currentCar.color == optionSelected[4]:
+				if !moveCar(optionSelected[5]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			else:
-				print("Car with an unchosen color found. Found colors was " + str(optionSelected[0]) + ", " + str(optionSelected[1]) + " and " + str(optionSelected[2]))
+				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
+				break

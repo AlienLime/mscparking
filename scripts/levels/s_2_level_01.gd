@@ -35,6 +35,8 @@ func _ready() -> void:
 	textbox = "Nu er højre side reserveret til de røde biler.
 	
 				Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
+	tips.push_back("")
+	tips.push_back(textbox)
 	introLabel = "Du har jo super godt styr på parkering!\n
 				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
 				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n

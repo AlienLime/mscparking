@@ -13,6 +13,8 @@ func _ready() -> void:
 	textbox = "Chefen vil nu gerne have at:
 					Blå, orange og grønne biler skal parkere til venstre.
 					Røde, lilla og gule biler skal parkere til højre."
+	tips.push_back("Du behøver ikke huske alle reglerne. Du kan altid kigge på dem igen, når der kommer en ny bil.")
+	tips.push_back(textbox)
 	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 	
 	# Car options

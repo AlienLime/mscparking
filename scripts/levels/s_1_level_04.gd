@@ -9,13 +9,6 @@ func _ready() -> void:
 	level = 4
 	pop_up_complete.visible = false
 	
-	# Initial text
-	textbox = "På den her parkeringsplads har chefen lavet andre regler:
-					Ingen biler må krydse vejen.
-					
-					Prøv dig frem. Hvis du laver fejl kan du bare trykke på genstart knappen for at prøve igen"
-	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
-	
 	# Car options
 	carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
@@ -26,6 +19,16 @@ func _ready() -> void:
 	leftCond = ["1_0_0", "0_0_0"]
 	rightCond = ["1_3_0", "0_3_0"]
 	assign_conditions()
+	
+	# Initial text
+	textbox = "På den her parkeringsplads har chefen lavet andre regler:
+					Ingen biler må krydse vejen.
+					
+					Prøv dig frem. Hvis du laver fejl kan du bare trykke på genstart knappen for at prøve igen"
+	tips.push_back("Hvad betyder det at krydse vejen?")
+	tips.push_back("Er bilens farve vigtig for, hvor den skal parkere? Eller er det noget andet?")
+	tips.push_back(textbox)
+	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 	
 	# Enable gameplay
 	disableLeft = false
