@@ -4,6 +4,7 @@ extends Control
 @onready var option_button: OptionButton = $VBoxContainer/HBoxContainer/OptionButton
 @onready var thenLabel: Label = $VBoxContainer/MarginContainer/Then
 
+var ifIndex: int
 var setupBool = true
 
 func _ready() -> void:
@@ -24,4 +25,4 @@ func _process(delta: float) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	owner.owner.owner.colorSelected[get_index()] = option_button.get_item_id(index)
+	owner.owner.owner.optionSelected[ifIndex] = option_button.get_item_id(index)

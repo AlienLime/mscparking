@@ -32,7 +32,7 @@ size_flags_horizontal = 2
 theme = ExtResource("2_a53at")
 text = "Base"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="ifButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -72,7 +72,7 @@ size_flags_horizontal = 2
 theme = ExtResource("2_a53at")
 text = "Base"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="thenButton" type="OptionButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -86,4 +86,5 @@ popup/item_2/id = 2
 popup/item_3/text = "nedad"
 popup/item_3/id = 3
 
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/ifButton" to="." method="_on_if_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/MarginContainer/HBoxContainer/thenButton" to="." method="_on_then_button_item_selected"]

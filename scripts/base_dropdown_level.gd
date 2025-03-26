@@ -10,20 +10,20 @@ const levelDir = "res://scenes/levels/"
 
 # Car variables
 var carStack: Array
-var usedColors: Array
+var usedColors: Array #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 var carColors: Array #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 var carOrigins: Array #0=Up 1=Left 2=Right 3=Down
 var carShapes: Array
 var nrCars: int
 
 # Level variables
+var usedDirections: Array #0=Up 1=Left 2=Right 3=Down
 var upCond: Array
 var leftCond: Array
 var rightCond: Array
 var downCond: Array
 var nextScene: String
-var colorSelected: Array
-var colorThenSelected: Array
+var optionSelected: Array
 var ifArray: Array
 var elseVisible = false
 

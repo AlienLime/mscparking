@@ -45,7 +45,7 @@ theme_override_constants/separation = 0
 
 [node name="ElseLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 0
 theme = ExtResource("4_wwkyd")
 text = "Base"
 

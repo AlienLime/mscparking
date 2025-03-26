@@ -30,14 +30,31 @@ func _process(delta: float) -> void:
 func create_if_color() -> void:
 	var ifColor = IF_COLOR.instantiate()
 	ifColor.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	
+	ifColor.ifIndex = owner.owner.optionSelected.size()
+	owner.owner.optionSelected.push_back(-1)
+	
 	v_box_container.add_child(ifColor)
 	ifColor.set_owner(dropdown_box)
 
+
 func create_if_color_then() -> void:
-	var ifColorThen = IF_COLOR.instantiate()
+	var ifColorThen = IF_COLOR_THEN.instantiate()
 	ifColorThen.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	
+	print(ifColorThen.ifIndex)
+	print(owner.owner.optionSelected.size())
+	ifColorThen.ifIndex = owner.owner.optionSelected.size()
+	owner.owner.optionSelected.push_back(-1)
+	
+	print(ifColorThen.thenIndex)
+	print(owner.owner.optionSelected.size())
+	ifColorThen.thenIndex = owner.owner.optionSelected.size()
+	owner.owner.optionSelected.push_back(-1)
+	
 	v_box_container.add_child(ifColorThen)
 	ifColorThen.set_owner(dropdown_box)
+
 
 func _on_run_pressed() -> void:
 	owner.owner._on_run_pressed()

@@ -5,7 +5,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 7
+	level = 16
 	canRun = true
 	intro.visible = true
 	pop_up_complete.visible = false
@@ -18,32 +18,29 @@ func _ready() -> void:
 	nrCars = carColors.size()
 	
 	# Win conditions
+	usedDirections = [1,2]
 	leftCond = ["0_3_0", "0_0_0"]
 	rightCond = ["1_3_0", "1_0_0"]
 	assign_conditions()
 	
 	# Select if dropdowns to use
-	ifArray.push_back("colorIf")
+	ifArray.push_back("colorIfThen")
 	ifLabel.push_back("Hvis bilen er ")
-	thenLabel.push_back("så skal den parkere til højre.")
+	thenLabel.push_back("så skal den parkere ")
 	
-	ifArray.push_back("colorIf")
+	ifArray.push_back("colorIfThen")
 	ifLabel.push_back("Hvis bilen er ")
-	thenLabel.push_back("så skal den parkere til venstre.")
+	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
 	textbox = "Nu er højre side reserveret til de røde biler.
 	
 				Design en instruktion som bilerne kan følge ved at vælge en af mulighederne herunder."
-	introLabel = "Du har jo super godt styr på parkering!\n
-				Men man bliver træt, hvis man skal hjælpe hver eneste lille bil på vej. Vi må have dig til at lave systemer, som bilerne kan følge, når de skal finde en parkeringsplads.\n
-				I den her bane skal du designe en instruktion til bilerne før de overhovedet er kommet.\n
-				Held og lykke!"
+	introLabel = "INTRODUCER THEN"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Disable run if there is nothing selected
 	for item in optionSelected:
 		if item == -1:
 			disableRun = true
@@ -70,9 +67,13 @@ func _on_run_pressed() -> void:
 			spawnCar()
 			await wait(1)
 			if currentCar.color == optionSelected[0]:
-				moveCar(2) # Right
-			elif currentCar.color == optionSelected[1]:
-				moveCar(1) # Left
+				if !moveCar(optionSelected[1]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
+			elif currentCar.color == optionSelected[2]:
+				if !moveCar(optionSelected[3]):
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			else:
 				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
 				break

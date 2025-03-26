@@ -27,17 +27,14 @@ func _ready() -> void:
 	
 	# Select if dropdowns to use
 	ifArray.push_back("colorIf")
-	colorSelected.push_back(-1)
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere øverst.")
 	
 	ifArray.push_back("colorIf")
-	colorSelected.push_back(-1)
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere øverst.")
 	
 	ifArray.push_back("colorIf")
-	colorSelected.push_back(-1)
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere nederst.")
 	
@@ -56,10 +53,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Disable run if there is nothing selected
-	if colorSelected[0] == -1 || colorSelected[1] == -1 || colorSelected[2] == -1:
-		disableRun = true
-	else:
-		disableRun = false
+	for item in optionSelected:
+		if item == -1:
+			disableRun = true
+			break
+		else:
+			disableRun = false
 	
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
@@ -74,16 +73,16 @@ func _process(delta: float) -> void:
 			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
-	if colorSelected[0] != -1 && colorSelected[1] != -1 && colorSelected[2] != -1 && canRun:
+	if canRun:
 		canRun = false
 		for car in nrCars:
 			spawnCar()
 			await wait(1)
-			if currentCar.color == colorSelected[0]:
+			if currentCar.color == optionSelected[0]:
 				moveCar(0) # Up
-			elif currentCar.color == colorSelected[1]:
+			elif currentCar.color == optionSelected[1]:
 				moveCar(0) # Up
-			elif currentCar.color == colorSelected[2]:
+			elif currentCar.color == optionSelected[2]:
 				moveCar(3) # Down
 			else:
 				if !moveCar(1): # Left
