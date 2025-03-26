@@ -37,10 +37,10 @@ func _ready() -> void:
 	# Text
 	textbox = "Godt gået! Nu prøver vi med den samme parkeringsplads men med en \"ellers\" instruks"
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
-	tips.push_back("\"Ellers\" tager sig af alle farverne som der ikke laves \"hvis\" instrukser til")
+	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instrukser til")
 	tips.push_back("Røde biler skal parkere til højre,
 						bunden er reserveret til grønne biler,
-						i den øverste del er det kun lilla biler der er tilladt
+						i den øverste del er det kun lilla biler, der er tilladt,
 						og andre farver skal parkere sammen med de grønne biler.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

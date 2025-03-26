@@ -32,15 +32,15 @@ func _ready() -> void:
 	thenLabel[2] = "så skal den parkere højre."
 	elseVisible = true
 	elseLabel = "Ellers må den parkere 
-					hvor den vil"
+					på ikke reserverede pladser"
 	
 	# Text
 	textbox = "Imponerende. Nu er chefens \"ellers\" instruks noget friere."
 	tips.push_back("Der er forskel på, at en plads er reserveret, og at en bil skal parkere et bestemt sted.")
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
 	tips.push_back("Højre side er reserveret til røde og grønne biler,
-						lilla biler skal parkere i bunden
-						og andre farver må parkere på de plader der ikke er reserverede.")
+						lilla biler skal parkere i bunden,
+						og andre farver må parkere på de plader, der ikke er reserverede.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
