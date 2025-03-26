@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp5i5ir5da4r1"]
+[gd_scene load_steps=5 format=3 uid="uid://dp5i5ir5da4r1"]
 
 [ext_resource type="Script" path="res://scripts/dropdown_box.gd" id="1_3db55"]
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_manry"]
-[ext_resource type="PackedScene" uid="uid://buknww60ebskp" path="res://scenes/if_color.tscn" id="2_0fwq5"]
 [ext_resource type="Theme" uid="uid://bc5xkg6v21bva" path="res://themes/buttons/go.tres" id="4_wprca"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="4_wwkyd"]
 
@@ -39,22 +38,14 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="IfColor0" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="IfColor1" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="IfColor2" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_0fwq5")]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="ElseLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 2
 theme = ExtResource("4_wwkyd")
 text = "Base"
 

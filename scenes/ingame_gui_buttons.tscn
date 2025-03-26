@@ -66,7 +66,7 @@ grow_vertical = 0
 theme = ExtResource("3_eys7k")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ofyxj")
-text = "aakfsægfbaæslkjf"
+text = "Base"
 autowrap_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

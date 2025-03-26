@@ -22,14 +22,15 @@ var leftCond: Array
 var rightCond: Array
 var downCond: Array
 var nextScene: String
-var colorSelected = [-1,-1,-1]
-var colorIf = [false,false,false]
+var colorSelected: Array
+var colorThenSelected: Array
+var ifArray: Array
 var elseVisible = false
 
 # Text variables
 var level: int
-var ifLabel = ["not defined","not defined","not defined"]
-var thenLabel = ["not defined","not defined","not defined"]
+var ifLabel: Array
+var thenLabel: Array
 var elseLabel: String
 var helper: String
 var textbox: String
