@@ -3,23 +3,22 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Level setup
-	level = 18
+	level = 17
 	canRun = true
 	pop_up_complete.visible = false
 	
 	# Car options
-	usedColors = [0, 1, 2, 3, 4, 5]
-	carColors = [[0],[5],[0, 5],[0, 5],[3],[3],[3],[1, 3, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
+	usedColors = [0, 3, 4]
+	carColors = [[0],[0],[0],[0],[3],[3],[3],[3],[4],[4],[4],[4],[0, 3, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	nrCars = carColors.size()
 	
 	# Win conditions
-	usedDirections = [0,1,2,3]
-	upCond = ["0_3_0","5_3_0"]
-	leftCond = ["1_3_0","2_3_0","4_3_0"]
-	rightCond = ["1_3_0","2_3_0","4_3_0"]
-	downCond = ["3_3_0"]
+	usedDirections = [0,2,3]
+	upCond = ["4_1_0"]
+	rightCond = ["3_1_0"]
+	downCond = ["0_1_0"]
 	assign_conditions()
 	
 	# Select if dropdowns to use
@@ -35,15 +34,14 @@ func _ready() -> void:
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere ")
 	
-	elseVisible = true
-	elseLabel = "Ellers skal den parkere til 
-				venstre eller højre"
-	
 	# Text
-	textbox = "Her skal blå og de gule biler parkere på de øverste pladser, og de lilla biler skal parkere nederst."
-	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen nedenunder.")
-	tips.push_back("Husk at der er en \"ellers\" til sidst, så hav fokus på de biler, der ikke skal til venstre eller højre.")
-	tips.push_back(textbox)
+	textbox = "Nu skal vi prøve at lave \"hvis/så\" instruktioner på en parkeringsplads med 3 rækker."
+	tips.push_back("Det behøver nødvendigvis ikke være de samme ord du bruger til din instruktion, som chefen har brugt i sine regler.")
+	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
+	tips.push_back("Blå biler må kun parkere i bunden,
+						øverste del er reserveret til grønne biler,
+						og i højre side er det kun lilla biler, der er tilladt.")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,6 +52,12 @@ func _process(delta: float) -> void:
 		else:
 			disableRun = false
 	
+	if Input.is_action_just_pressed("mouse"):
+		clicks += 1
+		if clicks == 1:
+			textbox = "Blå biler må kun parkere i bunden,
+						øverste del er reserveret til grønne biler
+						og i højre side er det kun lilla biler der er tilladt."
 	if parked == nrCars:
 		if score == nrCars:
 			pop_up_complete.visible = true
@@ -80,6 +84,5 @@ func _on_run_pressed() -> void:
 					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
 					break
 			else:
-				if !moveCar(1): # Left
-					moveCar(2) # Right if left was not possible
-			
+				textbox = "Det var en smutter. Du har ikke bestemt hvor denne farve bil skal hen. Tryk på genstart og prøv igen."
+				break

@@ -15,7 +15,9 @@ func _ready() -> void:
 	# Initial text
 	textbox = "Vi bliver ved lidt endnu."
 	tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
-	
+	tips.push_back("Her skal de øverste pladser fyldes inden du løber tør for biler.
+			
+						Husk at du stadig skal finde plads til alle bilerne.")
 	# Win conditions [color, origin, shape]
 	
 	spawnCar()

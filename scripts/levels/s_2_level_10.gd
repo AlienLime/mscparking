@@ -33,11 +33,15 @@ func _ready() -> void:
 	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
-	textbox = "Nu er højre side reserveret til de røde biler og de blå biler skal holde til venstre.
+	textbox = "På denne parkeringsplads er højre side reserveret til de røde biler, og de blå biler skal holde til venstre.
 	
 				Design en instruktion med de nye valgmuligheder."
-	introLabel = "INTRODUCER THEN"
-
+	tips.push_back("Nu kan man selv vælge rækkefølgen af sine regler")
+	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
+	tips.push_back(textbox)
+	introLabel = "Indtil nu, har jeg hjulpet dig med, hvad der skulle ske, hvis bilen havde den farve, som du valgte.
+	
+					Nu får du mere ansvar, og du skal selv beslutte, hvor bilerne skal køre hen."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

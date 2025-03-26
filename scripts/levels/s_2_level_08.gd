@@ -38,9 +38,9 @@ func _ready() -> void:
 					sammen med de grønne"
 	
 	# Text
-	textbox = "Godt gået! Nu prøver vi med den samme parkeringsplads men med en \"ellers\" instruks"
-	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen af din instruks")
-	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instrukser til")
+	textbox = "Godt gået! Nu prøver vi med den samme parkeringsplads men med en \"ellers\" instruktion."
+	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
+	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instruktioner til.")
 	tips.push_back("Røde biler skal parkere til højre,
 						bunden er reserveret til grønne biler,
 						i den øverste del er det kun lilla biler, der er tilladt,
@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 			pop_up_complete.visible = true
 			disableCompleted = false
 		else:
-			helper = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
 
 func _on_run_pressed() -> void:
 	if canRun:

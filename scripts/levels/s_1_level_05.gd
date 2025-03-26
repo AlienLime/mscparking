@@ -13,8 +13,9 @@ func _ready() -> void:
 	textbox = "Lad os se på nogle biler med andre farver.
 	
 				Chefen vil have de orange biler øverst her."
-	helper = ""
-	tips.push_back("Hvis de orange biler skal holde øverst er det en god ide at parkere de lilla biler nederst.")
+	tips.push_back("Hvis de orange biler skal holde øverst, er der så også plads til at parkere de lilla biler øverst?")
+	tips.push_back("Chefen vil have de orange biler øverst her.")
+	helper = "Tryk på pilene for at vise bilerne hen til de korrekte pladser."
 	
 	# Car options
 	carColors = [[2],[2],[2],[2],[3],[3],[3],[3],[2, 3],[2, 3]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
