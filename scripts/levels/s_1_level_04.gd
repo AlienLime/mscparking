@@ -8,10 +8,13 @@ func _ready() -> void:
 	# Level setup
 	level = 4
 	pop_up_complete.visible = false
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Car options
 	carColors = [[0],[0],[1],[1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
 	nrCars = carColors.size()
 	
@@ -37,6 +40,8 @@ func _ready() -> void:
 	spawnCar()
 
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
 	
 	# Show result after parking all cars
 	if parked == nrCars:

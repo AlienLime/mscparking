@@ -5,6 +5,7 @@ func _ready() -> void:
 	# Level setup
 	level = 2
 	pop_up_complete.visible = false
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Initial text
 	textbox = "Det var godt gået.
@@ -13,6 +14,8 @@ func _ready() -> void:
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
 	nrCars = carColors.size()
 	
@@ -25,6 +28,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
+	
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:

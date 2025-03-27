@@ -8,6 +8,7 @@ func _ready() -> void:
 	# Level setup
 	level = 6
 	pop_up_complete.visible = false
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Initial text
 	textbox = "Chefen vil nu gerne have at:
@@ -20,6 +21,8 @@ func _ready() -> void:
 	# Car options
 	carColors = [[0],[3],[4],[2],[5],[1],[0, 2, 4],[1, 3, 5],[0, 1, 2, 3, 4, 5],[0, 1, 2, 3, 4, 5]]
 	carOrigins = [[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3]]
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
 	nrCars = carColors.size()
 	
@@ -35,6 +38,8 @@ func _ready() -> void:
 	spawnCar()
 
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
 	
 	# Show result after parking all cars
 	if parked == nrCars:

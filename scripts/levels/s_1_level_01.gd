@@ -9,6 +9,8 @@ func _ready() -> void:
 	level = 1
 	pop_up_complete.visible = false
 	intro.visible = true
+	#stopwatch = get_tree().get_first_node_in_group("stopwatch")
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Initial text
 	textbox = "Der er mange forskellige parkeringspladser med forskellige regler. 
@@ -22,6 +24,8 @@ func _ready() -> void:
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
 	nrCars = carColors.size()
 	
@@ -34,6 +38,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
+	
 	# Click thorugh the intro to enable gameplay
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1

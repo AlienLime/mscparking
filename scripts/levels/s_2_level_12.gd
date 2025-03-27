@@ -6,11 +6,14 @@ func _ready() -> void:
 	level = 18
 	canRun = true
 	pop_up_complete.visible = false
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Car options
 	usedColors = [0, 1, 2, 3, 4, 5]
 	carColors = [[0],[5],[0, 5],[0, 5],[3],[3],[3],[1, 3, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4],[1, 2, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = [0]
 	nrCars = carColors.size()
 	
@@ -47,6 +50,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
+	
 	for item in optionSelected:
 		if item == -1:
 			disableRun = true
@@ -65,8 +71,11 @@ func _on_run_pressed() -> void:
 	if canRun:
 		canRun = false
 		for car in nrCars:
-			spawnCar()
 			await wait(1)
+			if restartPressed:
+				restartPressed = false
+				break
+			spawnCar()
 			if currentCar.color == optionSelected[0]:
 				if !moveCar(optionSelected[1]):
 					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."

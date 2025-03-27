@@ -14,13 +14,16 @@ func _process(delta: float) -> void:
 	
 
 func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
+	print("restart: " + owner.owner.stopwatch.time_to_string())
+	owner.owner.restart()
 
 func _on_home_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_completed_pressed() -> void:
+	print("completed: " + owner.owner.stopwatch.time_to_string())
 	get_tree().change_scene_to_file(owner.owner.get_next_level())
 
 func _on_undo_pressed() -> void:
+	print("undo: " + owner.owner.stopwatch.time_to_string())
 	owner.owner.undo()

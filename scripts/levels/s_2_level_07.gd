@@ -6,11 +6,14 @@ func _ready() -> void:
 	level = 13
 	canRun = true
 	pop_up_complete.visible = false
+	stopwatch = STOPWATCH.instantiate()
 	
 	# Car options
 	usedColors = [0, 3, 4]
 	carColors = [[0],[0],[0],[0],[3],[3],[3],[3],[4],[4],[4],[4],[0, 3, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = [0]
 	nrCars = carColors.size()
 	
@@ -42,6 +45,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Logging 
+	stopwatch.update(delta)
+	
 	# Disable run if there is nothing selected
 	for item in optionSelected:
 		if item == -1:
@@ -67,13 +73,22 @@ func _on_run_pressed() -> void:
 	if canRun:
 		canRun = false
 		for car in nrCars:
-			spawnCar()
 			await wait(1)
+			if restartPressed:
+				restartPressed = false
+				break
+			spawnCar()
 			if currentCar.color == optionSelected[0]:
-				moveCar(0) # Up
+				if !moveCar(0): # Up
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			elif currentCar.color == optionSelected[1]:
-				moveCar(2) # Right
+				if !moveCar(2): # Right
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			elif currentCar.color == optionSelected[2]:
-				moveCar(3) # Down
+				if !moveCar(3): # Down
+					textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+					break
 			else:
 				print("Car with an unchosen color found. Found colors was " + str(optionSelected[0]) + ", " + str(optionSelected[1]) + " and " + str(optionSelected[2]))

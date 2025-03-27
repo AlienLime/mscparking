@@ -3,14 +3,18 @@ extends Node2D
 
 const newCar = preload("res://scenes/random_car_driving.tscn")
 const levelDir = "res://scenes/levels/"
+const STOPWATCH = preload("res://scenes/stopwatch.tscn")
 
 @onready var parking: Node = $Parking
 @onready var startSpawn: Node = $Parking/StartSpawn
 @onready var pop_up_complete: Control = $GUI/IngameGUIButtons/PopUpComplete
 
 # Car variables
+var carStack = []
 var carColors: Array #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+var runtimeCarColors: Array
 var carOrigins: Array #0=Up 1=Left 2=Right 3=Down
+var runtimeCarOrigins: Array
 var carShapes: int
 var nrCars = carColors.size()
 
@@ -30,7 +34,6 @@ var tips: Array
 
 # Runtime variables
 var carIncrementer = 0
-var carStack = []
 var currentCar: RandomCar
 var parked = 0
 var score = 0
@@ -42,6 +45,9 @@ var disableLeft = true
 var disableRight = true
 var disableDown = true
 var disableCompleted = true
+
+# Logging
+var stopwatch : Stopwatch
 
 func _on_up_pressed() -> void:
 	moveCar(0)
@@ -91,13 +97,13 @@ func moveCar(x: int) -> void:
 					break
 		else: 
 			print("Direction not implemented")
+	await(wait(0.5))
 
 func spawnCar() -> void:
-	await wait(0.75)
 	if carIncrementer < nrCars:
 		carIncrementer += 1
 		currentCar = newCar.instantiate()
-		currentCar.withData(carColors.pop_at(randi_range(0, carColors.size()-1)), carOrigins.pop_at(randi_range(0, carOrigins.size()-1)))
+		currentCar.withData(runtimeCarColors.pop_at(randi_range(0, runtimeCarColors.size()-1)), runtimeCarOrigins.pop_at(randi_range(0, runtimeCarOrigins.size()-1)))
 		add_child(currentCar)
 		carStack.push_back(currentCar)
 		match currentCar.origin:
@@ -117,6 +123,28 @@ func spawnCar() -> void:
 				print("spawn origin does not exist")
 
 
+func restart() -> void:
+	pop_up_complete.visible = false
+	if !currentCar:
+		currentCar = carStack.pop_back()
+	while currentCar:
+		currentCar.queue_free()
+		currentCar = carStack.pop_back()
+	
+	for child in parking.get_children():
+		if child != startSpawn:
+			for spot in child.get_children():
+				spot.isFree = true
+	
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
+	parked = 0
+	score = 0
+	carIncrementer = 0
+	helper = ""
+	spawnCar()
+
+
 func undo() -> void:
 	if pop_up_complete.visible:
 		return
@@ -128,8 +156,8 @@ func undo() -> void:
 			score -= 1
 		if currentCar.parkingSpot != null:
 			currentCar.parkingSpot.isFree = true
-		carColors.push_back([currentCar.color])
-		carOrigins.push_back([currentCar.origin])
+		runtimeCarColors.push_back([currentCar.color])
+		runtimeCarOrigins.push_back([currentCar.origin])
 		carIncrementer -= 1
 		currentCar.queue_free()
 	
@@ -140,8 +168,8 @@ func undo() -> void:
 		score -= 1
 	if currentCar.parkingSpot != null:
 		currentCar.parkingSpot.isFree = true
-	carColors.push_back([currentCar.color])
-	carOrigins.push_back([currentCar.origin])
+	runtimeCarColors.push_back([currentCar.color])
+	runtimeCarOrigins.push_back([currentCar.origin])
 	carIncrementer -= 1
 	currentCar.queue_free()
 	
