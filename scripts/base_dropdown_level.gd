@@ -2,8 +2,8 @@ class_name BaseDropdownLevel
 extends Node2D
 
 const newCar = preload("res://scenes/random_car_driving.tscn")
-const levelDir = "res://scenes/levels/"
 const STOPWATCH = preload("res://scenes/stopwatch.tscn")
+const levelDir = "res://scenes/levels/"
 
 @onready var parking: Node = $Parking
 @onready var startSpawn: Node = $Parking/StartSpawn
@@ -142,22 +142,8 @@ func undo() -> void:
 	restart()
 
 func get_next_level() -> String:
-	var dir = DirAccess.open(levelDir)
-	var next_level: String
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		var level_name = get_tree().current_scene.name
-		while file_name != (level_name + ".tscn"):
-			file_name = dir.get_next()
-		file_name = dir.get_next()
-		if file_name == "":
-			next_level = "res://scenes/victory_screen.tscn"
-		else:
-			next_level = "res://scenes/levels/" + file_name
-	else:
-		print('An error occurred when trying to access the path')
-	return next_level
+	var dir = ResourceLoader.list_directory(levelDir)
+	return levelDir + dir.get(level)
 
 
 func assign_conditions() -> void:

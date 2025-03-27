@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkhci0ewdpqon" path="res://assets/sprites/Cars/car1_blue.png" id="1_8sncg"]
 [ext_resource type="Texture2D" uid="uid://2rho5qy828w" path="res://assets/sprites/Cars/car1_red.png" id="1_lm1lo"]
-[ext_resource type="Script" path="res://scripts/random_car.gd" id="1_os6sd"]
+[ext_resource type="Script" uid="uid://dsiwkhgujg1lw" path="res://scripts/random_car.gd" id="1_os6sd"]
 [ext_resource type="Texture2D" uid="uid://cm8iwbuntfnsq" path="res://assets/sprites/Cars/car1_green.png" id="2_8oq20"]
 [ext_resource type="Texture2D" uid="uid://j6dmglt6fvyq" path="res://assets/sprites/Cars/car1_orange.png" id="3_nt4s6"]
 [ext_resource type="Texture2D" uid="uid://cf3r3j63lulen" path="res://assets/sprites/Cars/car1_purple.png" id="4_n0y5m"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=4 uid="uid://b5s7akdvqn5ev"]
 
-[ext_resource type="Script" path="res://scripts/victory_screen.gd" id="1_g7hx5"]
+[ext_resource type="Script" uid="uid://ebq4p34kxlbg" path="res://scripts/victory_screen.gd" id="1_g7hx5"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="1_sip0i"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_gttk2"]
 [ext_resource type="PackedScene" uid="uid://dfqak2vfy3qun" path="res://scenes/random_car.tscn" id="3_so3oe"]

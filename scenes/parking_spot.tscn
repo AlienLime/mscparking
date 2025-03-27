@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cblipf5dvysin"]
 
-[ext_resource type="Script" path="res://scripts/parking_spot.gd" id="1_8vkgw"]
+[ext_resource type="Script" uid="uid://caohxd58xhk7y" path="res://scripts/parking_spot.gd" id="1_8vkgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgelu"]
 size = Vector2(54, 71)

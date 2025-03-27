@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://buknww60ebskp"]
 
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_rsxe4"]
-[ext_resource type="Script" path="res://scripts/if_color.gd" id="1_xhbys"]
+[ext_resource type="Script" uid="uid://bq0x1fq8nmloq" path="res://scripts/if_color.gd" id="1_xhbys"]
 [ext_resource type="Texture2D" uid="uid://buq5eig60h3pk" path="res://assets/sprites/Colors/Blue.png" id="2_qro65"]
 [ext_resource type="Texture2D" uid="uid://v5wxh18filiw" path="res://assets/sprites/Colors/Green.png" id="3_ans16"]
 [ext_resource type="Texture2D" uid="uid://c1ae5s0bkm5id" path="res://assets/sprites/Colors/Orange.png" id="4_e0mdw"]
@@ -42,6 +42,7 @@ theme_override_font_sizes/font_size = 25
 item_count = 6
 popup/item_0/text = "Blå "
 popup/item_0/icon = ExtResource("2_qro65")
+popup/item_0/id = 0
 popup/item_1/text = "Rød "
 popup/item_1/icon = ExtResource("6_3fub0")
 popup/item_1/id = 1

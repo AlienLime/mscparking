@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bytnhl72c2f64"]
 
 [ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="1_qwkei"]
-[ext_resource type="Script" path="res://scripts/level_button.gd" id="2_8vgmx"]
+[ext_resource type="Script" uid="uid://mnqic17441re" path="res://scripts/level_button.gd" id="2_8vgmx"]
 
 [node name="LevelButton" type="Button"]
 anchors_preset = 15

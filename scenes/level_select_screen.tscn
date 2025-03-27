@@ -1,6 +1,6 @@
 [gd_scene load_steps=67 format=4 uid="uid://j07epo5xd8he"]
 
-[ext_resource type="Script" path="res://scripts/level_select_screen.gd" id="1_jmpg7"]
+[ext_resource type="Script" uid="uid://bxwok7geu3jni" path="res://scripts/level_select_screen.gd" id="1_jmpg7"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="1_ubq6k"]
 [ext_resource type="FontFile" uid="uid://bfaqgp2kxakq3" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_o66j8"]
 
@@ -450,7 +450,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmpg7")
-dir_path = "res://scenes/Levels"
+dir_path = "res://scenes/levels"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)

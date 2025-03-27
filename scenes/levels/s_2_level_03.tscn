@@ -1,6 +1,6 @@
 [gd_scene load_steps=69 format=4 uid="uid://32kjjltqfcgr"]
 
-[ext_resource type="Script" path="res://scripts/levels/s_2_level_03.gd" id="1_1sco5"]
+[ext_resource type="Script" uid="uid://biupblnnpe5bg" path="res://scripts/levels/s_2_level_03.gd" id="1_1sco5"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="2_847n7"]
 [ext_resource type="PackedScene" uid="uid://cblipf5dvysin" path="res://scenes/parking_spot.tscn" id="3_bm478"]
 [ext_resource type="PackedScene" uid="uid://bxcon65dpfvjs" path="res://scenes/ingame_gui_dropdown.tscn" id="4_650ha"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7v74ksker21g"]
 
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_hnm5t"]
-[ext_resource type="Script" path="res://scripts/top_corner_box.gd" id="1_wdigg"]
+[ext_resource type="Script" uid="uid://cmabdy1q6wovq" path="res://scripts/top_corner_box.gd" id="1_wdigg"]
 [ext_resource type="Theme" uid="uid://bf6rttpwuun5t" path="res://themes/buttons/home.tres" id="2_m67y3"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_ql562"]
 [ext_resource type="Theme" uid="uid://bcelgugjhxlxx" path="res://themes/buttons/restart.tres" id="2_rqmtw"]

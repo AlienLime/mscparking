@@ -1,6 +1,6 @@
 [gd_scene load_steps=69 format=4 uid="uid://dapuwnhaxe7w5"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_takfn"]
+[ext_resource type="Script" uid="uid://x8wjp8h78khy" path="res://scripts/menu.gd" id="1_takfn"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="2_840wd"]
 [ext_resource type="FontFile" uid="uid://de7sapujnpxn6" path="res://assets/fonts/PixelOperator8.ttf" id="2_cy4wk"]
 [ext_resource type="PackedScene" uid="uid://dfqak2vfy3qun" path="res://scenes/random_car.tscn" id="4_58ogf"]

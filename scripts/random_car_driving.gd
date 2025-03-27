@@ -62,13 +62,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
 		if !body.waiting: # to avoid a stale mate where 2 cars wait for each other
 			waiting = true
-			while !body.nav_agent.is_navigation_finished():
-				await wait(0.5)
+			await wait(0.5)
 			waiting = false
 		elif (body.car.rotation < car.rotation-(PI/2.0) || body.car.rotation > car.rotation+(PI/2.0)): # to avoid hitting other waiting cars from behind
 			waiting = true
-			while !body.nav_agent.is_navigation_finished():
-				await wait(0.5)
+			await wait(0.5)
 			waiting = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
