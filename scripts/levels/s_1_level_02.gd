@@ -37,8 +37,8 @@ func _process(delta: float) -> void:
 			tips.push_back(textbox)
 	
 	# Show result after parking all cars
-	if score == nrCars:
-		pop_up_complete.visible = true
+	if score == nrCars && !pop_up_complete.visible:
+		pop_up_complete.win()
 		disableCompleted = false
 
 

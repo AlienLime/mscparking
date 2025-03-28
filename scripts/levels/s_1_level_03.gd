@@ -36,12 +36,14 @@ func _process(delta: float) -> void:
 			tips.push_back(textbox)
 	
 	# Show result after parking all cars
-	if parked == nrCars:
+	if parked == nrCars && !pop_up_complete.visible:
 		var fullTop = true
 		for spot in parking.get_node("Up").get_children():
 				if spot.isFree:
 					fullTop = false
 					break
 		if fullTop:
-			pop_up_complete.visible = true
+			pop_up_complete.win()
 			disableCompleted = false
+		else:
+			pop_up_complete.lose()

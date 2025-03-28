@@ -32,10 +32,4 @@ func _process(delta: float) -> void:
 	# Logging 
 	stopwatch.update(delta)
 	
-	# Show result after parking all cars
-	if parked == nrCars:
-		if score == nrCars:
-			pop_up_complete.visible = true
-			disableCompleted = false
-		else:
-			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+	completeLevel()

@@ -47,12 +47,7 @@ func _process(delta: float) -> void:
 	
 	disableRun = checkRun()
 	
-	if parked == nrCars:
-		if score == nrCars:
-			pop_up_complete.visible = true
-			disableCompleted = false
-		else:
-			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+	completeLevel()
 
 func _on_run_pressed() -> void:
 	if canRun:
@@ -62,20 +57,20 @@ func _on_run_pressed() -> void:
 				spawnCar()
 				if currentCar.color == optionSelected[0]:
 					if !moveCar(0): # Up
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[1]:
 					if !moveCar(0): # Up
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[2]:
 					if !moveCar(3): # Down
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				else:
 					if !moveCar(1): # Left
 						if !moveCar(2): # Right if left was not possible
-							textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+							pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 							break
 			else:
 				break

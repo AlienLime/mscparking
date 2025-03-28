@@ -193,6 +193,15 @@ func assign_conditions() -> void:
 			parking_spot.conditions = downCond
 
 
+func completeLevel() -> void:
+	if parked == nrCars && !pop_up_complete.visible:
+		if score == nrCars:
+			pop_up_complete.win()
+			disableCompleted = false
+		else:
+			pop_up_complete.lose()
+
+
 func wait(seconds: float) -> bool:
 	await get_tree().create_timer(seconds).timeout
 	if restartPressed:

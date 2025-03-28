@@ -192,9 +192,11 @@ func undo() -> void:
 	
 	spawnCar()
 
+
 func get_next_level() -> String:
 	var dir = ResourceLoader.list_directory(levelDir)
 	return levelDir + dir.get(level)
+
 
 func assign_conditions() -> void:
 	if parking.get_node("Up"):
@@ -209,6 +211,16 @@ func assign_conditions() -> void:
 	if parking.get_node("Down"):
 		for parking_spot in parking.get_node("Down").get_children():
 			parking_spot.conditions = downCond
+
+
+func completeLevel() -> void:
+	if parked == nrCars && !pop_up_complete.visible:
+		if score == nrCars:
+			pop_up_complete.win()
+			disableCompleted = false
+		else:
+			pop_up_complete.lose("Nogle af bilerne er parkeret forkert!")
+
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

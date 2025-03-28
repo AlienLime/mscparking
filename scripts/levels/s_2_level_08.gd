@@ -31,7 +31,7 @@ func setup() -> void:
 	
 	elseVisible = true
 	elseLabel = "Ellers skal den parkere 
-					sammen med de grønne"
+					i bunden."
 	
 	# Text
 	textbox = "Godt gået! Nu prøver vi med den samme parkeringsplads men med en \"ellers\" instruktion."
@@ -55,13 +55,8 @@ func _process(delta: float) -> void:
 			textbox = "Røde biler skal parkere til højre,
 						bunden er reserveret til grønne biler,
 						i den øverste del er det kun lilla biler der er tilladt
-						og andre farver skal parkere sammen med de grønne biler."
-	if parked == nrCars:
-		if score == nrCars:
-			pop_up_complete.visible = true
-			disableCompleted = false
-		else:
-			textbox = "Hovsa. Der er nogle biler der er parkeret forkert. Prøv igen ved at trykke på genstart i toppen af skærmen."
+						og andre farver skal parkere sammen med de grønne biler i bunden."
+	completeLevel()
 
 func _on_run_pressed() -> void:
 	if canRun:
@@ -71,19 +66,19 @@ func _on_run_pressed() -> void:
 				spawnCar()
 				if currentCar.color == optionSelected[0]:
 					if !moveCar(0): # Up
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[1]:
 					if !moveCar(2): # Right
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[2]:
 					if !moveCar(3): # Down
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				else:
 					if !moveCar(3): # Down
-						textbox = "Der var ikke plads til bilen. Tryk på genstart og prøv igen."
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 			else:
 				break
