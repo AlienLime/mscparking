@@ -1,19 +1,14 @@
 extends BaseButtonLevel
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func setup() -> void:
 	# Level setup
 	level = 3
-	pop_up_complete.visible = false
-	stopwatch = STOPWATCH.instantiate()
 	
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
-	runtimeCarColors = carColors.duplicate(true)
-	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
-	nrCars = carColors.size()
 	
 	# Initial text
 	textbox = "Vi bliver ved lidt endnu."
@@ -23,7 +18,6 @@ func _ready() -> void:
 						Husk at du stadig skal finde plads til alle bilerne.")
 	# Win conditions [color, origin, shape]
 	
-	spawnCar()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,7 +32,8 @@ func _process(delta: float) -> void:
 						Husk at du stadig skal finde plads til alle bilerne."
 			disableUp = false
 			disableDown = false
-			helper = "Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen."
+			tips.push_back("Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
+			tips.push_back(textbox)
 	
 	# Show result after parking all cars
 	if parked == nrCars:

@@ -11,7 +11,6 @@ func _ready() -> void:
 	get_levels(dir_path)
 
 func get_levels(path) -> void:
-	print(path)
 	var dir = ResourceLoader.list_directory(path)
 	var level_incrementer = 0
 	if dir:
@@ -20,7 +19,6 @@ func get_levels(path) -> void:
 			file_name = dir.get(level_incrementer)
 			level_incrementer += 1
 			create_level_button('%s/%s' % [path, file_name], "Bane " + str(level_incrementer))
-			print(file_name)
 	else:
 		print('An error occurred when trying to access the path')
 		

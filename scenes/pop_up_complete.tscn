@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c231qpflxdhnd"]
+[gd_scene load_steps=4 format=3 uid="uid://c231qpflxdhnd"]
 
+[ext_resource type="Script" uid="uid://c7052n5xqk2rj" path="res://scripts/pop_up_complete.gd" id="1_64c8o"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_j2iry"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8m40"]
@@ -23,6 +24,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_64c8o")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -48,3 +50,5 @@ text = "Godt gået!!! Du har løst banen!
 Tryk på fluebenet øverst til højre for at komme videre 
 til næste bane"
 horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="HBoxContainer/Label" to="." method="_on_label_visibility_changed"]

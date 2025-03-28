@@ -44,6 +44,10 @@ var carIncrementer = 0
 var currentCar: RandomCar
 var parked = 0
 var score = 0
+var tipCounter = 0
+var runCounter = 0
+var restartCounter = 0
+var undoCounter = 0
 
 # UI variables
 var clicks = 0
@@ -55,6 +59,32 @@ var restartPressed = false
 
 # Logging
 var stopwatch : Stopwatch
+
+
+func setup() -> void:
+	print("setup not implemented")
+
+
+func _ready() -> void:
+	pop_up_complete.visible = false
+	setup()
+	nrCars = carColors.size()
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
+	assign_conditions()
+	
+	print("level " + str(level) + " initiated.")
+	stopwatch = STOPWATCH.instantiate()
+
+func checkRun() -> bool:
+	# Disable run it is already running
+	if !canRun:
+		return true
+	# Disable run if there is nothing selected
+	for item in optionSelected:
+		if item == -1:
+			return true
+	return false
 
 func spawnCar() -> void:
 	if carIncrementer < nrCars:
@@ -136,6 +166,8 @@ func restart() -> void:
 	score = 0
 	carIncrementer = 0
 	canRun = true
+	await get_tree().create_timer(1).timeout
+	restartPressed = false
 
 
 func undo() -> void:
@@ -161,6 +193,9 @@ func assign_conditions() -> void:
 			parking_spot.conditions = downCond
 
 
-func wait(seconds: float) -> void:
+func wait(seconds: float) -> bool:
 	await get_tree().create_timer(seconds).timeout
+	if restartPressed:
+		return false
+	return true
 	

@@ -1,6 +1,6 @@
 extends Control
 @onready var label: Label = $Label
-var tipCounter = -1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -9,7 +9,6 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	if owner.tips.size()==0:
 		return
-	tipCounter += 1
-	if tipCounter == owner.tips.size():
-		tipCounter = 0
-	owner.textbox = owner.tips[tipCounter]
+	owner.textbox = owner.tips[owner.tipCounter%owner.tips.size()]
+	owner.tipCounter += 1
+	print("%-30s %s" % ["Tip pressed: ", owner.owner.stopwatch.time_to_string()])

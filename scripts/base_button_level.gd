@@ -27,7 +27,6 @@ var nextScene: String
 
 # Text variables
 var level: int
-var helper: String
 var textbox: String
 var introLabel: String
 var tips: Array
@@ -37,6 +36,10 @@ var carIncrementer = 0
 var currentCar: RandomCar
 var parked = 0
 var score = 0
+var tipCounter = 0
+var runCounter = 0
+var restartCounter = 0
+var undoCounter = 0
 
 # UI variables
 var clicks = 0
@@ -48,6 +51,21 @@ var disableCompleted = true
 
 # Logging
 var stopwatch : Stopwatch
+
+func setup() -> void:
+	print("setup not implemented")
+
+func _ready() -> void:
+	pop_up_complete.visible = false
+	setup()
+	nrCars = carColors.size()
+	runtimeCarColors = carColors.duplicate(true)
+	runtimeCarOrigins = carOrigins.duplicate(true)
+	assign_conditions()
+	spawnCar()
+	
+	print("level " + str(level) + " initiated.")
+	stopwatch = STOPWATCH.instantiate()
 
 func _on_up_pressed() -> void:
 	moveCar(0)
@@ -141,7 +159,6 @@ func restart() -> void:
 	parked = 0
 	score = 0
 	carIncrementer = 0
-	helper = ""
 	spawnCar()
 
 

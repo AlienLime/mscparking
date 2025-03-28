@@ -57,5 +57,6 @@ func create_if_color_then() -> void:
 
 
 func _on_run_pressed() -> void:
-	print("run: " + owner.owner.stopwatch.time_to_string())
+	print("%-30s %s" % ["Run pressed: ", owner.owner.stopwatch.time_to_string()])
+	owner.owner.runCounter += 1
 	owner.owner._on_run_pressed()

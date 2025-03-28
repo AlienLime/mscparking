@@ -1,11 +1,9 @@
 extends BaseButtonLevel
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func setup() -> void:
 	# Level setup
 	level = 2
-	pop_up_complete.visible = false
-	stopwatch = STOPWATCH.instantiate()
 	
 	# Initial text
 	textbox = "Det var godt gået.
@@ -14,17 +12,11 @@ func _ready() -> void:
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
-	runtimeCarColors = carColors.duplicate(true)
-	runtimeCarOrigins = carOrigins.duplicate(true)
 	carShapes = 0
-	nrCars = carColors.size()
 	
 	# Win conditions [color, origin, shape]
 	upCond = ["0_1_0"]
 	downCond = ["1_1_0"]
-	assign_conditions()
-
-	spawnCar()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,7 +33,8 @@ func _process(delta: float) -> void:
 						  så skal den parkere øverst."
 			disableUp = false
 			disableDown = false
-			helper = "Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
+			tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
+			tips.push_back(textbox)
 	
 	# Show result after parking all cars
 	if score == nrCars:
@@ -52,16 +45,16 @@ func _process(delta: float) -> void:
 func _on_up_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 0:
-			helper = "Rigtigt"
+			textbox = "Rigtigt"
 			moveCar(0)
 		else:
-			helper = "FORKERT"
+			textbox = "FORKERT"
 
 
 func _on_down_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 1:
-			helper = "Rigtigt"
+			textbox = "Rigtigt"
 			moveCar(3)
 		else:
-			helper = "FORKERT"
+			textbox = "FORKERT"

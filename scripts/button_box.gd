@@ -3,14 +3,12 @@ extends MarginContainer
 @onready var left: Button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left
 @onready var right: Button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right
 @onready var down: Button = $MarginContainer/HBoxContainer/VBoxContainer/Down
-@onready var helper: Label = $MarginContainer/HBoxContainer/Helper
 
 func _process(delta: float) -> void:
 	up.disabled = owner.owner.disableUp
 	left.disabled = owner.owner.disableLeft
 	right.disabled = owner.owner.disableRight
 	down.disabled = owner.owner.disableDown
-	helper.text = owner.owner.helper
 
 	if Input.is_action_just_pressed("ui_up") && !up.disabled:
 		_on_up_pressed()
