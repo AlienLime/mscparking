@@ -66,7 +66,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.nav_agent.distance_to_target() < nav_agent.distance_to_target():
 			waiting = true
 			while body.waiting:
-				pass
+				if body.nav_agent.is_navigation_finished():
+					break
 			await wait(0.75)
 			waiting = false
 		elif body.get_index() < car.get_index():
