@@ -53,7 +53,7 @@ func _on_run_pressed() -> void:
 	if canRun:
 		canRun = false
 		for car in nrCars:
-			if await wait(1):
+			if await wait(1.5):
 				spawnCar()
 				if currentCar.color == optionSelected[0]:
 					if !moveCar(0): # Up

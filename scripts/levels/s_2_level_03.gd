@@ -29,7 +29,7 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere til højre.")
 	
 	# Text
-	textbox = "Nu skal de orange biler parkere til højre, mens de andre skal holde til venstre."
+	textbox = "Nu skal de orange biler parkere til højre, mens de andre biler skal holde til venstre."
 	tips.push_back("Du kan se hvilke farver biler, der kommer ved at udvide en af knapperne, hvor du vælger farverne.")
 	tips.push_back("Husk at sørge for at alle de mulige farver er blevet valgt et sted.")
 	tips.push_back(textbox)

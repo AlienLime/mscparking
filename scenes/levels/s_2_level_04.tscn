@@ -535,11 +535,11 @@ position = Vector2(865, 972)
 [node name="StartSpawn" type="Node" parent="Parking"]
 
 [node name="DownStart" type="Node2D" parent="Parking/StartSpawn"]
-position = Vector2(932, 786)
+position = Vector2(887, 761)
 scale = Vector2(2, 2)
 
 [node name="DownSpawn" type="Node2D" parent="Parking/StartSpawn"]
-position = Vector2(1315, 908)
+position = Vector2(1352, 908)
 scale = Vector2(2, 2)
 
 [node name="GUI" type="Node" parent="."]

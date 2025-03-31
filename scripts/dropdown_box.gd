@@ -42,13 +42,9 @@ func create_if_color_then() -> void:
 	var ifColorThen = IF_COLOR_THEN.instantiate()
 	ifColorThen.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	
-	print(ifColorThen.ifIndex)
-	print(owner.owner.optionSelected.size())
 	ifColorThen.ifIndex = owner.owner.optionSelected.size()
 	owner.owner.optionSelected.push_back(-1)
 	
-	print(ifColorThen.thenIndex)
-	print(owner.owner.optionSelected.size())
 	ifColorThen.thenIndex = owner.owner.optionSelected.size()
 	owner.owner.optionSelected.push_back(-1)
 	

@@ -54,6 +54,7 @@ var clicks = 0
 var disableCompleted = true
 var disableUndo = true
 var disableRun = true
+var disableTips = false
 var canRun = true
 var restartPressed = false
 
@@ -199,7 +200,7 @@ func completeLevel() -> void:
 			pop_up_complete.win()
 			disableCompleted = false
 		else:
-			pop_up_complete.lose()
+			pop_up_complete.lose("Nogle af bilerne er parkeret forkert!")
 
 
 func wait(seconds: float) -> bool:

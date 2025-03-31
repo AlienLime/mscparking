@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://r534b0il07e3" path="res://scripts/ingame_gui_dropdown.gd" id="1_nesw4"]
 [ext_resource type="PackedScene" uid="uid://dp5i5ir5da4r1" path="res://scenes/dropdown_box.tscn" id="2_1nq5g"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="3_hjujm"]
-[ext_resource type="Texture2D" uid="uid://cbetin0rauqvr" path="res://assets/sprites/HjælpeJensUdenBaggrund.png" id="5_bcfvt"]
+[ext_resource type="Texture2D" uid="uid://eo2sr0ebquuc" path="res://assets/sprites/HjælpeJensSpørgsmålstegn.png" id="5_nanek"]
 [ext_resource type="PackedScene" uid="uid://drsql3jy0667k" path="res://scenes/score_box.tscn" id="6_om2jn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmjud"]
@@ -72,17 +72,13 @@ text = "Base
 autowrap_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Label"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 578.9
-offset_top = 221.8
-offset_right = 793.74
-offset_bottom = 476.288
-grow_horizontal = 0
-grow_vertical = 2
+offset_left = 580.0
+offset_top = 221.0
+offset_right = 814.0
+offset_bottom = 475.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_bcfvt")
-region_rect = Rect2(181, 44, 307, 364)
+texture = ExtResource("5_nanek")
+region_rect = Rect2(181, 2, 372, 406)
 
 [node name="Button" type="Button" parent="Label/NinePatchRect"]
 modulate = Color(1, 1, 1, 0)

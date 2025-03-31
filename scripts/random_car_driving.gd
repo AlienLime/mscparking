@@ -15,6 +15,7 @@ var shape: int
 var isParked = false
 var isParkedCorrectly = false
 var waiting = false
+var reverse = false
 
 var speed = 175
 var ID = "ID"
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 		navigationTarget = parkingSpot
 	if nav_agent.is_navigation_finished() || waiting:
 		speed = 0
+	elif reverse:
+		speed = -50
 	else:
 		speed = 175
 	var next_path_pos := nav_agent.get_next_path_position()
@@ -60,17 +63,19 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
-		if !body.waiting: # to avoid a stale mate where 2 cars wait for each other
+		if body.nav_agent.distance_to_target() < nav_agent.distance_to_target():
 			waiting = true
-			await wait(0.5)
+			while body.waiting:
+				pass
+			await wait(0.75)
 			waiting = false
-		elif (body.car.rotation < car.rotation-(PI/2.0) || body.car.rotation > car.rotation+(PI/2.0)): # to avoid hitting other waiting cars from behind
+		elif body.get_index() < car.get_index():
 			waiting = true
-			await wait(0.5)
+			await wait(1)
 			waiting = false
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	waiting = false
+#func _on_area_2d_body_exited(body: Node2D) -> void:
+	#waiting = false
 
 
 func wait(seconds: float) -> void:

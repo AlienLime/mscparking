@@ -1,5 +1,4 @@
 extends BaseButtonLevel
-
 @onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 
@@ -8,6 +7,7 @@ func setup() -> void:
 	# Level setup
 	level = 1
 	intro.visible = true
+	disableTips = true
 	
 	# Initial text
 	textbox = "Der er mange forskellige parkeringspladser med forskellige regler. 
@@ -16,7 +16,9 @@ func setup() -> void:
 				(Tryk for at fortsætte)"
 	introLabel = "Hej med dig. Velkommen til parkeringspladsen! Jeg hedder Hjælpe Jens, men du kan bare kalde mig for Jens.
 			
-			Din opgave er at vise bilerne hen til de rette pladser."
+			Din opgave er at vise bilerne hen til de rette pladser.
+			
+			(Tryk for at fortsætte)"
 	
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
@@ -39,13 +41,13 @@ func _process(delta: float) -> void:
 		if clicks == 1:
 			intro.queue_free()
 		if clicks == 2:
+			disableTips = false
 			textbox = "På den første plads er chefens instruktion:
 						Hvis bilen er rød,
 						  så skal den parkere øverst.
 						Hvis bilen er blå, 
-						  så skal den parkere nederst.
-						
-						Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser."
+						  så skal den parkere nederst."
+			tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
 			tips.push_back(textbox)
 			disableUp = false
 			disableDown = false
@@ -59,15 +61,15 @@ func _process(delta: float) -> void:
 func _on_up_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 1:
-			textbox = "Rigtigt"
+			textbox = "Det var rigtigt"
 			moveCar(0)
 		else:
-			textbox = "FORKERT"
+			textbox = "Forkert pil"
 
 func _on_down_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 0:
-			textbox = "Rigtigt"
+			textbox = "Det var rigtigt"
 			moveCar(3)
 		else:
-			textbox = "FORKERT"
+			textbox = "Forkert pil"

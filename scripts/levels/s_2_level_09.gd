@@ -7,7 +7,7 @@ func setup() -> void:
 	
 	# Car options
 	usedColors = [0, 1, 3, 4, 5]
-	carColors = [[1],[1],[1,4],[4],[4],[3],[3],[3],[0],[5],[0,5],[0,5],[0,5],[0,5],[0,5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow #### MANGLER ####
+	carColors = [[1],[1],[1,4],[4],[4],[3],[3],[3],[0],[5],[0,5],[0,5],[0,5],[0,5],[0,5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	
@@ -76,10 +76,9 @@ func _on_run_pressed() -> void:
 						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				else:
-					movement = [0,3].pick_random()
-					if !moveCar(movement):
-						if !moveCar(3 - movement):
+					if !moveCar(0):
+						if !moveCar(3):
 							pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
-						break
+							break
 			else:
 				break

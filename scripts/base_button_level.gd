@@ -48,6 +48,7 @@ var disableLeft = true
 var disableRight = true
 var disableDown = true
 var disableCompleted = true
+var disableTips = false
 
 # Logging
 var stopwatch : Stopwatch
@@ -79,6 +80,7 @@ func _on_right_pressed() -> void:
 func _on_down_pressed() -> void:
 	moveCar(3)
 
+
 func moveCar(x: int) -> void:
 	if currentCar:
 		if x == 0:
@@ -87,6 +89,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
+					await wait(1)
 					spawnCar()
 					break
 		elif x == 1:
@@ -95,6 +98,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
+					await wait(1)
 					spawnCar()
 					break
 		elif x == 2:
@@ -103,6 +107,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
+					await wait(1)
 					spawnCar()
 					break
 		elif x == 3:
@@ -111,11 +116,11 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					currentCar = null
+					await wait(1)
 					spawnCar()
 					break
 		else: 
 			print("Direction not implemented")
-	await(wait(0.5))
 
 func spawnCar() -> void:
 	if carIncrementer < nrCars:

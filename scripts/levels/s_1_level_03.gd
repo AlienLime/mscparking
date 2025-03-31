@@ -1,9 +1,11 @@
 extends BaseButtonLevel
+@onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
 	level = 3
+	intro.visible = true
 	
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
@@ -16,7 +18,9 @@ func setup() -> void:
 	tips.push_back("Her skal de øverste pladser fyldes inden du løber tør for biler.
 			
 						Husk at du stadig skal finde plads til alle bilerne.")
-	# Win conditions [color, origin, shape]
+	introLabel = "Stærkt arbejde! Fra nu af stopper jeg dig ikke hvis du trykker forkert. 
+					
+					Hvis du kommer til at lave fejl, kan du trykke på fortryd knappen eller genstart knappen."
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +31,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
+			intro.visible = false
+		if clicks == 2:
 			textbox = "Her skal de øverste pladser fyldes inden du løber tør for biler.
 			
 						Husk at du stadig skal finde plads til alle bilerne."

@@ -1,9 +1,11 @@
 extends BaseButtonLevel
+@onready var arrow: Sprite2D = $GUI/IngameGUIButtons/Arrow
 
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
 	level = 2
+	disableTips = true
 	
 	# Initial text
 	textbox = "Det var godt gået.
@@ -26,13 +28,18 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
-			textbox = "Nu synes chefen at:
-						Hvis bilen er rød,
-						  så skal den parkere nederst.
-						Hvis bilen er blå, 
-						  så skal den parkere øverst."
+			arrow.visible = true
+			textbox = "Hvis du har brug for lidt hjælp, kan du altid trykke på lille mig, så prøver jeg at give et godt tip."
+		if clicks == 2:
+			disableTips = false
+			arrow.visible = false
 			disableUp = false
 			disableDown = false
+			textbox = "Nu synes chefen at:
+				Hvis bilen er rød,
+				  så skal den parkere nederst.
+				Hvis bilen er blå, 
+				  så skal den parkere øverst."
 			tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
 			tips.push_back(textbox)
 	
@@ -45,16 +52,15 @@ func _process(delta: float) -> void:
 func _on_up_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 0:
-			textbox = "Rigtigt"
+			textbox = "Det var rigtigt"
 			moveCar(0)
 		else:
-			textbox = "FORKERT"
-
+			textbox = "Forkert pil"
 
 func _on_down_pressed() -> void:
 	if parked < nrCars:
 		if currentCar && currentCar.color == 1:
-			textbox = "Rigtigt"
+			textbox = "Det var rigtigt"
 			moveCar(3)
 		else:
-			textbox = "FORKERT"
+			textbox = "Forkert pil"

@@ -1,8 +1,9 @@
 extends MarginContainer
+@onready var left: Button = $MarginContainer/HBoxContainer/Left
 @onready var up: Button = $MarginContainer/HBoxContainer/VBoxContainer/Up
-@onready var left: Button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left
-@onready var right: Button = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right
 @onready var down: Button = $MarginContainer/HBoxContainer/VBoxContainer/Down
+@onready var right: Button = $MarginContainer/HBoxContainer/Right
+
 
 func _process(delta: float) -> void:
 	up.disabled = owner.owner.disableUp

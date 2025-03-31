@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck03ms3d0l6mj"]
+[gd_scene load_steps=7 format=3 uid="uid://ck03ms3d0l6mj"]
 
 [ext_resource type="Script" uid="uid://dkb60fcoh2wtr" path="res://scripts/button_box.gd" id="1_dowy0"]
 [ext_resource type="Texture2D" uid="uid://dxfjj2ws77pts" path="res://assets/sprites/industrial/dialog-short.png" id="1_urqwe"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://x8u1l8k2m35y" path="res://themes/buttons/left.tres" id="3_wyoj5"]
 [ext_resource type="Theme" uid="uid://g7va0magu0dk" path="res://themes/buttons/right.tres" id="4_ny2ie"]
 [ext_resource type="Theme" uid="uid://cggn8ugt23do2" path="res://themes/buttons/down.tres" id="5_ayu0g"]
-[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="6_6a27e"]
 
 [node name="ButtonBox" type="MarginContainer"]
 anchors_preset = 3
@@ -36,7 +35,15 @@ theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 15
+
+[node name="Left" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_wyoj5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -44,46 +51,30 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Up" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_r2sbt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Left" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_wyoj5")
-
-[node name="Right" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("4_ny2ie")
-
 [node name="Down" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_ayu0g")
 
-[node name="Helper" type="Label" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("6_6a27e")
-theme_override_font_sizes/font_size = 25
-text = "Base"
-autowrap_mode = 2
 
+[node name="Right" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_ny2ie")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Up" to="." method="_on_up_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
