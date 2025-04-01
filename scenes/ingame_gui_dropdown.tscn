@@ -72,6 +72,7 @@ text = "Base
 autowrap_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Label"]
+layout_mode = 0
 offset_left = 580.0
 offset_top = 221.0
 offset_right = 814.0
