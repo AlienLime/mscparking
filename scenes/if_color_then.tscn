@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy5am2dvwo32t"]
+[gd_scene load_steps=11 format=3 uid="uid://cy5am2dvwo32t"]
 
 [ext_resource type="Script" uid="uid://qyyfxhkggddp" path="res://scripts/if_color_then.gd" id="1_dr5f6"]
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_a53at"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://n5gfkjq0oaef" path="res://assets/sprites/Colors/Purple.png" id="6_wr5js"]
 [ext_resource type="Texture2D" uid="uid://v5wxh18filiw" path="res://assets/sprites/Colors/Green.png" id="7_sm6m4"]
 [ext_resource type="Texture2D" uid="uid://c6obivo6a2o7f" path="res://assets/sprites/Colors/Yellow.png" id="8_iuo11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6l7r3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dble1"]
 
 [node name="IfColorThen" type="Control"]
 custom_minimum_size = Vector2(0, 40)
@@ -39,6 +43,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("2_a53at")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6l7r3")
 item_count = 6
 popup/item_0/text = "Blå "
 popup/item_0/icon = ExtResource("3_ydp21")
@@ -78,6 +83,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_a53at")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dble1")
 item_count = 4
 popup/item_0/text = "opad"
 popup/item_0/id = 0

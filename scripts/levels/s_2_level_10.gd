@@ -6,6 +6,7 @@ extends BaseDropdownLevel
 func setup() -> void:
 	# Level setup
 	level = 16
+	disableTips = true
 	intro.visible = true
 	
 	# Car options
@@ -49,6 +50,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
+			disableTips = false
 			intro.visible = false
 			intro.z_index = -1
 	completeLevel()

@@ -6,6 +6,7 @@ func setup() -> void:
 	# Level setup
 	level = 3
 	intro.visible = true
+	disableTips = true
 	
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
@@ -14,10 +15,6 @@ func setup() -> void:
 	
 	# Initial text
 	textbox = "Vi bliver ved lidt endnu."
-	tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
-	tips.push_back("Her skal de øverste pladser fyldes inden du løber tør for biler.
-			
-						Husk at du stadig skal finde plads til alle bilerne.")
 	introLabel = "Stærkt arbejde! Fra nu af stopper jeg dig ikke hvis du trykker forkert. 
 					
 					Hvis du kommer til at lave fejl, kan du trykke på fortryd knappen eller genstart knappen."
@@ -33,12 +30,14 @@ func _process(delta: float) -> void:
 		if clicks == 1:
 			intro.visible = false
 		if clicks == 2:
+			disableTips = false
 			textbox = "Her skal de øverste pladser fyldes inden du løber tør for biler.
 			
 						Husk at du stadig skal finde plads til alle bilerne."
 			disableUp = false
 			disableDown = false
 			tips.push_back("Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
+			tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
 			tips.push_back(textbox)
 	
 	# Show result after parking all cars

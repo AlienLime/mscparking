@@ -29,3 +29,7 @@ func create_level_button(level_path: String, level_name: String) -> void:
 	button.text = level_name
 	button.level_path = level_path
 	grid.add_child(button)
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

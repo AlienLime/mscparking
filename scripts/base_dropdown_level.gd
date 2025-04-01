@@ -182,16 +182,16 @@ func get_next_level() -> String:
 
 
 func assign_conditions() -> void:
-	if parking.get_node("Up"):
+	if parking.get_node_or_null("Up"):
 		for parking_spot in parking.get_node("Up").get_children():
 			parking_spot.conditions = upCond
-	if parking.get_node("Left"):
+	if parking.get_node_or_null("Left"):
 		for parking_spot in parking.get_node("Left").get_children():
 			parking_spot.conditions = leftCond
-	if parking.get_node("Right"):
+	if parking.get_node_or_null("Right"):
 		for parking_spot in parking.get_node("Right").get_children():
 			parking_spot.conditions = rightCond
-	if parking.get_node("Down"):
+	if parking.get_node_or_null("Down"):
 		for parking_spot in parking.get_node("Down").get_children():
 			parking_spot.conditions = downCond
 
