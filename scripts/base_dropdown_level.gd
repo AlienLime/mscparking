@@ -176,6 +176,8 @@ func undo() -> void:
 
 func get_next_level() -> String:
 	var dir = ResourceLoader.list_directory(levelDir)
+	if level == dir.size():
+		return "res://scenes/victory_screen.tscn"
 	return levelDir + dir.get(level)
 
 

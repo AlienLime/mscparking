@@ -40,6 +40,7 @@ func setup() -> void:
 	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen nedenunder.")
 	tips.push_back("Husk at der er en \"ellers\" til sidst, så hav fokus på de biler, der ikke skal til venstre eller højre.")
 	tips.push_back(textbox)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
