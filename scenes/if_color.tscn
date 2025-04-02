@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buknww60ebskp"]
+[gd_scene load_steps=10 format=3 uid="uid://buknww60ebskp"]
 
 [ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="1_rsxe4"]
 [ext_resource type="Script" uid="uid://bq0x1fq8nmloq" path="res://scripts/if_color.gd" id="1_xhbys"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://n5gfkjq0oaef" path="res://assets/sprites/Colors/Purple.png" id="5_n5m68"]
 [ext_resource type="Texture2D" uid="uid://n36kjpy3nm75" path="res://assets/sprites/Colors/Red.png" id="6_3fub0"]
 [ext_resource type="Texture2D" uid="uid://c6obivo6a2o7f" path="res://assets/sprites/Colors/Yellow.png" id="7_qpgnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwuyq"]
 
 [node name="IfColor" type="Control"]
 custom_minimum_size = Vector2(0, 40)
@@ -39,6 +41,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("1_rsxe4")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwuyq")
 item_count = 6
 popup/item_0/text = "Blå "
 popup/item_0/icon = ExtResource("2_qro65")

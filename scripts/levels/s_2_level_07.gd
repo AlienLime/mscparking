@@ -4,6 +4,7 @@ extends BaseDropdownLevel
 func setup() -> void:
 	# Level setup
 	level = 13
+	disableTips = true
 	
 	# Car options
 	usedColors = [0, 3, 4]
@@ -46,6 +47,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
+			disableTips = false
 			textbox = "Blå biler må kun parkere i bunden,
 						øverste del er reserveret til grønne biler
 						og i højre side er det kun lilla biler der er tilladt."

@@ -65,11 +65,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
 		if body.nav_agent.distance_to_target() < nav_agent.distance_to_target():
 			waiting = true
-			await wait(1)
+			await wait(0.8)
 			waiting = false
 		elif body.get_index() < car.get_index():
 			waiting = true
-			await wait(1)
+			await wait(0.8)
 			waiting = false
 
 #func _on_area_2d_body_exited(body: Node2D) -> void:

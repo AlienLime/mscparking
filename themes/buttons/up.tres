@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=4 uid="uid://cnlkg1p8hnne8"]
+[gd_resource type="Theme" load_steps=9 format=4 uid="uid://cnlkg1p8hnne8"]
 
 [ext_resource type="Texture2D" uid="uid://cmwsx6adv8vxe" path="res://assets/sprites/buttons/Green Buttons Icons.png" id="1_gxdev"]
 
@@ -1135,6 +1135,8 @@ texture = ExtResource("1_gxdev")
 region_rect = Rect2(33, 161, 30, 30)
 modulate_color = Color(0.141176, 0.141176, 0.141176, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eo0py"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3y31"]
 texture = ExtResource("1_gxdev")
 region_rect = Rect2(33, 161, 30, 30)
@@ -1164,7 +1166,7 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = SubResource("FontFile_mxdfr")
 Button/styles/disabled = SubResource("StyleBoxTexture_8uohr")
-Button/styles/focus = null
+Button/styles/focus = SubResource("StyleBoxEmpty_eo0py")
 Button/styles/hover = SubResource("StyleBoxTexture_m3y31")
 Button/styles/normal = SubResource("StyleBoxTexture_m3y31")
 Button/styles/pressed = SubResource("StyleBoxTexture_hisk8")

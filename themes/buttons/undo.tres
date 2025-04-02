@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=4 uid="uid://djbcv50rqj1sd"]
+[gd_resource type="Theme" load_steps=9 format=4 uid="uid://djbcv50rqj1sd"]
 
 [ext_resource type="Texture2D" uid="uid://cdsyh4aub2q1h" path="res://assets/sprites/buttons/Orange Button Icons.png" id="1_5k3yh"]
 
@@ -1165,6 +1165,8 @@ texture = ExtResource("1_5k3yh")
 region_rect = Rect2(129, 193, 30, 30)
 modulate_color = Color(0.140447, 0.140447, 0.140447, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yco"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxng8"]
 texture = ExtResource("1_5k3yh")
 region_rect = Rect2(129, 193, 30, 30)
@@ -1194,7 +1196,7 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = SubResource("FontFile_jgpl4")
 Button/styles/disabled = SubResource("StyleBoxTexture_gmkxo")
-Button/styles/focus = null
+Button/styles/focus = SubResource("StyleBoxEmpty_v2yco")
 Button/styles/hover = SubResource("StyleBoxTexture_xxng8")
 Button/styles/normal = SubResource("StyleBoxTexture_xxng8")
 Button/styles/pressed = SubResource("StyleBoxTexture_d81vc")
