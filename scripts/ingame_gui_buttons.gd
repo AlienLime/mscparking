@@ -13,4 +13,4 @@ func _on_button_pressed() -> void:
 		return
 	owner.textbox = owner.tips[owner.tipCounter%owner.tips.size()]
 	owner.tipCounter += 1
-	print("%-30s %s" % ["Tip pressed: ", owner.stopwatch.time_to_string()])
+	print(owner.stopwatch.time_to_string() + " | Button press | Tip")

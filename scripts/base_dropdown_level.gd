@@ -74,8 +74,8 @@ func _ready() -> void:
 	runtimeCarOrigins = carOrigins.duplicate(true)
 	assign_conditions()
 	
-	print("level " + str(level) + " initiated.")
 	stopwatch = STOPWATCH.instantiate()
+	print(stopwatch.time_to_string() + " | Level initiated | " + str(level))
 
 func checkRun() -> bool:
 	# Disable run it is already running
@@ -148,6 +148,7 @@ func moveCar(x: int) -> bool:
 	return false # Car not moved
 
 func restart() -> void:
+	restartCounter += 1
 	restartPressed = true
 	pop_up_complete.visible = false
 	if !currentCar:

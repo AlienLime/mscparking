@@ -15,13 +15,12 @@ func win() -> void:
 					til næste bane"
 	pop_up_complete.visible = true
 	
-	print("%-30s %s" % ["Level completed at: ", owner.stopwatch.time_to_string()])
-	print("%-30s %3s" % ["Tips received: ", str(owner.tipCounter)])
+	print(owner.stopwatch.time_to_string() + " | Victory | Level complete")
+	print(owner.stopwatch.time_to_string() + " | Sum of tips | " + str(owner.tipCounter))
 	if owner.runCounter > 0:
-		print("%-30s %3s" % ["Times run: ", str(owner.runCounter)])
-	if owner.undoCounter > 0:
-		print("%-30s %3s" % ["Times undone: ", str(owner.undoCounter)])
-	print("%-30s %3s" % ["Times restarted: ", str(owner.restartCounter)])
+		print(owner.stopwatch.time_to_string() + " | Sum of runs | " + str(owner.runCounter))
+	print(owner.stopwatch.time_to_string() + " | Sum of undos | " + str(owner.undoCounter))
+	print(owner.stopwatch.time_to_string() + " | Sum of restarts | " + str(owner.restartCounter))
 
 func lose(reason: String) -> void:
 	restart.visible = true
@@ -30,15 +29,20 @@ func lose(reason: String) -> void:
 	label.text = "Hovsa. " + reason + "\nPrøv igen ved at trykke på genstart i toppen af skærmen."
 	pop_up_complete.visible = true
 	
-	print("%-30s %s" % ["Level incorrect at: ", owner.stopwatch.time_to_string()])
+	print(owner.stopwatch.time_to_string() + " | Loss | " + reason)
+	print(owner.stopwatch.time_to_string() + " | Sum of tips | " + str(owner.tipCounter))
+	if owner.runCounter > 0:
+		print(owner.stopwatch.time_to_string() + " | Sum of runs | " + str(owner.runCounter))
+	print(owner.stopwatch.time_to_string() + " | Sum of undos | " + str(owner.undoCounter))
+	print(owner.stopwatch.time_to_string() + " | Sum of restarts | " + str(owner.restartCounter))
 
 
 func _on_completed_pressed() -> void:
-	print("%-30s %s" % ["Next level button pressed: ", owner.stopwatch.time_to_string() + "\n"])
+	print(owner.stopwatch.time_to_string() + " | Button press | Next level")
 	get_tree().change_scene_to_file(owner.get_next_level())
+	owner.stopwatch.queue_free()
 
 
 func _on_restart_pressed() -> void:
-	print("%-30s %s" % ["Restart pressed: ", owner.stopwatch.time_to_string()])
-	owner.restartCounter += 1
+	print(owner.stopwatch.time_to_string() + " | Button press | Restart")
 	owner.restart()

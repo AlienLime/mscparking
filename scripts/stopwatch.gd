@@ -8,7 +8,6 @@ func update(delta: float) -> void:
 	if stopped:
 		return
 	time += delta
-	#print(time)
 
 func reset():
 	time = 0.0

@@ -22,7 +22,6 @@ func get_levels(path) -> void:
 	else:
 		print('An error occurred when trying to access the path')
 		
-		
 
 func create_level_button(level_path: String, level_name: String) -> void:
 	var button = LEVEL_BUTTON.instantiate()

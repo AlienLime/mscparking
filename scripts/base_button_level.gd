@@ -65,19 +65,23 @@ func _ready() -> void:
 	assign_conditions()
 	spawnCar()
 	
-	print("level " + str(level) + " initiated.")
 	stopwatch = STOPWATCH.instantiate()
+	print(stopwatch.time_to_string() + " | Level initiated | " + str(level))
 
 func _on_up_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Up")
 	moveCar(0)
 
 func _on_left_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Left")
 	moveCar(1)
 	
 func _on_right_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Right")
 	moveCar(2)
 
 func _on_down_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Down")
 	moveCar(3)
 
 
@@ -88,6 +92,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
+					print(stopwatch.time_to_string() + " | Car moved | Up")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -97,6 +102,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
+					print(stopwatch.time_to_string() + " | Car moved | Left")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -106,6 +112,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
+					print(stopwatch.time_to_string() + " | Car moved | Right")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -115,6 +122,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
+					print(stopwatch.time_to_string() + " | Car moved | Down")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -147,6 +155,7 @@ func spawnCar() -> void:
 
 
 func restart() -> void:
+	restartCounter += 1
 	pop_up_complete.visible = false
 	if !currentCar:
 		currentCar = carStack.pop_back()
@@ -168,9 +177,10 @@ func restart() -> void:
 
 
 func undo() -> void:
+	undoCounter += 1
 	if pop_up_complete.visible:
 		return
-	if parked < nrCars:
+	if score < nrCars:
 		currentCar = carStack.pop_back()
 		if currentCar.isParked:
 			parked -= 1

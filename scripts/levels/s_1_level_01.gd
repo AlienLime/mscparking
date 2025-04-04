@@ -59,17 +59,21 @@ func _process(delta: float) -> void:
 
 
 func _on_up_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Up")
 	if parked < nrCars:
 		if currentCar && currentCar.color == 1:
 			textbox = "Det var rigtigt"
 			moveCar(0)
 		else:
 			textbox = "Forkert pil"
+			print(stopwatch.time_to_string() + " | Action denied | Move")
 
 func _on_down_pressed() -> void:
+	print(stopwatch.time_to_string() + " | Button press | Down")
 	if parked < nrCars:
 		if currentCar && currentCar.color == 0:
 			textbox = "Det var rigtigt"
 			moveCar(3)
 		else:
 			textbox = "Forkert pil"
+			print(stopwatch.time_to_string() + " | Action denied | Move")

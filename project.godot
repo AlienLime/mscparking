@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MScParking"
-run/main_scene="res://scenes/menu.tscn"
+run/main_scene="uid://bw37l1j1gpbl7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cbetin0rauqvr"
 
