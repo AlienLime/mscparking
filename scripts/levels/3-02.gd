@@ -31,12 +31,12 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
-	textbox = "Nu skal vi prøve at lave \"hvis/så\" instruktioner på en parkeringsplads med 3 rækker."
-	tips.push_back("Det behøver nødvendigvis ikke være de samme ord du bruger til din instruktion, som chefen har brugt i sine regler.")
+	textbox = "Blå biler må kun parkere i bunden,
+				øverste del er reserveret til grønne biler
+				og i højre side er det kun lilla biler der er tilladt."
+	tips.push_back("Du behøver ikke nødvendigvis bruge de samme ord til din instruktion, som chefen har brugt i sine regler.")
 	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
-	tips.push_back("Blå biler må kun parkere i bunden,
-						øverste del er reserveret til grønne biler,
-						og i højre side er det kun lilla biler, der er tilladt.")
+	tips.push_back(textbox)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,12 +46,6 @@ func _process(delta: float) -> void:
 	
 	disableRun = checkRun()
 	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			textbox = "Blå biler må kun parkere i bunden,
-						øverste del er reserveret til grønne biler
-						og i højre side er det kun lilla biler der er tilladt."
 	completeLevel()
 
 func _on_run_pressed() -> void:

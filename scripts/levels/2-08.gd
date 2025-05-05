@@ -32,15 +32,15 @@ func setup() -> void:
 	
 	elseVisible = true
 	elseLabel = "Ellers må den parkere 
-					på ikke reserverede pladser"
+					på de pladser der ikke er reserverede."
 	
 	# Text
-	textbox = "Imponerende. Nu er chefens \"ellers\" instruks mindre streng."
-	tips.push_back("Der er forskel på, at en plads er reserveret, og at en bil skal parkere et bestemt sted.")
+	textbox = "Højre side er reserveret til røde og grønne biler,
+						lilla biler skal parkere i bunden
+						og andre farver må parkere på de plader der ikke er reserverede."
+	tips.push_back("Der er forskel på, om en plads er reserveret, eller om en bil skal parkere et bestemt sted.")
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
-	tips.push_back("Højre side er reserveret til røde og grønne biler,
-						lilla biler skal parkere i bunden,
-						og andre farver må parkere på de plader, der ikke er reserverede.")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,14 +48,7 @@ func _process(delta: float) -> void:
 	stopwatch.update(delta)
 	
 	disableRun = checkRun()
-	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			disableTips = false
-			textbox = "Højre side er reserveret til røde og grønne biler,
-						lilla biler skal parkere i bunden
-						og andre farver må parkere på de plader der ikke er reserverede."
+
 	completeLevel()
 
 func _on_run_pressed() -> void:

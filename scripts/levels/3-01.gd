@@ -30,15 +30,19 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
+	introLabel = "Indtil nu, har jeg hjulpet dig, så du kun skulle vælge mellem bilernes farver.
+	
+					Nu får du mere ansvar. Du skal både beslutte bilernes farve, og hvor de skal parkere."
 	textbox = "På denne parkeringsplads er højre side reserveret til de røde biler, og de blå biler skal holde til venstre.
 	
-				Design en instruktion med de nye valgmuligheder."
-	tips.push_back("Nu kan man selv vælge rækkefølgen af sine regler")
+				Design en instruktion med de nye valgmuligheder.
+				Og husk at du kan trykke på 
+				mig for at få tips."
+	tips.push_back("Nu kan du selv vælge rækkefølgen af dine instruktioner.")
 	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
-	tips.push_back(textbox)
-	introLabel = "Indtil nu, har jeg hjulpet dig med, hvad der skulle ske, hvis bilen havde den farve, som du valgte.
+	tips.push_back("På denne parkeringsplads er højre side reserveret til de røde biler, og de blå biler skal holde til venstre.
 	
-					Nu får du mere ansvar, og du skal selv beslutte, hvor bilerne skal køre hen."
+					Design en instruktion med de nye valgmuligheder.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,7 +56,6 @@ func _process(delta: float) -> void:
 		if clicks == 1:
 			disableTips = false
 			intro.visible = false
-			intro.z_index = -1
 	completeLevel()
 
 func _on_run_pressed() -> void:

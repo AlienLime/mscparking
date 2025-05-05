@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse"):
 		clicks += 1
 		if clicks == 1:
-			intro.queue_free()
+			intro.visible = false
 		if clicks == 2:
 			disableTips = false
 			textbox = "På den første plads er chefens instruktion:

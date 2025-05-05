@@ -5,34 +5,28 @@ extends BaseButtonLevel
 func setup() -> void:
 	# Level setup
 	level = 5
-	disableTips = true
+	disableTips = false
+	disableUp = false
+	disableDown = false
 	
 	# Car options
 	carColors = [[0, 1], [0, 1], [0, 1], [0], [0], [1], [1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	
-	# Initial text
-	textbox = "Vi bliver ved lidt endnu."
+	# Text
+	textbox = "Her skal de øverste pladser fyldes inden du løber tør for biler.
+	
+				Husk at du kan trykke på mig hvis du får brug for et tip."
+	tips.push_back("Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
+	tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
+	tips.push_back(textbox)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Logging 
 	stopwatch.update(delta)
-	
-	if Input.is_action_just_pressed("mouse"):
-		clicks += 1
-		if clicks == 1:
-			disableTips = false
-			textbox = "Her skal de øverste pladser fyldes inden du løber tør for biler.
-			
-						Husk at du kan trykke på mig hvis du får brug for et tip."
-			disableUp = false
-			disableDown = false
-			tips.push_back("Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
-			tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
-			tips.push_back(textbox)
 	
 	# Show result after parking all cars
 	if parked == nrCars && !pop_up_complete.visible:

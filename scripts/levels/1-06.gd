@@ -23,9 +23,8 @@ func setup() -> void:
 					Ingen biler må krydse vejen.
 					
 					Prøv dig frem. Hvis du laver fejl kan du bare trykke på genstart knappen for at prøve igen"
-	tips.push_back("Tryk på pilene for at vise bilerne hen til de korrekte pladser.")
-	tips.push_back("Hvad betyder det at krydse vejen?")
 	tips.push_back("Er bilens farve vigtig for, hvor den skal parkere? Eller er det noget andet?")
+	tips.push_back("Hvad betyder det at krydse vejen?")
 	tips.push_back(textbox)
 	
 	# Enable gameplay

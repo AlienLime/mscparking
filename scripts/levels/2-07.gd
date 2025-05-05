@@ -36,7 +36,7 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Her skal blå og de gule biler parkere på de øverste pladser, og de lilla biler skal parkere nederst."
-	tips.push_back("Når der står \"ellers\", betyder det, at alle dem der ikke passede før skal gøre det, som der står bagefter.")
+	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instruktioner til.")
 	tips.push_back("Du kan prøve banen et par gange og se, hvad der sker, når du vælger forskellige farver.")
 	tips.push_back(textbox)
 

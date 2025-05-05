@@ -17,7 +17,7 @@ func setup() -> void:
 	leftCond = ["0_0_0", "0_3_0", "2_0_0", "2_3_0", "4_0_0", "4_3_0"]
 	rightCond = ["1_0_0", "1_3_0", "3_0_0", "3_3_0", "5_0_0", "5_3_0"]
 	
-	# Initial text
+	# Text
 	textbox = "Chefen vil nu gerne have at:
 					Blå, orange og grønne biler skal parkere til venstre.
 					Røde, lilla og gule biler skal parkere til højre."

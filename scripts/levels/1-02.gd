@@ -17,7 +17,7 @@ func setup() -> void:
 	upCond = ["0_0_0", "0_3_0", "1_0_0", "1_3_0"]
 	downCond = ["1_0_0", "1_3_0"]
 	
-	# Initial text
+	# Text
 	textbox = "Lad os se på en anden parkeringsplads.
 	
 				Chefen vil have de blå biler øverst her."

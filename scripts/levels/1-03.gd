@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 			tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.
 			
 							Tryk på mig igen for at se pladsens regler.")
-		if clicks >= 2 && tipCounter > 0:
+		if clicks >= 2 && tipCounter > 1:
 			arrow.visible = false
 			disableUp = false
 			disableDown = false
