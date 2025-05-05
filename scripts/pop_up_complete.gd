@@ -11,38 +11,37 @@ func win() -> void:
 	completed.visible = true
 	label.modulate = "26bc3b"
 	label.text = "Godt gået!!! Du har løst banen!
-					Tryk på fluebenet øverst til højre for at komme videre 
-					til næste bane"
+					Tryk på fluebenet for at komme videre til næste bane"
 	pop_up_complete.visible = true
 	
-	print(owner.stopwatch.time_to_string() + " | Victory | Level complete")
-	print(owner.stopwatch.time_to_string() + " | Sum of tips | " + str(owner.tipCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Victory,Level complete")
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of tips," + str(owner.tipCounter))
 	if owner.runCounter > 0:
-		print(owner.stopwatch.time_to_string() + " | Sum of runs | " + str(owner.runCounter))
-	print(owner.stopwatch.time_to_string() + " | Sum of undos | " + str(owner.undoCounter))
-	print(owner.stopwatch.time_to_string() + " | Sum of restarts | " + str(owner.restartCounter))
+		print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of runs," + str(owner.runCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of undos," + str(owner.undoCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of restarts," + str(owner.restartCounter))
 
 func lose(reason: String) -> void:
 	restart.visible = true
 	completed.visible = false
 	label.modulate = "e90000"
-	label.text = "Hovsa. " + reason + "\nPrøv igen ved at trykke på genstart i toppen af skærmen."
+	label.text = "Hovsa. " + reason + "\nPrøv igen ved at trykke på genstart."
 	pop_up_complete.visible = true
 	
-	print(owner.stopwatch.time_to_string() + " | Loss | " + reason)
-	print(owner.stopwatch.time_to_string() + " | Sum of tips | " + str(owner.tipCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Loss," + reason)
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of tips," + str(owner.tipCounter))
 	if owner.runCounter > 0:
-		print(owner.stopwatch.time_to_string() + " | Sum of runs | " + str(owner.runCounter))
-	print(owner.stopwatch.time_to_string() + " | Sum of undos | " + str(owner.undoCounter))
-	print(owner.stopwatch.time_to_string() + " | Sum of restarts | " + str(owner.restartCounter))
+		print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of runs," + str(owner.runCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of undos," + str(owner.undoCounter))
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of restarts," + str(owner.restartCounter))
 
 
 func _on_completed_pressed() -> void:
-	print(owner.stopwatch.time_to_string() + " | Button press | Next level")
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Button press,Next level")
 	get_tree().change_scene_to_file(owner.get_next_level())
 	owner.stopwatch.queue_free()
 
 
 func _on_restart_pressed() -> void:
-	print(owner.stopwatch.time_to_string() + " | Button press | Restart")
+	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Button press,Restart")
 	owner.restart()

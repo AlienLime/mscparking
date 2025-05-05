@@ -15,14 +15,15 @@ run/main_scene="uid://bw37l1j1gpbl7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cbetin0rauqvr"
 
-[debug]
+[autoload]
 
-file_logging/max_log_files=10
+Globals="*res://scripts/globals.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

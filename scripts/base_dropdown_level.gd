@@ -20,6 +20,7 @@ var carShapes: Array
 var nrCars: int
 
 # Level variables
+var level: int
 var usedDirections: Array #0=Up 1=Left 2=Right 3=Down
 var upCond: Array
 var leftCond: Array
@@ -31,7 +32,6 @@ var ifArray: Array
 var elseVisible = false
 
 # Text variables
-var level: int
 var ifLabel: Array
 var thenLabel: Array
 var elseLabel: String
@@ -63,7 +63,7 @@ var stopwatch : Stopwatch
 
 
 func setup() -> void:
-	print("setup not implemented")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Setup not implemented")
 
 
 func _ready() -> void:
@@ -75,7 +75,7 @@ func _ready() -> void:
 	assign_conditions()
 	
 	stopwatch = STOPWATCH.instantiate()
-	print(stopwatch.time_to_string() + " | Level initiated | " + str(level))
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Level initiated," + str(level))
 
 func checkRun() -> bool:
 	# Disable run it is already running
@@ -108,7 +108,7 @@ func spawnCar() -> void:
 				currentCar.position = startSpawn.get_node("DownSpawn").position
 				currentCar.navigationTarget = startSpawn.get_node("DownStart")
 			_:
-				print("spawn origin does not exist")
+				print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Spawn origin does not exist")
 
 
 func moveCar(x: int) -> bool:
@@ -142,9 +142,9 @@ func moveCar(x: int) -> bool:
 					currentCar = null
 					return true #Car moved
 		else: 
-			print("Direction not implemented")
+			print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Direction not implemented")
 	else:
-		print("Currentcar is null")
+		print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Currentcar is null")
 	return false # Car not moved
 
 func restart() -> void:

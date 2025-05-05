@@ -1,5 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	print("ID " + str(randi_range(10000000, 99999999)))
+	print("ID,Time,Event,Value")
+	
+func _process(delta: float) -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

@@ -53,6 +53,6 @@ func create_if_color_then() -> void:
 
 
 func _on_run_pressed() -> void:
-	print(owner.owner.stopwatch.time_to_string() + " | Button press | Run")
+	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Run")
 	owner.owner.runCounter += 1
 	owner.owner._on_run_pressed()

@@ -18,9 +18,9 @@ func get_levels(path) -> void:
 		while level_incrementer < dir.size():
 			file_name = dir.get(level_incrementer)
 			level_incrementer += 1
-			create_level_button('%s/%s' % [path, file_name], "Bane " + str(level_incrementer))
+			create_level_button('%s/%s' % [path, file_name], file_name.get_basename())
 	else:
-		print('An error occurred when trying to access the path')
+		print(Globals.USERID + ",NOTIME,Error,An error occurred when trying to access the path")
 		
 
 func create_level_button(level_path: String, level_name: String) -> void:

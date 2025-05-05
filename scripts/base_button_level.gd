@@ -19,6 +19,7 @@ var carShapes: int
 var nrCars = carColors.size()
 
 # Level variables
+var level: int
 var upCond: Array
 var leftCond: Array
 var rightCond: Array
@@ -26,7 +27,7 @@ var downCond: Array
 var nextScene: String
 
 # Text variables
-var level: int
+var levelName: String
 var textbox: String
 var introLabel: String
 var tips: Array
@@ -54,7 +55,7 @@ var disableTips = false
 var stopwatch : Stopwatch
 
 func setup() -> void:
-	print("setup not implemented")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,setup not implemented")
 
 func _ready() -> void:
 	pop_up_complete.visible = false
@@ -66,22 +67,22 @@ func _ready() -> void:
 	spawnCar()
 	
 	stopwatch = STOPWATCH.instantiate()
-	print(stopwatch.time_to_string() + " | Level initiated | " + str(level))
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Level initiated," + str(level))
 
 func _on_up_pressed() -> void:
-	print(stopwatch.time_to_string() + " | Button press | Up")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Button press,Up")
 	moveCar(0)
 
 func _on_left_pressed() -> void:
-	print(stopwatch.time_to_string() + " | Button press | Left")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Button press,Left")
 	moveCar(1)
 	
 func _on_right_pressed() -> void:
-	print(stopwatch.time_to_string() + " | Button press | Right")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Button press,Right")
 	moveCar(2)
 
 func _on_down_pressed() -> void:
-	print(stopwatch.time_to_string() + " | Button press | Down")
+	print(Globals.USERID + "," + stopwatch.time_to_string() + ",Button press,Down")
 	moveCar(3)
 
 
@@ -92,7 +93,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
-					print(stopwatch.time_to_string() + " | Car moved | Up")
+					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Up")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -102,7 +103,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
-					print(stopwatch.time_to_string() + " | Car moved | Left")
+					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Left")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -112,7 +113,7 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
-					print(stopwatch.time_to_string() + " | Car moved | Right")
+					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Right")
 					currentCar = null
 					await wait(1)
 					spawnCar()
@@ -122,13 +123,13 @@ func moveCar(x: int) -> void:
 				if spot.isFree:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
-					print(stopwatch.time_to_string() + " | Car moved | Down")
+					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Down")
 					currentCar = null
 					await wait(1)
 					spawnCar()
 					break
 		else: 
-			print("Direction not implemented")
+			print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Direction not implemented")
 
 func spawnCar() -> void:
 	if carIncrementer < nrCars:
@@ -151,7 +152,7 @@ func spawnCar() -> void:
 				currentCar.position = startSpawn.get_node("DownSpawn").position
 				currentCar.navigationTarget = startSpawn.get_node("DownStart")
 			_:
-				print("spawn origin does not exist")
+				print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,spawn origin does not exist")
 
 
 func restart() -> void:
@@ -235,6 +236,7 @@ func completeLevel() -> void:
 			disableCompleted = false
 		else:
 			pop_up_complete.lose("Nogle af bilerne er parkeret forkert!")
+			disableCompleted = false
 
 
 func wait(seconds: float) -> void:

@@ -36,10 +36,9 @@ func _process(delta: float) -> void:
 func _on_if_button_item_selected(index: int) -> void:
 	var id = if_button.get_item_id(index)
 	owner.owner.owner.optionSelected[ifIndex] = id
-	print(owner.owner.owner.stopwatch.time_to_string() + " | Color dropdown | " + str(id))
-
+	print(Globals.USERID + "," + owner.owner.owner.stopwatch.time_to_string() + ",Color dropdown," + str(id))
 
 func _on_then_button_item_selected(index: int) -> void:
-	var id = if_button.get_item_id(index)
+	var id = then_button.get_item_id(index)
 	owner.owner.owner.optionSelected[thenIndex] = id
-	print(owner.owner.owner.stopwatch.time_to_string() + " | Direction dropdown | " + str(id))
+	print(Globals.USERID + "," + owner.owner.owner.stopwatch.time_to_string() + ",Direction dropdown," + str(id))
