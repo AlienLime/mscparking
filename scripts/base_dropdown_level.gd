@@ -52,11 +52,11 @@ var undoCounter = 0
 # UI variables
 var clicks = 0
 var disableCompleted = true
-var disableUndo = true
 var disableRun = true
 var disableTips = false
 var canRun = true
 var restartPressed = false
+var undoVisible = false
 
 # Logging
 var stopwatch : Stopwatch

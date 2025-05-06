@@ -5,12 +5,16 @@ extends MarginContainer
 
 var levelBool = true
 
+func _ready() -> void:
+	undo.visible = owner.owner.undoVisible
+
 func _process(delta: float) -> void:
 	if levelBool:
 		level.text = str(owner.owner.name)
 		levelBool = false
 	completed.disabled = owner.owner.disableCompleted
-	undo.disabled = (owner.owner.carStack.size() < 2) || (owner.owner.nrCars == owner.owner.score)
+	if undo.visible:
+		undo.disabled = (owner.owner.carStack.size() < 2) || (owner.owner.nrCars == owner.owner.score)
 	
 
 func _on_restart_pressed() -> void:

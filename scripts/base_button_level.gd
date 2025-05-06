@@ -50,6 +50,7 @@ var disableRight = true
 var disableDown = true
 var disableCompleted = true
 var disableTips = false
+var undoVisible = true
 
 # Logging
 var stopwatch : Stopwatch
