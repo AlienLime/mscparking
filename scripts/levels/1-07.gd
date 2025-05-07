@@ -1,36 +1,47 @@
 extends BaseButtonLevel
-
-#Level specific constants
+@onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
 	level = 7
+	intro.visible = true
+	disableTips = true
+	
+	# Text
+	introLabel = "Chefen har fundet på en ny måde at lave regler på. 
+	
+			Nu er parkeringspladserne farvet efter, hvilke biler der må parkere på dem.
+			
+			Din opgave er stadig at vise bilerne hen til de rette pladser.
+			
+			(Tryk for at fortsætte)"
+	textbox = ""
+	tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
 	
 	# Car options
-	carColors = [[0],[3],[4],[2],[5],[1],[0, 2, 4],[1, 3, 5],[0, 1, 2, 3, 4, 5],[0, 1, 2, 3, 4, 5]]
-	carOrigins = [[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3]]
+	carColors = [[0, 1], [0, 1, 2], [0], [0], [1], [1], [1], [2]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	
 	# Win conditions
-	leftCond = ["0_0_0", "0_3_0", "2_0_0", "2_3_0", "4_0_0", "4_3_0"]
-	rightCond = ["1_0_0", "1_3_0", "3_0_0", "3_3_0", "5_0_0", "5_3_0"]
-	
-	# Text
-	textbox = "Chefen vil nu gerne have at:
-					Blå, orange og grønne biler skal parkere til venstre.
-					Røde, lilla og gule biler skal parkere til højre."
-	tips.push_back("Du behøver ikke huske alle reglerne. Du kan altid kigge på dem igen, når der kommer en ny bil.")
-	tips.push_back(textbox)
-	
-	# Enable gameplay
-	disableLeft = false
-	disableRight = false
+	upCond = ["1_1_0"]
+	downCond = ["0_1_0","2_1_0"]
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Logging 
 	stopwatch.update(delta)
 	
+	# Click thorugh the intro to enable gameplay
+	if Input.is_action_just_pressed("mouse"):
+		clicks += 1
+		if clicks == 1:
+			intro.visible = false
+			disableTips = false
+			disableUp = false
+			disableDown = false
+
 	completeLevel()
