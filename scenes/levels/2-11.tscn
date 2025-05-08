@@ -182,7 +182,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tr1er"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqdd5"]
 texture = ExtResource("2_gsa66")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -487,7 +487,7 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 navigation_layer_0/layers = 1
-sources/2 = SubResource("TileSetAtlasSource_tr1er")
+sources/2 = SubResource("TileSetAtlasSource_nqdd5")
 
 [node name="2-11" type="Node2D"]
 script = ExtResource("1_nqdd5")

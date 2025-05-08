@@ -5,10 +5,13 @@ extends MarginContainer
 
 const IF_COLOR = preload("res://scenes/if_color.tscn")
 const IF_COLOR_THEN = preload("res://scenes/if_color_then.tscn")
+const ELSE_THEN = preload("res://scenes/else_then.tscn")
 
-@onready var elseLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/ElseLabel
 
-@onready var v_box_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer
+@onready var if_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/IfContainer
+@onready var else_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/ElseContainer
+
+@onready var else_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/ElseContainer/ElseLabel
 
 var setupBool = true
 
@@ -21,8 +24,10 @@ func _process(delta: float) -> void:
 					create_if_color()
 				"colorIfThen":
 					create_if_color_then()
-		elseLabel.visible = owner.owner.elseVisible
-		elseLabel.text = owner.owner.elseLabel
+		else_label.visible = owner.owner.elseVisible
+		else_label.text = owner.owner.elseLabel
+		if owner.owner.elseThenVisible:
+			create_else_then()
 		setupBool = false
 	run.disabled = owner.owner.disableRun
 	
@@ -34,7 +39,7 @@ func create_if_color() -> void:
 	ifColor.ifIndex = owner.owner.optionSelected.size()
 	owner.owner.optionSelected.push_back(-1)
 	
-	v_box_container.add_child(ifColor)
+	if_container.add_child(ifColor)
 	ifColor.set_owner(dropdown_box)
 
 
@@ -48,11 +53,21 @@ func create_if_color_then() -> void:
 	ifColorThen.thenIndex = owner.owner.optionSelected.size()
 	owner.owner.optionSelected.push_back(-1)
 	
-	v_box_container.add_child(ifColorThen)
+	if_container.add_child(ifColorThen)
 	ifColorThen.set_owner(dropdown_box)
 
+func create_else_then() -> void:
+	var elseThen = ELSE_THEN.instantiate()
+	elseThen.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	
+	elseThen.thenIndex = owner.owner.optionSelected.size()
+	owner.owner.optionSelected.push_back(-1)
+	
+	else_container.add_child(elseThen)
+	elseThen.set_owner(dropdown_box)
 
 func _on_run_pressed() -> void:
 	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Run")
 	owner.owner.runCounter += 1
 	owner.owner._on_run_pressed()
+	
