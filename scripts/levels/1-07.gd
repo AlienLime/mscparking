@@ -17,7 +17,7 @@ func setup() -> void:
 			Din opgave er stadig at vise bilerne hen til de rette pladser.
 			
 			(Tryk for at fortsætte)"
-	textbox = ""
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
 	
 	# Car options

@@ -9,18 +9,16 @@ func setup() -> void:
 	level = 8
 	
 	# Car options
-	carColors = [[0],[3],[4],[2],[5],[1],[0, 2, 4],[1, 3, 5],[0, 1, 2, 3, 4, 5],[0, 1, 2, 3, 4, 5]]
-	carOrigins = [[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3]]
+	carColors = [[0],[4],[5],[1],[0, 4],[1, 5],[0, 4],[1, 5],[0, 1, 4, 5],[0, 1, 4, 5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	
 	# Win conditions
-	leftCond = ["0_0_0", "0_3_0", "2_0_0", "2_3_0", "4_0_0", "4_3_0"]
-	rightCond = ["1_0_0", "1_3_0", "3_0_0", "3_3_0", "5_0_0", "5_3_0"]
+	leftCond = ["0_0_0", "0_3_0", "4_0_0", "4_3_0"]
+	rightCond = ["1_0_0", "1_3_0", "5_0_0", "5_3_0"]
 	
 	# Text
-	textbox = "Chefen vil nu gerne have at:
-					Blå, orange og grønne biler skal parkere til venstre.
-					Røde, lilla og gule biler skal parkere til højre."
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Du behøver ikke huske alle reglerne. Du kan altid kigge på dem igen, når der kommer en ny bil.")
 	tips.push_back(textbox)
 	
