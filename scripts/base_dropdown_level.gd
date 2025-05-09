@@ -30,6 +30,7 @@ var nextScene: String
 var optionSelected: Array
 var ifArray: Array
 var elseVisible = false
+var elseThenVisible = false
 
 # Text variables
 var ifLabel: Array

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmjbagrptjj1s"]
+
+[ext_resource type="Script" uid="uid://cigjbvxbvsaed" path="res://scripts/elseThen.gd" id="1_6v310"]
+[ext_resource type="Theme" uid="uid://bypqgx66krui" path="res://themes/theme.tres" id="2_vuktl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8v8n"]
+
+[node name="ElseThen" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6v310")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
+size_flags_horizontal = 0
+
+[node name="ElseThenLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2_vuktl")
+text = "Base"
+
+[node name="ThenButton" type="OptionButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_vuktl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y8v8n")
+item_count = 4
+popup/item_0/text = "opad"
+popup/item_0/id = 0
+popup/item_1/text = "til venstre"
+popup/item_1/id = 1
+popup/item_2/text = "til højre"
+popup/item_2/id = 2
+popup/item_3/text = "nedad"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="HBoxContainer/ThenButton" to="." method="_on_then_button_item_selected"]
