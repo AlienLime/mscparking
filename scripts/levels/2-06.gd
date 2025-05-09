@@ -4,7 +4,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
-	level = 12
+	level = 15
 	intro.visible = true
 	disableTips = true
 	

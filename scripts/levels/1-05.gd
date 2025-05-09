@@ -1,5 +1,4 @@
 extends BaseButtonLevel
-@onready var intro: Control = $GUI/IngameGUIButtons/Intro
 
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:

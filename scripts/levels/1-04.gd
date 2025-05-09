@@ -1,6 +1,5 @@
 extends BaseButtonLevel
 
-
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup

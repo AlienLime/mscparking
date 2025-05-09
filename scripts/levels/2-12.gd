@@ -3,7 +3,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
-	level = 15
+	level = 21
 	
 	# Car options
 	usedColors = [0, 1, 2, 3]

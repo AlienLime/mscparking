@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://bm2npwkg5xenv"]
+[gd_scene load_steps=75 format=4 uid="uid://cwo8t2gdpxlob"]
 
 [ext_resource type="Script" uid="uid://bq5eb7iic7o6s" path="res://scripts/levels/1-08.gd" id="1_w8vki"]
 [ext_resource type="Texture2D" uid="uid://0t1ppapprtx0" path="res://assets/sprites/SpriteSheetOther.png" id="2_t8w4p"]

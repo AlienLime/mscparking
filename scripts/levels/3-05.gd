@@ -3,7 +3,7 @@ extends BaseDropdownLevel
 # Called when the node enters the scene tree for the first time.
 func setup() -> void:
 	# Level setup
-	level = 17
+	level = 26
 	
 	# Car options
 	usedColors = [0, 1, 2, 5]
@@ -26,11 +26,11 @@ func setup() -> void:
 	ifLabel.push_back("Hvis bilen er ")
 	thenLabel.push_back("så skal den parkere ")
 	
-	#elseVisble = true
-	#elseLabel = "Ellers skal den parkere til højre."
+	elseVisible = true
+	elseLabel = "Ellers skal den parkere til højre."
 	
-	elseThenVisible = true
-	elseLabel = "Ellers skal den parkere "
+	#elseThenVisible = true
+	#elseLabel = "Ellers skal den parkere "
 	
 	# Text
 	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
@@ -60,13 +60,13 @@ func _on_run_pressed() -> void:
 					if !moveCar(optionSelected[3]):
 						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
-				#else:
-				#	if !moveCar(2): #Right
-				#		pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
-				#		break
 				else:
-					if !moveCar(optionSelected[4]):
+					if !moveCar(2): #Right
 						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
+				#else:
+				#	if !moveCar(optionSelected[4]):
+				#		pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
+				#		break
 			else:
 				break
