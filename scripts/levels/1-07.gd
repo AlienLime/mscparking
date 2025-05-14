@@ -11,13 +11,15 @@ func setup() -> void:
 	# Text
 	introLabel = "Chefen har fundet på en ny måde at lave regler på. 
 	
-			Nu er parkeringspladserne farvet efter, hvilke biler der må parkere på dem.
+			Nu er parkeringspladserne farvet efter hvilke biler, der må parkere på dem.
 			
 			Din opgave er stadig at vise bilerne hen til de rette pladser.
 			
 			(Tryk for at fortsætte)"
 	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
+	tips.push_back("Flere farver på en plads betyder at der må holde flere forskellige farver biler.")
+	tips.push_back(textbox)
 	
 	# Car options
 	carColors = [[0, 1], [0, 1, 2], [0], [0], [1], [1], [1], [2]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow

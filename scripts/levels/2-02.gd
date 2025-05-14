@@ -31,8 +31,8 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Blå biler må kun parkere i bunden,
-						øverste del er reserveret til grønne biler
-						og i højre side er det kun lilla biler der er tilladt."
+						øverste del er reserveret til grønne biler,
+						og i højre side er det kun lilla biler, der er tilladt."
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
 	tips.push_back(textbox)
 

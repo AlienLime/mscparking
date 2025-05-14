@@ -16,7 +16,8 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Instruktionerne er givet med farverne på pladserne."
-	tips.push_back("Du behøver ikke huske alle reglerne. Du kan altid kigge på dem igen, når der kommer en ny bil.")
+	tips.push_back("Match farverne på parkeringspladserne med bilernes farver.")
+	tips.push_back("Flere farver på en plads betyder at der må holde flere forskellige farver biler.")
 	tips.push_back(textbox)
 	
 	# Enable gameplay

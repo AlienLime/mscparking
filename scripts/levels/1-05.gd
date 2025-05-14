@@ -14,11 +14,11 @@ func setup() -> void:
 	carShapes = 0
 	
 	# Text
-	textbox = "Her skal de øverste pladser fyldes inden du løber tør for biler.
+	textbox = "Her skal de øverste pladser fyldes, inden du løber tør for biler.
 	
-				Husk at du kan trykke på mig hvis du får brug for et tip."
-	tips.push_back("Hvis du ikke fylder toppen ud kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
-	tips.push_back("Der kommer " + str(nrCars) + " biler i alt. Er der så nok biler tilbage?")
+				Husk at du kan trykke på mig, hvis du får brug for et tip."
+	tips.push_back("Hvis du ikke fylder toppen ud, kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
+	tips.push_back("Der kommer " + str(carColors.size()) + " biler i alt. Er der så nok biler tilbage?")
 	tips.push_back(textbox)
 	
 
@@ -38,5 +38,5 @@ func _process(delta: float) -> void:
 			pop_up_complete.win()
 			disableCompleted = false
 		else:
-			pop_up_complete.lose("Du har ikke fyldt de øverste pladser og der er ikke flere biler.")
+			pop_up_complete.lose("Du har ikke fyldt de øverste pladser, og der er ikke flere biler.")
 			disableCompleted = false

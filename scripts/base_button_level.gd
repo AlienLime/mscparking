@@ -237,7 +237,7 @@ func completeLevel() -> void:
 			disableCompleted = false
 		else:
 			pop_up_complete.lose("Nogle af bilerne er parkeret forkert!")
-			disableCompleted = false
+#			disableCompleted = false
 
 
 func wait(seconds: float) -> void:
