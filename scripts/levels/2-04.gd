@@ -54,16 +54,16 @@ func _on_run_pressed() -> void:
 				spawnCar()
 				if currentCar.color == optionSelected[0]:
 					if !moveCar(0): # Up
-						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[1]:
 					if !moveCar(1): # Left
 						if !moveCar(2): # Right if left was not possible
-							pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
+							pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
 							break
 				elif currentCar.color == optionSelected[2]:
 					if !moveCar(3): # Down
-						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
 						break
 				
 			else:
