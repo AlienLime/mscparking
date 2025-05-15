@@ -465,7 +465,7 @@ theme_override_colors/font_color = Color(1, 0.52549, 0.0862745, 1)
 theme_override_font_sizes/font_size = 70
 text = "Godt gået!
 
-Tak fordi du spillede med"
+Tak fordi du spillede med!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

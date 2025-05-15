@@ -6,7 +6,7 @@ func setup() -> void:
 	level = 13
 	
 	# Car options
-	usedColors = [0, 1, 2, 3, 4, 5]
+	usedColors = [0, 1, 2]
 	carColors = [[0],[0],[0],[1],[1],[1],[2],[2],[2],[2],[2],[2],[1, 2],[1, 2],[0, 2],[0, 2]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
@@ -33,7 +33,7 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Her skal blå biler parkere på de øverste pladser, alle røde biler skal parkere nederst, og de orange biler skal parkere til venstre eller til højre."
-	tips.push_back("Har du tænkt over, hvad der skal ske med de lilla, grønne og gule biler?")
+	tips.push_back("Instruksen står ikke i samme rækkefølge som chefens regler.")
 	tips.push_back("Du kan prøve banen et par gange og se, hvad der sker, når du vælger forskellige farver.")
 	tips.push_back(textbox)
 

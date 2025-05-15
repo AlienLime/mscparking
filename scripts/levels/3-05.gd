@@ -29,12 +29,11 @@ func setup() -> void:
 	elseVisible = true
 	elseLabel = "Ellers skal den parkere til højre."
 	
-	#elseThenVisible = true
-	#elseLabel = "Ellers skal den parkere "
-	
 	# Text
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Tag det stille og roligt! Løs én regel ad gangen.")
 	tips.push_back("Hvor mange farver biler kommer der? Du skal bruge \"ellers\" udtrykket for at vise alle bilerne på plads.")
+	tips.push_back(textbox)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,9 +63,5 @@ func _on_run_pressed() -> void:
 					if !moveCar(2): #Right
 						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
 						break
-				#else:
-				#	if !moveCar(optionSelected[4]):
-				#		pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
-				#		break
 			else:
 				break

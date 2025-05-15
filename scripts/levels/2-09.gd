@@ -31,13 +31,12 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere nederst.")
 	
 	elseVisible = true
-	elseLabel = "Ellers skal den parkere til højre"
+	elseLabel = "Ellers skal den parkere til højre."
 	
 	# Text
 	textbox = "Her skal de grønne biler parkere til højre."
 	tips.push_back("Er det vigtigt, hvor de lilla, gule og røde biler kører hen?")
-	tips.push_back("Hvis du viser alle de andre biler væk, så bliver den sidste farve biler vist til højre, 
-					takket være \"ellers\" udtrykket.")
+	tips.push_back("Læg mærke til, hvad der står i \"ellers\" udtrykket. Hvordan skal du så bruge \"hvis-så\" instruktionerne?")
 	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

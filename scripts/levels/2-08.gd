@@ -4,7 +4,6 @@ extends BaseDropdownLevel
 func setup() -> void:
 	# Level setup
 	level = 17
-	disableTips = true
 	
 	# Car options
 	usedColors = [0, 1, 3, 4, 5]
@@ -32,13 +31,13 @@ func setup() -> void:
 	
 	elseVisible = true
 	elseLabel = "Ellers må den parkere 
-					på de pladser der ikke er reserverede."
+					på de pladser, der ikke er reserverede."
 	
 	# Text
 	textbox = "Højre side er reserveret til røde og grønne biler,
-						lilla biler skal parkere i bunden
-						og andre farver må parkere på de plader der ikke er reserverede."
-	tips.push_back("Der er forskel på, om en plads er reserveret, eller om en bil skal parkere et bestemt sted.")
+						lilla biler skal parkere i bunden,
+						og andre farver må parkere på de pladser, der ikke er reserverede."
+	tips.push_back("Der er forskel på, om en plads er reserveret, og om en bil skal parkere et bestemt sted.")
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
 	tips.push_back(textbox)
 

@@ -31,9 +31,9 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Instruktionerne er givet med farverne på pladserne."
-	tips.push_back("Husk at du selv vælger rækkefølgen af dine instruktioner.")
-	tips.push_back("Hvilke farver er til venstre og hvilke er til højre?")
-	
+	tips.push_back("Husk, at du selv vælger rækkefølgen af dine instruktioner.")
+	tips.push_back("Hvilke farver er til venstre, og hvilke er til højre?")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

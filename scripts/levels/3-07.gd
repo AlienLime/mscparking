@@ -8,7 +8,7 @@ func setup() -> void:
 	# Car options
 	usedColors = [0, 1, 2, 3, 4, 5]
 	carColors = [[1],[1],[5],[5],[1, 5],[1, 5],[0,2,3,4],[0,2,3,4],[0,2,3,4],[0,2,3,4],[0,2,3,4],[0,2,3,4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
+	carOrigins = [[3],[3],[3],[3],[3],[3],[0],[0],[0],[0],[0],[0]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	
 	# Win conditions
@@ -29,8 +29,10 @@ func setup() -> void:
 	elseLabel = "Ellers skal den parkere "
 	
 	# Text
-	tips.push_back("Farvede pladser er reserverede. Hvad betyder det for de pladser der ikke er farvede?")
-	tips.push_back("Hvis der kommer en bil uden en reserveret plads må den holde et sted der ikke er reserveret til en anden bil.")
+	textbox = "Instruktionerne er givet med farverne på pladserne."
+	tips.push_back("Farvede pladser er reserverede. Hvad betyder det for de pladser, der ikke er farvede?")
+	tips.push_back("Hvis der kommer en bil uden en reserveret plads, må den holde et sted, der ikke er reserveret til en anden bil.")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

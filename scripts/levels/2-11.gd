@@ -4,7 +4,6 @@ extends BaseDropdownLevel
 func setup() -> void:
 	# Level setup
 	level = 20
-	disableTips = true
 	
 	# Car options
 	usedColors = [0, 1, 3, 4, 5]
@@ -31,10 +30,10 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere nedad.")
 	
 	elseVisible = true
-	elseLabel = "Ellers må den parkere 
-					til højre"
+	elseLabel = "Ellers skal den parkere til højre."
 	
 	# Text
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Her kommer der 5 forskelige farver biler, men du kan kun vælge 3 bestemte farver. De sidste 2 skal bruge \"ellers\" udtrykket")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

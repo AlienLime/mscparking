@@ -30,9 +30,9 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere ")
 	
 	# Text
-	introLabel = "Indtil nu, har jeg hjulpet dig, så du kun skulle vælge mellem bilernes farver.
+	introLabel = "Indtil nu har jeg hjulpet dig, så du kun skulle vælge mellem bilernes farver.
 	
-					Nu får du mere ansvar. Du skal både beslutte bilernes farve, og hvor de skal parkere."
+					Nu får du mere ansvar. Du skal både beslutte bilernes farve og hvor de skal parkere."
 	textbox = "På denne parkeringsplads er højre side reserveret til de røde biler, og de blå biler skal holde til venstre.
 	
 				Design en instruktion med de nye valgmuligheder.

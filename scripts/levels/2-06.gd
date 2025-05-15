@@ -39,14 +39,14 @@ func setup() -> void:
 	# Text
 	introLabel = "Til de næste par baner skal du også bruge \"Ellers\" udtrykket. 
 	
-					Det tager sig af alle farverne, som der ikke er \"hvis\" instruktioner til."
+					Det tager sig af alle farverne, som der ikke er \"hvis-så\" instruktioner til."
 	
 	textbox = "Røde biler skal parkere til højre,
 						bunden er reserveret til grønne biler,
 						i den øverste del er det kun lilla biler der er tilladt
 						og andre farver skal parkere sammen med de grønne biler i bunden."
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
-	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instruktioner til.")
+	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis-så\" instruktioner til.")
 	tips.push_back("Røde biler skal parkere til højre,
 						bunden er reserveret til grønne biler,
 						i den øverste del er det kun lilla biler der er tilladt

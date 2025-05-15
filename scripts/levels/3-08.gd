@@ -7,7 +7,7 @@ func setup() -> void:
 	
 	# Car options
 	usedColors = [0, 1, 3, 4]
-	carColors = [[0],[0],[0],[0, 1],[1],[1],[1],[0, 1, 3, 4],[3, 4],[3, 4],[3, 4],[3, 4]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carColors = [[0],[0],[0],[0, 1],[1],[1],[1],[0, 1, 3, 4],[3, 4],[3, 4],[4],[3]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	
@@ -30,8 +30,10 @@ func setup() -> void:
 	elseLabel = "Ellers skal den parkere "
 	
 	# Text
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Her er 4 farver biler, men du kan kun vælge 2. Har du prøvet noget, der minder om det før?")
-	tips.push_back("Du skal bruge \"ellers\" udtrykket effektivt.")
+	tips.push_back("Du skal bruge \"ellers\" udtrykket på en smart måde.")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

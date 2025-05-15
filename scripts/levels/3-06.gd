@@ -32,10 +32,12 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere ")
 	
 	elseVisible = true
-	elseLabel = "Ellers skal den parkere til højre"
+	elseLabel = "Ellers skal den parkere til højre."
 	
 	# Text
-	tips.push_back("Her har de fleste farver flere mulige pladser de kan holde på. Hvad har det af betydning?")
+	textbox = "Instruktionerne er givet med farverne på pladserne."
+	tips.push_back("Her har de fleste farver flere mulige pladser, de kan holde på. Hvad har det af betydning?")
+	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

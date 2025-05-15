@@ -33,12 +33,12 @@ func setup() -> void:
 	
 	elseVisible = true
 	elseLabel = "Ellers skal den parkere til 
-				venstre eller højre"
+				venstre eller højre."
 	
 	# Text
 	textbox = "Her skal blå og gule biler parkere på de øverste pladser, og de lilla biler skal parkere nederst."
 	tips.push_back("Prøv at gennemgå hver enkelt regel i beskrivelsen. Så kan du lave dem en ad gangen nedenunder.")
-	tips.push_back("Husk at der er et \"ellers\" udtryk til sidst, så fokusér på de biler, der ikke skal til venstre eller højre.")
+	tips.push_back("Husk, at der er et \"ellers\" udtryk til sidst, så fokusér på de biler, der ikke skal til venstre eller højre.")
 	tips.push_back(textbox)
 	
 

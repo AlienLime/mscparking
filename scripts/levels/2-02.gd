@@ -34,6 +34,7 @@ func setup() -> void:
 						øverste del er reserveret til grønne biler,
 						og i højre side er det kun lilla biler, der er tilladt."
 	tips.push_back("Rækkefølgen af reglerne er ikke nødvendigvis den samme som rækkefølgen i din instruktion.")
+	tips.push_back("Du kan se hvilke farver biler, der kommer ved at udvide knapperne, hvor du vælger farverne.")
 	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

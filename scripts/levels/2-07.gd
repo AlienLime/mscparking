@@ -32,11 +32,11 @@ func setup() -> void:
 	
 	elseVisible = true
 	elseLabel = "Ellers skal den parkere til 
-				venstre eller højre"
+				venstre eller højre."
 	
 	# Text
 	textbox = "Her skal blå og de gule biler parkere på de øverste pladser, og de lilla biler skal parkere nederst."
-	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis\" instruktioner til.")
+	tips.push_back("\"Ellers\" tager sig af alle farverne, som der ikke laves \"hvis-så\" instruktioner til.")
 	tips.push_back("Du kan prøve banen et par gange og se, hvad der sker, når du vælger forskellige farver.")
 	tips.push_back(textbox)
 

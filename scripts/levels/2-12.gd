@@ -31,9 +31,10 @@ func setup() -> void:
 	thenLabel.push_back("så skal den parkere nederst.")
 	
 	elseVisible = true
-	elseLabel = "Ellers skal den parkere til højre"
+	elseLabel = "Ellers skal den parkere til højre."
 	
 	# Text
+	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Er det vigtigt, om de blå biler parkere oppe eller nede?")
 	tips.push_back("Hvis du viser alle de andre biler væk, så bliver den sidste farve biler vist til højre, 
 					takket være \"ellers\" udtrykket.")
