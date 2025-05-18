@@ -95,9 +95,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Up")
-					currentCar = null
-					await wait(1)
-					spawnCar()
+					nextCar()
 					break
 		elif x == 1:
 			for spot in parking.get_node("Left").get_children():
@@ -105,9 +103,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Left")
-					currentCar = null
-					await wait(1)
-					spawnCar()
+					nextCar()
 					break
 		elif x == 2:
 			for spot in parking.get_node("Right").get_children():
@@ -115,9 +111,7 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Right")
-					currentCar = null
-					await wait(1)
-					spawnCar()
+					nextCar()
 					break
 		elif x == 3:
 			for spot in parking.get_node("Down").get_children():
@@ -125,12 +119,17 @@ func moveCar(x: int) -> void:
 					spot.isFree = false
 					currentCar.parkingSpot = spot
 					print(Globals.USERID + "," + stopwatch.time_to_string() + ",Car moved,Down")
-					currentCar = null
-					await wait(1)
-					spawnCar()
+					nextCar()
 					break
 		else: 
 			print(Globals.USERID + "," + stopwatch.time_to_string() + ",Error,Direction not implemented")
+
+func nextCar() -> void:
+	currentCar = null
+	var temp = undoCounter + restartCounter
+	await wait(1)
+	if temp == undoCounter + restartCounter:
+		spawnCar()
 
 func spawnCar() -> void:
 	if carIncrementer < nrCars:
