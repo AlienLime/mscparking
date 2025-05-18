@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 			if !owner.owner.owner.usedDirections.has(then_button.get_item_id(temp)):
 				then_button.remove_item(temp)
 				
-		print(get_index())
 		ifLabel.text = owner.owner.owner.ifLabel[get_index()]
 		thenLabel.text = owner.owner.owner.thenLabel[get_index()]
 		setupBool = false

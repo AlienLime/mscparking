@@ -35,6 +35,7 @@ func setup() -> void:
 	# Text
 	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Her kommer der 5 forskelige farver biler, men du kan kun vælge 3 bestemte farver. De sidste 2 skal bruge \"ellers\" udtrykket")
+	tips.push_back("\"Ellers\" udtrykket sender bilerne til højre. Hvilke biler skal parkere til højre?")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

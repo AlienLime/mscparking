@@ -6,8 +6,8 @@ func setup() -> void:
 	level = 2
 	
 	# Car options
-	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
-	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
+	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	
 	# Win conditions
@@ -19,6 +19,7 @@ func setup() -> void:
 	
 				Chefen vil have de blå biler øverst her."
 	tips.push_back("Hvis de blå biler skal holde øverst, er der så også plads til at parkere de røde biler øverst?")
+	tips.push_back("Selvom de blå skal holde øverst må de røde også gerne holde der. Bare der er plads til alle de blå.")
 	tips.push_back("Chefen vil have de blå biler øverst her.")
 	
 	# Enable gameplay

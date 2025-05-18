@@ -37,7 +37,6 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("2_ql562")
 theme_override_font_sizes/font_size = 25
-text = "level X"
 horizontal_alignment = 1
 
 [node name="Hbox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]

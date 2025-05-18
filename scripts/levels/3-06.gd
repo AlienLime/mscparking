@@ -37,6 +37,7 @@ func setup() -> void:
 	# Text
 	textbox = "Instruktionerne er givet med farverne på pladserne."
 	tips.push_back("Her har de fleste farver flere mulige pladser, de kan holde på. Hvad har det af betydning?")
+	tips.push_back("\"Ellers\" udtrykket sender bilerne til højre. Hvilke biler skal parkere til højre?")
 	tips.push_back(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

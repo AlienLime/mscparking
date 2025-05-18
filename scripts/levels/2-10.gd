@@ -29,7 +29,8 @@ func setup() -> void:
 	
 	# Text
 	textbox = "Instruktionerne er givet med farverne på pladserne."
-	tips.push_back("Tryk på en dropdown for at se de mulige farver og fordel dem så det passer med farverne på pladserne.")
+	tips.push_back("Tryk på en dropdown for at se de mulige farver, og fordel dem, så det passer med farverne på pladserne.")
+	tips.push_back("Her har vi kun med 2 farver biler at gøre, så du skal bare finde det rigtige sted at bruge hver farve.")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

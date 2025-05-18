@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 						Hvis bilen er blå, 
 						  så skal den parkere nederst."
 			tips.push_back("Tryk på pilene for at få bilerne til at køre hen til de rigtige parkeringspladser.")
+			tips.push_back("Du kan også bruge piletasterne på tastaturet.")
 			tips.push_back(textbox)
 			disableUp = false
 			disableDown = false

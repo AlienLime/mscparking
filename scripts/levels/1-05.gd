@@ -18,7 +18,7 @@ func setup() -> void:
 	
 				Husk at du kan trykke på mig, hvis du får brug for et tip."
 	tips.push_back("Hvis du ikke fylder toppen ud, kan du trykke på fortryd knappen eller genstart knappen og prøve igen.")
-	tips.push_back("Der kommer " + str(carColors.size()) + " biler i alt. Er der så nok biler tilbage?")
+	tips.push_back("Der kommer " + str(carColors.size()) + " biler i alt. Er der så nok biler tilbage til at fylde de øverste pladser?")
 	tips.push_back(textbox)
 	
 

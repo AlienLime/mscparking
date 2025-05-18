@@ -35,6 +35,7 @@ func setup() -> void:
 	textbox = "Nu er højre side reserveret til de røde biler, og de blå biler skal holde til venstre.
 	
 				Brug dropdown menuerne til at bestemme, hvor en bil af en bestemt farve skal parkere."
+	tips.push_back("Du kan se hvilke farver biler, der kommer ved at udvide knapperne, hvor du vælger farverne.")
 	tips.push_back("Sørg for at læse chefens regler og dine valgmuligheder grundigt.")
 	tips.push_back(textbox)
 
