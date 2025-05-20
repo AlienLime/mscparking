@@ -7,7 +7,7 @@ func setup() -> void:
 	
 	# Car options
 	usedColors = [0, 1, 2]
-	carColors = [[0],[0],[0],[1],[1],[1],[2],[2],[2],[2],[2],[2],[1, 2],[1, 2],[0, 2],[0, 2]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carColors = [[0],[0],[0],[1],[1],[1],[1],[2],[2],[2],[2],[2],[2],[1, 2],[0, 2],[0, 2]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	
