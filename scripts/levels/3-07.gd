@@ -13,8 +13,8 @@ func setup() -> void:
 	
 	# Win conditions
 	usedDirections = [1,2]
-	leftCond = ["1_3_0","5_3_0"]
-	rightCond = ["0_3_0","1_3_0","2_3_0","3_3_0","4_3_0","5_3_0"]
+	leftCond = ["1_3_0","5_3_0","1_0_0","5_0_0"]
+	rightCond = ["0_3_0","1_3_0","2_3_0","3_3_0","4_3_0","5_3_0","0_0_0","1_0_0","2_0_0","3_0_0","4_0_0","5_0_0"]
 	
 	# Select if dropdowns to use
 	ifArray.push_back("colorIfThen")
