@@ -38,7 +38,7 @@ func lose(reason: String) -> void:
 
 func _on_completed_pressed() -> void:
 	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Button press,Next level")
-	get_tree().change_scene_to_file(owner.get_next_level())
+	get_tree().change_scene_to_file.call_deferred(owner.get_next_level())
 	owner.stopwatch.queue_free()
 
 

@@ -23,12 +23,12 @@ func _on_restart_pressed() -> void:
 
 func _on_home_pressed() -> void:
 	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Home")
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://scenes/menu.tscn")
 	owner.owner.stopwatch.queue_free()
 
 func _on_completed_pressed() -> void:
 	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Next Level")
-	get_tree().change_scene_to_file(owner.owner.get_next_level())
+	get_tree().change_scene_to_file.call_deferred(owner.owner.get_next_level())
 	owner.owner.stopwatch.queue_free()
 
 func _on_undo_pressed() -> void:

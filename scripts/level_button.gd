@@ -17,4 +17,4 @@ func grow_button(end_size: Vector2, duration: float) -> void:
 func _on_pressed() -> void:
 	if level_path == null:
 		return
-	get_tree().change_scene_to_file(level_path)
+	get_tree().change_scene_to_file.call_deferred(level_path)
