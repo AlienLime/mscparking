@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 
 	completeLevel()
 
+# starts a loop where all cars are parked i accordance with the chosen conditions
 func _on_run_pressed() -> void:
 	var movement
 	if canRun:

@@ -7,9 +7,6 @@ extends Control
 var ifIndex: int
 var setupBool = true
 
-func _ready() -> void:
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if setupBool:
@@ -22,7 +19,6 @@ func _process(delta: float) -> void:
 		thenLabel.text = owner.owner.owner.thenLabel[get_index()]
 		setupBool = false
 	option_button.disabled = !owner.owner.owner.canRun
-
 
 func _on_option_button_item_selected(index: int) -> void:
 	var id = option_button.get_item_id(index)

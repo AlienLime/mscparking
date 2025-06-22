@@ -24,7 +24,7 @@ func setup() -> void:
 	disableLeft = false
 	disableRight = false
 
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Logging 
 	stopwatch.update(delta)

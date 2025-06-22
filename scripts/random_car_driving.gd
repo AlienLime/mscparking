@@ -27,10 +27,11 @@ func withData(possibleColor:= [0, 1], possibleOrigin:= [0], possibleShape:= 0) -
 	origin = possibleOrigin.pick_random()
 	shape = possibleShape
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.frame = color * 7 + randi_range(0,6)
 
-
+# Called every physics frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if parkingSpot != null:
 		navigationTarget = parkingSpot
@@ -48,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
+# assigns the navigation agent with the assigned parking spot
 func make_path() -> void:
 	if navigationTarget != null:
 		nav_agent.target_position = navigationTarget.global_position
@@ -56,11 +57,11 @@ func make_path() -> void:
 func _on_timer_timeout() -> void:
 	make_path()
 
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
 
+# stops the car when it is about to drive into another car
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.nav_agent.is_navigation_finished(): # to avoid stopping for parked cars in neighbouring spots to the target
 		if body.nav_agent.distance_to_target() < nav_agent.distance_to_target():
@@ -71,10 +72,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			waiting = true
 			await wait(0.8)
 			waiting = false
-
-#func _on_area_2d_body_exited(body: Node2D) -> void:
-	#waiting = false
-
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 			disableTips = false
 	completeLevel()
 
+# starts a loop where all cars are parked i accordance with the chosen conditions
 func _on_run_pressed() -> void:
 	if canRun:
 		canRun = false

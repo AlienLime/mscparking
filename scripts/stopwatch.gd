@@ -4,14 +4,17 @@ class_name Stopwatch
 var time = 0.0
 var stopped = false
 
+# increments the timer
 func update(delta: float) -> void:
 	if stopped:
 		return
 	time += delta
 
+# resets the timer
 func reset():
 	time = 0.0
-	
+
+# converts the time of the stopwatch to a standardized string format, minutes:seconds:milliseconds
 func time_to_string() -> String:
 	var msec = fmod(time, 1) * 1000
 	var sec = fmod(time, 60)

@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var down: Button = $MarginContainer/HBoxContainer/VBoxContainer/Down
 @onready var right: Button = $MarginContainer/HBoxContainer/Right
 
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	up.disabled = owner.owner.disableUp
 	left.disabled = owner.owner.disableLeft

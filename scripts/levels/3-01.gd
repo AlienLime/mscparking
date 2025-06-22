@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 			intro.visible = false
 	completeLevel()
 
+# starts a loop where all cars are parked i accordance with the chosen conditions and consequenses
 func _on_run_pressed() -> void:
 	if canRun:
 		canRun = false

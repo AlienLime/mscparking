@@ -5,7 +5,7 @@ extends Control
 @onready var completed: Button = $HBoxContainer/VBoxContainer/Completed
 @onready var restart: Button = $HBoxContainer/VBoxContainer/Restart
 
-
+# modulates the pop up to show the according color and text when a level is completed
 func win() -> void:
 	restart.visible = false
 	completed.visible = true
@@ -21,6 +21,7 @@ func win() -> void:
 	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of undos," + str(owner.undoCounter))
 	print(Globals.USERID + "," + owner.stopwatch.time_to_string() + ",Sum of restarts," + str(owner.restartCounter))
 
+# modulates the pop up to show the according color and text when a level is failed
 func lose(reason: String) -> void:
 	restart.visible = true
 	completed.visible = false

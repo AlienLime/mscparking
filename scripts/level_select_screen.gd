@@ -2,16 +2,16 @@ extends Control
 
 const LEVEL_BUTTON = preload("res://scenes/level_button.tscn")
 
-
 @export_dir var dir_path
-
 @onready var grid1: GridContainer = $MarginContainer/VBoxContainer/GridContainer1
 @onready var grid2: GridContainer = $MarginContainer/VBoxContainer/GridContainer2
 @onready var grid3: GridContainer = $MarginContainer/VBoxContainer/GridContainer3
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_levels(dir_path)
 
+# gets all levels from the level folder
 func get_levels(path) -> void:
 	var dir = ResourceLoader.list_directory(path)
 	var level_incrementer = 0
@@ -23,8 +23,8 @@ func get_levels(path) -> void:
 			create_level_button('%s/%s' % [path, file_name], file_name.get_basename(), int(file_name[0]))
 	else:
 		print(Globals.USERID + ",NOTIME,Error,An error occurred when trying to access the path")
-		
 
+# creates a button to access the level, adds it to the corresponding grid
 func create_level_button(level_path: String, level_name: String, stage: int) -> void:
 	var button = LEVEL_BUTTON.instantiate()
 	button.text = level_name
@@ -36,7 +36,6 @@ func create_level_button(level_path: String, level_name: String, stage: int) -> 
 			grid2.add_child(button)
 		3:
 			grid3.add_child(button)
-
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file.call_deferred("res://scenes/menu.tscn")

@@ -9,9 +9,6 @@ var ifIndex: int
 var thenIndex: int
 var setupBool = true
 
-func _ready() -> void:
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if setupBool:
@@ -31,7 +28,6 @@ func _process(delta: float) -> void:
 		setupBool = false
 	if_button.disabled = !owner.owner.owner.canRun
 	then_button.disabled = !owner.owner.owner.canRun
-
 
 func _on_if_button_item_selected(index: int) -> void:
 	var id = if_button.get_item_id(index)

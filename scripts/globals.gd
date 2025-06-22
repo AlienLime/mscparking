@@ -2,6 +2,7 @@ extends Node
 
 var USERID = ""
 
+# called when the game is loaded
 func _ready():
 	var save_path = "user://USERID.txt"
 	var file = FileAccess.open(save_path, FileAccess.READ)
@@ -16,6 +17,7 @@ func _ready():
 		f.store_line(USERID)
 		f.close()
 
+# generates an id for the log, if no id exists on the computer
 func generate_unique_id() -> String:
 	randomize()
 	var uuid = str(randi_range(10000000, 99999999))

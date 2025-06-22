@@ -10,7 +10,6 @@ const ELSE_THEN = preload("res://scenes/else_then.tscn")
 
 @onready var if_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/IfContainer
 @onready var else_container: VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/ElseContainer
-
 @onready var else_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/ElseContainer/ElseLabel
 
 var setupBool = true
@@ -30,8 +29,8 @@ func _process(delta: float) -> void:
 			create_else_then()
 		setupBool = false
 	run.disabled = owner.owner.disableRun
-	
 
+# creates an "if"-statement in the drop-down box
 func create_if_color() -> void:
 	var ifColor = IF_COLOR.instantiate()
 	ifColor.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -42,7 +41,7 @@ func create_if_color() -> void:
 	if_container.add_child(ifColor)
 	ifColor.set_owner(dropdown_box)
 
-
+# creates an "if-then"-statement in the drop-down box
 func create_if_color_then() -> void:
 	var ifColorThen = IF_COLOR_THEN.instantiate()
 	ifColorThen.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -56,6 +55,7 @@ func create_if_color_then() -> void:
 	if_container.add_child(ifColorThen)
 	ifColorThen.set_owner(dropdown_box)
 
+# creates an "else-then"-statement in the drop-down box
 func create_else_then() -> void:
 	var elseThen = ELSE_THEN.instantiate()
 	elseThen.size_flags_vertical = Control.SIZE_EXPAND_FILL
