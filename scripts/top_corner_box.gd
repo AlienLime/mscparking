@@ -27,7 +27,7 @@ func _on_home_pressed() -> void:
 	owner.owner.stopwatch.queue_free()
 
 func _on_completed_pressed() -> void:
-	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Next Level")
+	print(Globals.USERID + "," + owner.owner.stopwatch.time_to_string() + ",Button press,Next level")
 	get_tree().change_scene_to_file.call_deferred(owner.owner.get_next_level())
 	owner.owner.stopwatch.queue_free()
 

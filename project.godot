@@ -21,6 +21,7 @@ Globals="*res://scripts/globals.gd"
 
 [debug]
 
+file_logging/enable_file_logging.pc=false
 file_logging/max_log_files=10
 
 [display]

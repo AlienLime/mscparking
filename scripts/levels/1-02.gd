@@ -6,7 +6,7 @@ func setup() -> void:
 	level = 2
 	
 	# Car options
-	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[1],[0, 1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carColors = [[0],[0],[0],[0],[0],[1],[1],[1],[1],[1],[0, 1]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[0],[0],[0],[0],[3],[3],[3],[3],[0, 3],[0, 3],[0, 3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = 0
 	

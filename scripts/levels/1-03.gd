@@ -36,8 +36,4 @@ func _process(delta: float) -> void:
 		disableUp = false
 		disableDown = false
 			
-	
-	# Show result after parking all cars
-	if score == nrCars && !pop_up_complete.visible:
-		pop_up_complete.win()
-		disableCompleted = false
+	completeLevel()

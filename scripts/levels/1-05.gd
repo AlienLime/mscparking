@@ -38,5 +38,5 @@ func _process(delta: float) -> void:
 			pop_up_complete.win()
 			disableCompleted = false
 		else:
-			pop_up_complete.lose("Du har ikke fyldt de øverste pladser, og der er ikke flere biler.")
+			pop_up_complete.lose("Du har ikke fyldt de øverste pladser og der er ikke flere biler.")
 			disableCompleted = false

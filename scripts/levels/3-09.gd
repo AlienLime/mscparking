@@ -7,7 +7,7 @@ func setup() -> void:
 	
 	# Car options
 	usedColors = [0, 1, 2, 3, 5]
-	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[2],[2],[2],[2],[3, 5],[3, 5],[3, 5],[3, 5],[3, 5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
+	carColors = [[0],[0],[0],[0],[1],[1],[1],[1],[2],[2],[2],[2],[3],[3, 5],[3, 5],[3, 5],[5]] #0=Blue 1=Red 2=Orange 3=Purple 4=Green 5=Yellow
 	carOrigins = [[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3]] #0=Up 1=Left 2=Right 3=Down
 	carShapes = [0]
 	
@@ -57,19 +57,19 @@ func _on_run_pressed() -> void:
 				spawnCar()
 				if currentCar.color == optionSelected[0]:
 					if !moveCar(optionSelected[1]):
-						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[2]:
 					if !moveCar(optionSelected[3]):
-						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				elif currentCar.color == optionSelected[4]:
 					if !moveCar(optionSelected[5]):
-						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 				else:
 					if !moveCar(optionSelected[6]): # Right if left was not possible
-						pop_up_complete.lose("Der er ikke plads til bilen, hvis den skal følge dine instruktioner.")
+						pop_up_complete.lose("Der er ikke plads til bilen hvis den skal følge dine instruktioner.")
 						break
 			else:
 				break
